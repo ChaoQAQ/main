@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    用户名：<input type="text">
+    <p></p>
+    <script>
+        const input = document.querySelector('input');
+        const p = document.querySelector('p');
+
+        // 声明 handle 函数
+        function handle(data) {
+            // 服务器传送过来的是字符串格式 的对象 script 标签在解析的时候会把该对象的字符串解析成对象
+            console.log(data);
+            input.style.border = 'solid 1px red';
+            p.innerHTML = data.msg;
+        }
+
+        input.onblur = function() {
+            // 获取用户输入的值
+            let username = this.value;
+            // 向服务器发送请求 检测用户名是否存在
+            // 1. 创建 script 标签
+            const script = document.createElement('script');
+            // 2. 设置 script 标签的 src 属性
+            script.src = 'http://127.0.0.1:8080/check-username';
+            // 3. 将 script 标签插入到文档中
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+</html>

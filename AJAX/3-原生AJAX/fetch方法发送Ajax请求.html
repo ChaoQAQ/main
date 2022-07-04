@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>fetch方法发送Ajax请求</button>
+    <script>
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', function() {
+            fetch('http://127.0.0.1:8080/fetch?a=100&b=200', {
+                // 请求方法
+                method: 'POST',
+                // 设置请求头信息
+                headers: {
+                    name: 'atguigu'
+                },
+                // 设置请求体信息
+                body: 'username=admin&password=admin'
+            }).then(response => {
+                return response.text();
+            }).then(response => {
+                console.log(response);
+            })
+        })
+    </script>
+</body>
+</html>

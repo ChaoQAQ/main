@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <button>GET发送请求</button>
+    <button>POST发送请求</button>
+    <button>任何类型发送请求</button>
+    <script>
+        $(function() {
+            $("button").eq(0).click(function() {
+                // 1. jQuery中请求数据 第一个参数是 地址URL 第二个是对象格式是发送的参数 第三个是回调函数 接受的参数是响应体 第四个参数是响应头类型
+                $.get('http://127.0.0.1:8080/jquery', {a:100, b:200}, function(data) {
+                    console.log(data);
+                }, 'json')
+            });
+            $("button").eq(1).click(function() {
+                $.post('http://127.0.0.1:8080/jquery', {a:100, b:200}, function(data) {
+                    console.log(data);
+                }, 'json')
+            })
+            $("button").eq(2).click(function() {
+                $.ajax({
+                    // URL
+                    url: 'http://127.0.0.1:8080/jquery',
+                    // 参数
+                    data: {a: 100, b: 200},
+                    // 请求类型
+                    typr: 'GET',
+                    // 响应体内容结果
+                    dataType: 'json',
+                    // 成功回调函数
+                    success: function(data) {
+                        console.log(data);
+                    },
+                    // 超过时间
+                    timeout: 2000,
+                    // 失败的回调
+                    error: function() {
+                        console.log('请求失败');
+                    },
+                    // 头信息
+                    headers: {
+                        c: 300,
+                        b: 400
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

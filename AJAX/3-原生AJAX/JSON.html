@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result {
+            width: 200px;
+            height: 100px;
+            border: 1px solid pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="result"></div>
+    <script>
+        const result = document.querySelector('#result');
+        // 1. 绑定键盘按下事件
+        window.onkeydown = function() {
+            // 2. 实例化 XMLHttpRequest 对象
+            const xhr = new XMLHttpRequest();
+
+            // 设置服务器响应体数据类型
+            xhr.responseType = 'json'; // 自动帮我们把这个服务器响应结果数据转换为对象格式
+
+            // 3. 设置请求方式 URL服务器地址
+            xhr.open('GET', 'http://127.0.0.1:8080/json-server');
+            // 4. 向服务器发送请求
+            xhr.send();
+            // 5. 事件绑定 处理服务端返回的结果
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        // result.innerHTML = xhr.response;
+                        // 1. 手动对服务器响应的数据进行转换
+                        // let data = JSON.parse(xhr.response);
+                        // console.log(data);
+                        // 2. 自动转换数据
+                        console.log(xhr.response);
+                        result.innerHTML = xhr.response.name;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
