@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(11 >= 5);      // ture
+        console.log(11 <= 5);      // false
+        console.log(11 <= '5');    // false
+        console.log(11 >= '5');    // true
+        // 1.我们程序里面的等于符号是 == 默认会转换数据类型 会把字符串型的数据转换为数字型 只要求最后结果相等
+        console.log(11 == 11);     // true
+        console.log(11 == '11');   // true
+        // 2.我们程序里面有全等符号 === 要求两边的值 还有 数据类型 完全一模一样才可以 true
+        console.log(11 === 11);    // true
+        console.log(11 === '11');  // false
+        console.log(11 != '11');   // false
+        console.log(11 !== '9');   // true
+    </script>
+</body>
+</html>

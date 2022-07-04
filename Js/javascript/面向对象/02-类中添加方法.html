@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 利用 class 创建一个明星类
+        class Star {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            sing(song) {
+                console.log(`${this.name}会唱歌`);
+                console.log(this.name + song);
+            }
+        }
+        // 2. 利用类创建对象
+        let ldh = new Star('刘德华', 18);
+        let zxy = new Star('张学友', 20);
+        console.log(ldh);
+        console.log(zxy);
+        ldh.sing('冰雨');
+        zxy.sing('李香兰');
+        // (1) 我们类类里面所有函数不需要写function
+        // (2) 多个函数方法之间不需要添加逗号分隔
+    </script>
+</body>
+</html>

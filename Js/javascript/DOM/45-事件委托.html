@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>事件委托 冒泡方法</li>
+        <li>事件委托 冒泡方法</li>
+        <li>事件委托 冒泡方法</li>
+        <li>事件委托 冒泡方法</li>
+    </ul>
+    <script>
+        // 事件委托核心原理 给父节点添加侦听器 利用冒泡影响每一个子节点
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function(e){
+            // alert('事件委托 冒泡方法');
+            // e.target 可以获得触发事件的元素对象
+            for (var i = 0; i < ul.children.length; i++) {
+                ul.children[i].style.backgroundColor = ''; // ul.children获取所有的子元素节点
+            }
+            e.target.style.backgroundColor = 'pink';
+        }, false)
+        // ul.onclick = function () {
+        //     alert('11');
+        // }
+    </script>
+</body>
+</html>

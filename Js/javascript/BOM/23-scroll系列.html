@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            padding: 10px;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</div>
+    <script>
+        // scroll系列
+        var div = document.querySelector('div');
+        console.log(div.scrollWidth); // 返回的是元素自身实际内容宽度 width + padding 不包含边框 不被overflow影响 返回值都不带单位
+        console.log(div.clientWidth); // 返回的是元素自身宽度 width + padding 不包含边框
+        console.log(div.scrollHeight);
+        div.addEventListener('scroll', function() {
+            console.log(div.scrollLeft); // 返回左侧被卷去的距离 返回值不带单位
+        })
+    </script>
+</body>
+</html>

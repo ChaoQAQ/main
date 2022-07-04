@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .slider-bar {
+            position: absolute;
+            left: calc(50% + 600px);
+            top: 300px;
+            /* width: 50px; */
+            /* height: 120px; */
+            background-color: pink;
+        }
+
+        .slider-bar div {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ccc;
+        }
+
+        .w {
+            width: 1200px;
+            margin: 10px auto;
+        }
+
+        .header {
+            height: 150px;
+            background-color: purple;
+        }
+
+        .banner {
+            height: 250px;
+            background-color: skyblue;
+        }
+
+        .main {
+            height: 1000px;
+            background-color: yellowgreen;
+        }
+
+        .slider-bar .goBack {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-bar">
+        <div class="goBack">返回</div>
+        <div>顶部</div>
+        <div>顶部</div>
+        <div>顶部</div>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主体部分</div>
+    <script>
+        // 1. 获取元素
+        var sliderBar = document.querySelector('.slider-bar');
+        var banner = document.querySelector('.banner');
+        var bannerTop = banner.offsetTop;
+        console.log(bannerTop);
+        var sliderBarTop = sliderBar.offsetTop - bannerTop;
+        console.log(sliderBarTop);
+        // 获取main 主体元素
+        var main = document.querySelector('.main');
+        var goBack = document.querySelector('.goBack');
+        var mainTop = main.offsetTop;
+
+        // 2. 页面滚动事件 onscroll
+        document.addEventListener('scroll', function () {
+            // console.log(window.pageYOffset); // 页面头部卷去的距离
+            // 3 .当我们页面被卷去的头部大于等于了 172 此时 侧边栏就要改为固定定位
+            if (window.pageYOffset >= bannerTop) {
+                sliderBar.style.position = 'fixed';
+                sliderBar.style.top = sliderBarTop + 'px';
+            } else {
+                sliderBar.style.position = 'absolute'
+                sliderBar.style.top = '300px';
+            }
+            // 4. 当我们页面滚动到main盒子，就显示 goback模块
+            if (window.pageYOffset >= mainTop) {
+                goBack.style.display = 'block';
+            } else {
+                goBack.style.display = 'none';
+            }
+        })
+        // 5. 点击返回顶部
+        var flag = true;
+        goBack.addEventListener('click', function () {
+            // window.pageYOffset = 0; // 只读属性 不能赋值
+            // window.scroll(x, y); // 这里不用跟单位
+           if (flag) {
+                flag = false;
+                animate(window, 0, function() {
+                    flag = true;
+                });
+           }
+        })
+        function animate(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                var  step = (target - window.pageYOffset) / 10;
+                step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (window.pageYOffset == target) {
+                    clearInterval(obj.timer);
+                    callback && callback();
+                } else {
+                    window.scroll(0, window.pageYOffset + step);
+                }
+            }, 15)
+        }
+    </script>
+</body>
+
+</html>

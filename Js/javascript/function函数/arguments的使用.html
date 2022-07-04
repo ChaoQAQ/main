@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // arguments 的使用 只有函数才有 arguments对象 而且每个函数都内置好了这个 arguments
+        function fn() {
+            // console.log(arguments); // arguments里面存储了所有传递过来的实参
+            // console.log(arguments.length);
+            // console.log(arguments[2]);
+            // 我们可以按照数组的方式遍历 arguments
+            for (var i = 0; i < arguments.length; i++) {
+                console.log(arguments[i]);
+            }
+        }
+        fn(1, 2, 3);
+        fn(1, 2, 3, 4, 5);
+        // arguments是一个伪数组
+        // 1. 具有数组的 length属性
+        // 2. 按照数组的索引方式进行存储
+        // 3. 它没有真正数组的一些方法 pop() push() 等
+    </script>
+</body>
+</html>

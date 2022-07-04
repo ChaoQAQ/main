@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button class="set">存储数据</button>
+    <button class="get">获取数据</button>
+    <button class="remove">移除数据</button>
+    <button class="del">删除所有数据</button>
+    <script>
+        // window.localStorage生命周期为永久有效 除非手动删除 否则页面关闭也会存在 以键值对形式存储 在同一个窗口下可以共享（页面）
+        var ipt = document.querySelector('input');
+        var set = document.querySelector('.set');
+        var get = document.querySelector('.get');
+        var remove = document.querySelector('.remove');
+        var del = document.querySelector('.del');
+        set.addEventListener('click', function() {
+            // 存储数据
+            var val = ipt.value;
+            localStorage.setItem('uname', val);
+            localStorage.setItem('myname', val);
+        })
+        get.addEventListener('click', function() {
+            // 获取数据
+            console.log(localStorage.getItem('uname'));
+        })
+        remove.addEventListener('click', function() {
+            // 移除单个数据 移除数据是移除第一个存储的数据
+           localStorage.removeItem('uname');
+        })
+        del.addEventListener('click', function() {
+            // 清除全部数据
+            localStorage.clear();
+        })
+    </script>
+</body>
+</html>

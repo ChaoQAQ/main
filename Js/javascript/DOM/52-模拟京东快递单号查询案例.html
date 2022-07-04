@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            padding: 20px 20px;
+            border: 1px solid #ccc;
+        }
+        .main>div {
+            height: 26px;
+        }
+        .con {
+            display: none;
+            position: relative;
+            width: 100px;
+            height: 20px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-align: center;
+            line-height: 20px;
+            border: 1px solid #333;
+        }
+        .con::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 10px;
+            border: 6px solid #000;
+            border-style: solid dashed dashed;
+            border-color: #fff transparent transparent;
+            z-index: 999;
+        }
+        .jd {
+            width: 100px;
+            height: 16px;
+            font-size: 16px;
+            line-height: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div>
+            <div class="con"></div>
+        </div>
+        <input type="text" class="jd" placeholder="请输入你要查询的内容">
+    </div>
+    <script>
+        // 快递单号输入时就让大盒子显示 同时把快递单号值valu 赋值给大盒子 innerText
+        // 如果快递单号为空就隐藏大盒子
+        // 注意 keydown 和keypress 文本框里的特点 他们两个按下就立即触发事件 文字还没有落到文本框里 所有赋值会出问题
+        var con = document.querySelector('.con');
+        var jd_search = document.querySelector('.jd');
+        jd_search.addEventListener('keyup', function (e) {
+            con.style.display = 'block';
+            if (this.value == '') {
+                con.style.display = 'none';
+            } else {
+                con.innerText = this.value;
+            }
+        })
+        // 当我们失去焦点 就隐藏这个con盒子
+        jd_search.addEventListener('blur', function() {
+            con.style.display = 'none';
+        })
+        // 当我们获得焦点 有内容就显示这个con盒子
+        jd_search.addEventListener('focus', function() {
+            if (this.value != '') {
+                con.style.display = 'block';
+            }
+        })
+    </script>
+</body>
+</html>

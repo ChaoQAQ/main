@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+        <li>1号li</li>
+        <li>2号li</li>
+        <li>3号li</li>
+        <li>4号li</li>
+    </ol>
+    <script>
+        var ol = document.querySelector('ol');
+        // 1. firstChild 返回第一个子节点 包括文本节点和元素节点等等
+        console.log(ol.firstChild);
+        console.log(ol.lastChild);
+
+        // 2. firstElementChild 返回第一个 子元素节点 ie9+支持
+        console.log(ol.firstElementChild);
+        console.log(ol.lastElementChild);
+
+        // 3. 实际开发写法 既没有兼容性 又返回第一个元素
+        console.log(ol.children[0]);
+        console.log(ol.children[ol.children.length - 1]);
+    </script>
+</body>
+</html>

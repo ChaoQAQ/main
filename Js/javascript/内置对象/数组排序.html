@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组排序
+        // 1. 反转数组 reverse() 翻转
+        var arr = ['red', 'green', 'blue', 'pink'];
+        arr.reverse(); // 方法函数 需要添加小括号
+        console.log(arr);
+        // 2. 数组排序（冒泡排序） sort() 排序
+        var arr1 = [2, 5, 6, 7, 9, 1, 3];
+        arr1.sort();
+        console.log(arr1);
+        var arr2 = [2, 15, 6, 37, 9, 1, 3];
+        arr2.sort(); // 当数组有多位数时就会出现问题 它会把数组最左边的值按从小到大排列
+        console.log(arr2);
+        // 解决方案
+
+        // 算法固定
+        arr2.sort(function(a, b) {
+            // return a - b; // 从小到大升序排列
+            return b - a; // 从大到小降序排列
+        })
+        console.log(arr2);
+    </script>
+</body>
+</html>

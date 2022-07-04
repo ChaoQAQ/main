@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button class="set">存储数据</button>
+    <button class="get">获取数据</button>
+    <button class="remove">移除数据</button>
+    <button class="del">删除所有数据</button>
+    <script>
+        // window.sessionStorage生命周期为关闭浏览器窗口（页面） 以键值对形式存储 在同一个窗口下可以共享（页面）
+        var ipt = document.querySelector('input');
+        var set = document.querySelector('.set');
+        var get = document.querySelector('.get');
+        var remove = document.querySelector('.remove');
+        var del = document.querySelector('.del');
+        set.addEventListener('click', function () {
+            // 当我们点击之后 就把表单里的值存储起来
+            var val = ipt.value;
+            // sessionStorage.setItem('名字', 表单值); 设置项目
+            sessionStorage.setItem('uname', val); // 一段 存储
+            sessionStorage.setItem('myname', val); // 一段 存储
+        })
+        get.addEventListener('click', function () {
+            // 当我们点击之后 就把表单里的值获取过来
+            // sessionStorage.getItem('得到谁的名字');
+            console.log(sessionStorage.getItem('uname'));
+        })
+        remove.addEventListener('click', function() {
+            // sessionStorage.removeItem('需要清除数据的名字');
+            // 当我们点击之后 就移除指定名字的数据
+            sessionStorage.removeItem('uname');
+        })
+        del.addEventListener('click', function() {
+            // 当我们点击之后 就清除所有数据
+            sessionStorage.clear();
+        })
+    </script>
+</body>
+
+</html>

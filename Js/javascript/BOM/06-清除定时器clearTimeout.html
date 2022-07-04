@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>停止定时器</button>
+    <script>
+        // clearTimeout()方法取消了先前通过调用setTimeout()建立的定时器。
+        // 语法 clearTimeout(定时器名字标识符)
+        window.addEventListener('load', function() {
+            var btn = document.querySelector('button');
+            var timer1 = setTimeout(function() {
+                console.log('爆炸了');
+            }, 5000)
+            btn.addEventListener('click', function() {
+                console.log('已停止定时器');
+                clearTimeout(timer1);
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 思考题 1：
+
+        // var name = "The Window";
+        // var object = {
+        //     name: "My Object",
+        //     getNameFunc: function() {
+        //         return function() {
+        //             return this.name;
+        //         };
+        //     }
+        // };
+
+        // console.log(object.getNameFunc()()); // "The Window"
+
+        // 没有出现函数内部变量被另一个作用域访问 所以没有产生闭包 闭包的作用是延申变量范围
+
+        // let f = object.getNameFunc(); // 返回一个函数
+        // f();
+        // (function() {
+        //     return this.name; // 此时this执行window
+        // })();
+
+        // 思考题 2：
+
+        var name = "The Window";　　
+        var object = {　　　　
+            name: "My Object",
+            getNameFunc: function() {
+                var that = this; // 方法的this指向方法的调用者 就是object
+                return function() {
+                    return that.name;
+                };
+            }
+        };
+        console.log(object.getNameFunc()()); // "My Object"
+        // let fn = object.getNameFunc(); // fn存的是一个函数
+        // fn();
+        // (function() {
+        //     return that.name;
+        // })();
+        // that访问了getNameFunc函数的局部变量 所以object.getNameFunc方法就是一个闭包
+    </script>
+</body>
+
+</html>

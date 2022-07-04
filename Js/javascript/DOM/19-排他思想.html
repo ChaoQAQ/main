@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <script>
+        // btns得到的是一个伪数组 里面的每一个元素btn[i];
+        var btns = document.getElementsByTagName('button');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                for (var i = 0; i < btns.length; i++) {
+                    // 1. 遍历伪数组 把所有按钮的颜色都先取掉
+                btns[i].style.backgroundColor = '';
+            }
+            // 2. 然后才让当前的元素背景颜色为 pink色 留下我自己
+            this.style.backgroundColor = 'pink';
+            }
+        }
+        // 首先排除他人 然后才设置自己的样式 这种排除其他人的思想我们称为排他思想
+    </script>
+</body>
+</html>

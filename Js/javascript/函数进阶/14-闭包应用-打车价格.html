@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 打车 3 公里以内是起步价 13元 超出部分按一公里 5元 拥堵路段加 10元
+        let car = (function () {
+            let start = 13; // 起步价 13元
+            let total = 0; // 最后价格
+            return {
+                // 正常出行不拥堵
+                price: function (n, flag) {
+                    if (n <= 3) {
+                        total = start;
+                    } else {
+                        total = (n - 3) * 5 + start;
+                    }
+                    // return total;
+                    return flag ? total + 10 : total
+                },
+                // 拥堵路段
+                // yd: function (flag) {
+                //     return flag ? total + 10 : total;
+                // }
+            }
+        })();
+        // console.log(car.price(5));
+        // console.log(car.yd(true));
+        console.log(car.price(5, true));
+        console.log(car.price(5, false));
+    </script>
+</body>
+
+</html>

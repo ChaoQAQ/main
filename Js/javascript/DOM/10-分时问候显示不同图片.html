@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 50vw;
+            height: 30vw;
+        }
+    </style>
+</head>
+<body>
+    <img src="../../img/刘德华.webp" alt="">
+    <div>上午好</div>
+    <script>
+        // 根据不同时间断来判断 所以需要用到日期内置对象
+        // 利用多分枝语句来设置不同的图片
+        // 需要一个图片 并根据时间来修改图片路径 需要操作元素的src属性
+        // 需要一个div元素显示不同时间段得问候语
+        // 1. 获取元素
+        var img = document.querySelector('img');
+        var div = document.querySelector('div');
+        // 2. 得到当前的小时数
+        var date = new Date(); // 实例化date日期对象
+        var h = date.getHours(); // 获得当前小时
+        // 3. 判断小时改变图片路径跟文字信息
+        if (h < 12) {
+            img.src = "../../img/刘德华.webp";
+            div.innerText = '上午好';
+        } else if (h < 18) {
+            img.src = "../../img/张学友.webp";
+            div.innerHTML = '下午好';
+        } else {
+            img.src = "../../img/刘德华.webp";
+            div.innerHTML = '晚上好';
+        }
+    </script>
+</body>
+</html>

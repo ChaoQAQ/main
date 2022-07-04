@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 获得Date总的毫秒数(时间戳) 不是当前时间的毫秒数 而是getTime 方法的返回值一个数值，表示从1970年1月1日0时0分0秒（UTC，即协调世界时）距离该日期对象所代表时间的毫秒数。
+        // 1. 通过 valueOf() getTime()
+        var date = new Date();
+        console.log(date.valueOf()); // valueOf() 方法返回一个 Date 对象的原始值。
+        console.log(date.getTime());
+        // 2. 简单写法(最常用的写法)
+        var date1 = +new Date(); // +new Date() 小括号里没有参数返回的就是总毫秒数
+        var date2 = +new Date(); // +new Date() 小括号里有参数返回的就是我们输入的总毫秒数
+        console.log(date1);
+        console.log(date2);
+        // 3. H5 新增的 获得总毫秒数
+        console.log(Date.now()); // 因为 now() 是 Date 的一个静态函数，所以必须以 Date.now() 的形式来使用。
+    </script>
+</body>
+</html>

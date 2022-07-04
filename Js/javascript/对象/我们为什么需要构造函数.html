@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 我们为什么需要使用构造函数
+        // 就是因为我们前面两种创建对象得方式一次只能创建一个对象
+        var ldh = {
+            uname: '刘德华',
+            age: 56,
+            job: '唱歌',
+            sing: function() {
+                console.log('唱歌');
+            }
+        }
+        var obj = new Object();
+        obj.uname = '张学友';
+        obj.age = 58;
+        obj.job = '跳舞';
+        obj.sing = function() {
+            console.log('跳舞');
+        }
+        // 1. 因为我们一次创建一个对象 里面很多的属性和方法是大量相同得 我们只能赋值
+        // 2. 因此我们可以利用函数得方法 重复这些相同得代码 我们就把这个函数称为 构造函数
+        // 3. 也因为这个函数不一样 里面封装得不是普通代码 而是对象
+        // 4. 构造函数 就是把我们对象里面一些相同得属性和方法抽象出来封装到函数里面去
+    </script>
+</body>
+</html>

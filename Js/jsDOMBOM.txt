@@ -1,0 +1,182 @@
+on	在什么什么时候
+click	点击
+onclick	鼠标单击事件
+inner	内心的、内部的
+Text	文本
+HTML	超文本标记语言
+type	类型
+value	值
+disabled	禁用
+selected	挑选出看来的
+checked	选中的
+onfocus	元素获得焦点
+onblur	元素失去焦点
+className类名
+message	信息
+onmouseover鼠标经过事件
+onmouseout鼠标离开事件
+onkeydown用户按下键盘按键
+onchangeHTML 元素改变
+onload	浏览器已完成页面的加载
+flag	标识
+result	结果
+checked	选中的、复选框状态
+element.getAttribute得到属性、自定义属性
+break	退出循环判断
+element.removeAttribute移除属性
+element.setAttribute设置属性
+element.dataset.属性 H5新增获取属性
+element.dataset['属性'] 数据集合
+parent	父母亲
+Node	节点
+element.parentNode父节点
+node.childNodes获取所有的子节点
+node.children	获取所有的子元素节点
+node.firstChild	第一个子节点
+node.lastChild	最后一个子节点
+firstElementChild第一个子元素节点
+lastElementChild最后一个子元素节点
+nextSibling下一个兄弟节点
+previousSibling上一个兄弟节点
+nextElementSibling下一个兄弟元素节点
+previousElementSibling上一个兄弟元素节点
+document.createElement创造元素节点
+document.write创建元素节点。被调用会重新绘制页面
+node.appendChild将一个节点附加到指定父节点的子节点列表的末尾处
+node.insertBefore（child, 指定元素）在父元素指定子元素的前面添加节点
+node.removeChild删除指定元素下的子元素节点
+node.cloneNode();克隆子节点 true深克隆 false浅克隆
+EventTarget.addEventListener() 事件 对象 添加 事件 监听、接收者
+EventTarget.attachEvent() 事件 对象 贴上 事件 
+element.onclick = null 删除事件
+element.removeEventListener 删除事件
+element.detachEvent 删除事件
+event事件对象
+event.target目标谁触发事件返回谁
+currentTarget现在目标类似this
+event.preventDefault( )事件 防止 默认
+returnValue ie678防止默认行为
+event.cancelBubble = true非标准cancel取消Bubble泡泡
+event.stopPropagation( )停止传播冒泡
+contextmenu上下文菜单阻止菜单事件
+selectstart阻止选择
+event.client客户 浏览器可视坐标
+event.page页面 页面文档坐标
+event.screen屏幕 相对于屏幕坐标
+onkeyup键盘弹起
+onkeydown键盘按下
+onkeypress键盘按下不能识别功能键 再keydown之后执行
+event.keyCode事件 键码
+focus( )方法获得搜索框焦点
+window浏览器高级对象BOM
+onload等页面内容全部加载完毕在执行，包含dom元素、图片、flash、css等
+DOMContentLoaded是dom加载完毕，不包含图片、flash、css等就可以执行，加载速度比load快
+onresize调整窗口大小事件re重新的意思
+onresize重新调整窗口大小
+innerWidth获取window窗口的宽度、如果有滚动条，则包括滚动条宽度
+window.setTimeout( )设置定时器
+window.clearTimeout(定时器标识符)清除停止定时器
+window.setInterval()设置间隔时间延时定时器
+window.clearInterval( )清除停止间隔时间定时器
+now现在
+hour小时
+minute分钟
+second秒数
+countDown计数、向下、倒计时
+location对象用于解析url返回值是一个对象
+href获取或者设置整个url
+host主办方返回主机域名
+port返回端口号，未写返回空字符串
+pathname路径名
+search 包含URL参数的一个DOMString，开头有一个“?”
+hash包含块标识符的DOMString，开头有一个“#”。#后面内容常见于锚点链接
+params参数
+action传送表单内容
+<!-- for 的值于 input的id值相匹配 -->
+<!-- uname传统参数必须写 -->
+ substr('起始位置', 截取几个字符) 从0开始 只有一个参数时就是默认从当前位置截取到结束包括当前位置
+利用=号把字符串分隔为数组 split('=');
+location.replace();代替 跳转网页 不能记录浏览历史 不可以实现后退功能
+location.assign();分配 跳转网页 能记录浏览历史 可以实现后退功能
+location.reload(true); // 重新加载 刷新页面f5 参数为true时强制刷新页面 ctrl+f5
+window.navigator接口表示用户代理的状态和标识 可以使用只读的 window.navigator 属性检索navigator对象。
+userAgent用户代理
+Window.history历史 浏览器历史浏览记录，前进后退效果
+back( ) 返回
+forward( )前进
+go( )走，出发正数前进 负数后退
+HTMLElement.offset元素偏移量
+element.offsetWidth可以得到元素的大小 宽度和高度 是包含padding border width
+element.offsetParent返回带有定位的第一个父级标签 没有就返回body
+element.offsetLeft返回该元素相对带有定位的父级元素的偏移量 都没有定位就相对于body 返回值不带单位
+element.clientLeft得到元素左边框大小
+element.clientWidth得到元素大小 宽度 内边距 不包含边框
+window.devicePixelRatio || 1 // 监视屏幕分辨率或缩放级别的更改 物理像素比 装置 像素 比
+resize改变浏览器窗口的大小来触发resize事件 调整大小
+pageshow页面刷新或者后退都会触发pageshow事件 pageshow事件会在onload事件后执行
+persisted只读属性persisted代表一个页面是否从缓存中加载的
+scroll系列滚动
+element.scrollWidth返回的是元素自身实际内容宽度 width + padding 不包含边框 不被overflow影响 返回值都不带单位
+element.scrollTop返回元素上边被卷去距离 返回值不带单位
+onscroll滚动事件 元素滚动就会触发该事件
+window.pageYOffset 页面被卷去的头部 为了跨浏览器兼容，请使用 window.pageYOffset 代替 window.scrollY
+mouseover会冒泡 和 mouseenter不会冒泡都是鼠标经过事件 mouseout会冒泡 和 mouseleave不会冒泡 都是鼠标离开事件
+mouseenter鼠标经过事件 不会冒泡
+mouseleave鼠标离开事件 不会冒泡
+current现在
+arrow箭头
+circleChange圆圈 改变
+touch触摸事件
+touchstart手指触摸DOM元素事件
+touchmove手指在DOM元素身上移动事件
+touchend手指离开DOM元素事件
+event.touches 正在触摸屏幕的手指列表
+event.targetTouch 正在触摸dom元素的手指列表
+event.chengedTouches 手指状态发生改变时列表 触摸 移动 离开 从无到有 或者 从有到无 有手指触摸会触发 有手指离开也会触发
+因为我们一般触摸的是DOM元素 所以经常使用的是 targetTouches 
+targetTouches[0] 获得正在触摸dom元素的第一个手指信息列表 坐标什么的
+element.classList返回元素的类名集合 是一个伪数组
+element.classList.add(' ')添加类名 是在后面追加类名 不会覆盖删除以前的类名 注意前面不需要加.
+element.classList.remove(' ')移除类名
+element.classList.toggle(' ')切换类 有就移除类名 没有就添加类名
+transitionent 过渡结束属性 过渡结束时触发
+window.scroll(0, 0);设置浏览器滚动xy的值
+Date.now() 方法返回自 1970 年 1 月 1 日 00:00:00 (UTC) 到当前时间的毫秒数。
+fastclick.js快速的点击执行事件 解决移动端click300ms延迟的js插件文件
+attach贴上
+config配置
+source来源
+media媒体
+Controls控制
+carousel旋转木马
+Indicators 指标
+Wrapper包装纸 for对于 slides幻灯片
+onchange发生改变时就会触发该事件
+remember记得 回想起
+ready准备好的
+hide隐藏
+muted静音
+play玩 活动的 自动播放
+odd奇数
+even偶数
+first第一
+last最后
+eq(index)
+find( )找到
+hasClass( )有类名
+siblings( )兄弟姐妹 除自己外的兄弟元素
+nextAll（[ ]）自己之后的兄弟元素
+prevtAll([ ]) 自己之前的兄弟元素
+splice( )粘接 删除数组元素 第一个参数是从哪个索引号开始 第二个参数是删除几个元素
+JSON对象符号;数据格式;实例;轻量级的数据交换格式;表示法
+JSON.stringify() 方法将一个 JavaScript 对象或值转换为 JSON 字符串
+本地存储里面只能存储字符串的数据格式 把我们的数组对象转换为字符串格式 JSON.stringify()
+获取本地存储的数据 我们需要把里面的字符串数据转换为 对象格式 JSON.parse()
+done完成 已完成的
+todo代办事项
+empty()空的jquery删除匹配元素的子节点
+prepend()预先准备好的 jquery在子元素前面添加元素方法
+local本地的 局部的
+save收藏 拯救
+count计数
+toLocaleString() 方法返回该日期对象的字符串，该字符串格式因不同语言而不同

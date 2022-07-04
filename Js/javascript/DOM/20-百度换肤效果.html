@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: url(../../img/bgc1.webp) no-repeat center top;
+            background-size: 100% 100%;
+        }
+
+        .baidu {
+            width: 50vw;
+            height: 10vw;
+            margin: 10vw auto 0;
+        }
+
+        ul {
+            display: flex;
+        }
+
+        ul li {
+            flex: 1;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="baidu">
+        <ul>
+            <li><img src="../../img/bgc1.webp" alt=""></li>
+            <li><img src="../../img/bgc2.webp" alt=""></li>
+            <li><img src="../../img/bgc3.webp" alt=""></li>
+            <li><img src="../../img/bgc4.webp" alt=""></li>
+            <li><img src="../../img/bgc5.webp" alt=""></li>
+        </ul>
+    </div>
+    <script>
+        // 1. 获取元素
+        var imgs = document.querySelector('.baidu').querySelectorAll('img');
+        // 2. 注册事件 程序处理
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function () {
+                // console.log('获取到了img');
+                // console.log(this.src); // 我们点击的图片路径
+                for (var j = 0; j < imgs.length; j++) {
+                    imgs[j].style.border = '';
+                }
+                this.style.border = '1px solid red'
+                document.body.style.backgroundImage = 'URL(' + this.src + ')'; // 把this.src这个路径给body的背景进行了
+            }
+        }
+    </script>
+</body>
+
+</html>

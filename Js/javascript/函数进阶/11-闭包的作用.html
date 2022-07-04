@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 闭包 closure 指有权访问另一个函数作用域中变量的函数
+        // 闭包 我们fun这个函数作用域 访问了另一个函数 fn 里面的局部变量 num
+        // 一个函数访问了另一个函数的局部变量 这个局部变量所在的函数就是闭包 我们就称这个被访问的函数叫做闭包 
+
+        // 我们 fn 外面的作用域可以访问 fn 内部的局部变量 num
+        // 闭包的主要作用 延伸了变量的作用范围 
+        function fn() { // fn就是一个闭包函数
+            let num = 10;
+            // function fun() {
+            //     console.log(num);
+            // }
+            // return fun;
+            return function() {
+                console.log(num);
+            }
+        }
+        let f = fn(); // 调用 fn 函数返回 一个fun 函数 f 是全局作用域下访问了fn的内部变量 延申了变量范围
+        // let f = function fun() {
+        //     console.log(num); // 10
+        // }
+        f(); // 相当于调用 fun 函数 
+    </script>
+</body>
+</html>

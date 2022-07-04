@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // onload 在浏览器加载完全部内容在触发事件 load负载
+
+        // window.onload = function () {
+        //     var btn = document.querySelector('button');
+        //     btn.addEventListener('click', function() {
+        //         alert('点击我');
+        //     }) 
+        // }
+        // window.onload = function() {
+        //     var btn = document.querySelector('button');
+        //     btn.addEventListener('click', function() {
+        //         alert('点击我1');
+        //     }) 
+        // }
+        // 传统注册事件只能触发一个事件 是最后一个事件
+        window.addEventListener('load', function () {
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function() {
+                alert('点击我');
+            }) 
+            btn.addEventListener('click', function() {
+                alert('点击我1');
+            }) 
+        })
+
+        // load 等页面内容全部加载完毕 包含页面dom元素 图片 flash css等
+        // DOMContentLoaded 是DOM加载完毕 不包含图片 falsh css 等就可以执行 加载速度比 load 更快一些 也是我们常用的
+        // 当初始的 HTML 文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像和子框架的完全加载
+
+        // window.onDOMContentLoaded = function () { // 不能怎么写
+        //     alert(11);
+        // }
+        window.addEventListener('DOMContentLoaded', function() {
+            alert(11);
+        })
+    </script>
+    <button>点击</button>
+</body>
+</html>

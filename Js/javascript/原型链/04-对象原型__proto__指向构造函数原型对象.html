@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+        Star.prototype.sing = function() {
+            console.log('歌声');
+        }
+        let ldh = new Star('刘德华', 18)
+        let zxy = new Star('张学友', 18)
+        ldh.sing();
+        console.log(ldh); // 对象身上自己添加的一个属性__proto__指向我们构造函数的原型对象prototype
+        console.log(ldh.__proto__ === Star.prototype);
+        // 方法的查找规则 首先看看ldh 对象身上是否有 sing 方法 如果有就执行这个对象上的sing
+        // 如果没有sing 这个方法 因为有__proto__的存在 就会执行构造函数的原型对象prototype身上去找sing这个方法
+
+    </script>
+</body>
+</html>

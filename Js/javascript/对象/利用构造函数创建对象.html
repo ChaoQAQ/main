@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 利用构造函数创建对象
+        // 我们需要创建四大天王得对象 相同得属性 名字 性别 年龄 相同得方法 唱歌
+        // 构造函数得语法格式
+        // function 构造函数名() { // 构造函数名的首字母要大写
+        //     this.属性 = 值;     // this 当前 . 的
+        //     this.方法 = function() {
+
+        //     }
+        // }
+        // new 构造函数名(); // new新的 new一下就是一个新的对象 构造函数的调用前面必须加 new
+
+        function Star(uname, age, sex, sing) {
+            this.name = uname;
+            this.age = age;
+            this.sex = sex;
+            this.sing = function(sang) {
+                console.log(sang);
+            }
+        }
+
+        var ldh = new Star('刘德华', 18, '男'); // 调用函数返回的是一个新的对象
+        console.log(typeof ldh); // 检测数据类型 object
+        console.log(ldh);
+        console.log(ldh.name);
+        console.log(ldh['age']);
+        ldh.sing('乡村爱情故事');
+
+        var zxy = new Star('张学友', 18, '男');
+        console.log(zxy);
+        zxy.sing('爱你一万年');
+        // 1. 我们 构造函数名 首字母要大写
+        // 2. 我们构造函数不需要return 就可以返回结果
+        // 3. return 是把函数的结果返回给函数的调用者 return也可以用在循环中用于返回结果
+        // 4. 我们调用构造函数必须使用 new
+        // 5. 我们只要 new Star() 调用函数就创建一个新的对象 实参传递给形参尽量一一对应
+        // 6. 我们的属性和方法前面必须添加 this 当前的 较近的意思
+    </script>
+</body>
+</html>

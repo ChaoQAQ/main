@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = 10;
+        ++a;              //  11
+        var b = ++a + 2;  //  12 + 2  
+        console.log(b);   //  14
+
+        var c = 10;      
+        c++;             //  11
+        var d = c++ + 2; //  11 + 2
+        console.log(d);  //  13   c == 12
+
+        var e = 10;
+        var f = e++ + ++e;  //  10 + 11+1   10 + 12
+        console.log(f);     //  22   
+        // 后置自增  先表达式返回原值 后面变量再自加1
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+            this.sing = function() {
+                console.log('我们都会唱歌');
+            }
+        }
+        let ldh = new Star('刘德华', 18); // ldh 就是对象的实例化
+        console.log(ldh);
+        // javascript构造函数中可以添加添加一些成员 可以在构造函数本身上添加 也可以在构造函数内部的this上添加
+
+        // 1. 实例成员就是构造函数内部通过 this 添加的成员 uname age sing 就是实例成员
+        // 实例成员只能通过实例化的对象来访问
+        ldh.sing();
+        // console.log(Star.uname); // 不可以通过构造函数来访问
+
+        // 2. 静态成员 在构造函数本身上添加的成员 sex 就是静态成员
+        Star.sex = '男';
+        // 静态成员只能通过构造函数来访问
+        console.log(ldh);
+        console.log(Star.sex);
+        console.log(ldh.sex); // 不能通过对象来访问
+    </script>
+</body>
+</html>

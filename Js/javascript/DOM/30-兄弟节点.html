@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <script>
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+        // 1. nextSibling 返回下一个兄弟节点 包含元素节点 文本节点 next下一步 Sibling兄弟姐妹 previous以前的上一步
+        // Node.nextSibling 是一个只读属性，返回其父节点的 childNodes 列表中紧跟在其后面的节点，如果指定的节点为最后一个节点，则返回 null。
+        console.log(div.nextSibling); // text 因为有空格
+        console.log(div.previousSibling); // text
+
+        function getNextElementSibling(element) {
+            var el = element; // 把形参赋值给el
+            while (el = el.nextSibling) { // 把el的nextSibling属性赋值给el
+                if (el.nodeType === 1) { // 相当与检测nextSibling的nodeType类型 等于1就是元素节点
+                    return el; // 如果成立就返回这个元素节点
+                }
+            }
+            return null; // 不成立就返回null
+        }
+        console.log(getNextElementSibling(div)); // 实参传给形参
+
+        function getPreviousElementSibling(element) {
+            var el = element; // 把形参赋值给el
+            while (el = el.previousSibling) { // 把el的previousSibling属性赋值给el
+                if (el.nodeType === 1) { // 相当与检测previousSibling的nodeType类型 等于1就是元素节点
+                    return el; // 如果成立就返回这个元素节点
+                }
+            }
+            return null; // 不成立就返回null
+        }
+        console.log(getPreviousElementSibling(div)); // 实参传给形参
+
+        // 2. nextElementSibling 返回下一个兄弟元素节点 ie9+
+        console.log(div.nextElementSibling); // 下一个是 span
+        console.log(div.previousElementSibling); // 上一个没有就是null
+    </script>
+</body>
+</html>

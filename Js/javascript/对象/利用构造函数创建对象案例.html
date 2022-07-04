@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Yx(uname, type, blood) {
+            this.name = uname;
+            this.type = type;
+            this.blood = blood;
+            this.sing = function(attack) { // 函数名sing 形参attack
+                console.log(attack); 
+                // return attack; // 构造函数里不用return
+            }
+        }
+        var lp = new Yx('廉颇', '力量型', 500);
+        console.log(lp['name']);
+        lp.sing('近战');
+        var hy = new Yx('后裔', '射手型', 100)
+        console.log(hy.name);
+        console.log(hy['blood']);
+        hy.sing('远程'); // hy对象下的sing函数 远程就是实参 传到sing的形参attack里
+        // console.log(hy.sing('远程')); // 使用return时 这么写
+    </script>
+</body>
+</html>

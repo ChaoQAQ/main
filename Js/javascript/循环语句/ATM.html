@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var sum = 0,  // 初始值 最终值
+            a = 0,        // 存钱
+            b = 0,        // 取钱
+            money = 0;        // 输入值
+        var money = prompt('请输入你要执行的操作' + '\n1.存钱' + '\n2.取钱' + '\n3.显示余额' + '\n4.退出');
+        do {
+            switch (money) {
+                case '1':
+                    a = prompt('请输入你要存入的金额');
+                    sum += parseFloat(a);
+                    alert('你的当前余额为' + sum);
+                    money = prompt('请输入你要执行的操作' + '\n1.存钱' + '\n2.取钱' + '\n3.显示余额' + '\n4.退出');
+                    break;
+                case '2':
+                    b = prompt('请输入你要取的钱');
+                    sum = sum - b;
+                    alert('你的当前余额为' + sum);
+                    money = prompt('请输入你要执行的操作' + '\n1.存钱' + '\n2.取钱' + '\n3.显示余额' + '\n4.退出');
+                    break;
+                case '3':
+                    alert('你的当前余额为' + sum);
+                    money = prompt('请输入你要执行的操作' + '\n1.存钱' + '\n2.取钱' + '\n3.显示余额' + '\n4.退出');
+                    break;
+                case '4':
+                    alert('退出');
+                    break;
+            }
+        } while (money != 4);
+    </script>
+</body>
+
+</html>

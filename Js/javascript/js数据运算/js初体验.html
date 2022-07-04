@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js初体验</title>
+</head>
+
+<body>
+
+    <!-- 1.行内的js 直接写到元素的标签中 以 on 开头的属性 -->
+    <input type="button" value="我爱你" onclick="alert('你点击了按钮')">
+
+    <h1>浏览器组成部分分成两成，<br>
+        1.渲染引擎 用来解析html与css，俗称内核<br>
+        2.js引擎 也被称为js解释器，用来读取网页中的JavaScript代码，对齐处理后运行<br>
+        <hr>
+        浏览器本身并不会执行js代码，而是通过内置JavaScript引擎（解释器）来执行js代码。<br>
+        js引擎执行代码时逐行解释每一步代码（转换为机器语言），然后由计算器去执行，<br>
+        所以JavaScript语言归为脚本语言，会从上到下逐行解释执行
+    </h1>
+    <h1>
+        1.js的外部链接方式会优先所有html css 执行<br>
+        2.js代码从上倒下开始执行<br>
+        3.内嵌js会根据在html文档的先后顺序执行<br>
+        4.相同的代码也会执行
+    </h1>
+
+    <!-- 3.script 标签 src 属性外部连接js代码 script标签中此时不能写代码  优先执行 -->
+    <script src="./my.js"></script>
+    
+    <!-- 2.内嵌的js 可以将多行代码写到 script 标签中 -->
+    <script>
+        alert('加油');
+        alert('加油');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // call方法
+        function fn(x, y) {
+            console.log(this);
+            console.log(x + y);
+        }
+        let o = {
+            name: 'andy'
+        }
+        // 1. call() 可以调用函数
+        fn.call();
+        // 2. call() 可以改变这个函数的this指向 此时这个函数的this 就指向了 o对象
+        fn.call(o, 1 ,2);
+        // call(改变this的指向， 实参， 实参)
+        console.log(o);
+    </script>
+</body>
+</html>

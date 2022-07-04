@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 300px;
+            margin: 100px auto;
+            border-bottom: 1px solid #ccc;
+        }
+        .box input {
+            width: 260px;
+            height: 24px;
+            border: 0;
+            outline: none;
+        }
+        .box img {
+            position: absolute;
+            top: 0;
+            right: 5px;
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <label for="">
+            <img src="../../img/刘德华.webp" alt="" id="eye">
+        </label>
+        <input type="password" name="" id="pwd">
+    </div>
+    <script>
+        // 1. 获取元素
+        var eye = document.getElementById('eye');
+        var pwd = document.getElementById('pwd');
+        // 2. 注册事件 程序处理
+        var flag = 0;
+        eye.onclick = function() {
+            // 点击一次之后 flag一定要发生变化
+            if (flag == 0) {
+                pwd.type = 'text';
+                eye.src = '../../img/张学友.webp';
+                flag = 1; // 这里我们是赋值操作
+            } else {
+                pwd.type = 'password';
+                eye.src = "../../img/刘德华.webp";
+                flag = 0;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 闰年能被4整除，不能被100整除，或者能被400整除的年份叫闰年，否则就是平年
+        var year = prompt('请输入一个年份');
+        if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+            alert('该年份是闰年');
+        } else {
+            alert('该年份是平年');
+        }
+        
+        var myname = prompt('请输入你的姓名');
+        if (myname == '刘德华') {
+            alert('恭喜你中将了');
+        } else {
+            alert('很遗憾，没有中将');
+        }
+    </script>
+</body>
+</html>

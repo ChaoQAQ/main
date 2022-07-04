@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 80vw;
+            margin: 10vw auto 0;
+            border: 0;
+        }
+
+        thead tr{
+            background-color: blue;
+        }
+
+        tr {
+            display: flex;
+            height: 3vw;
+            border-bottom: 1px solid #333;
+        }
+
+        tr td:nth-child(1) {
+            flex: 1;
+        }
+
+        tr td:nth-child(2) {
+            flex: 2;
+        }
+
+        tr td:nth-child(3) {
+            flex: 3;
+        }
+
+        tr td:nth-child(4) {
+            flex: 2;
+        }
+
+        tr td:nth-child(5) {
+            flex: 1;
+        }
+        .bg {
+            background-color: hotpink;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        // 1. 获取元素 获取的是tbody里所有的tr
+        var trs = document.querySelector('tbody').querySelectorAll('tr');
+        // 2. 利用循环绑定注册事件 
+        for (var i = 0; i < trs.length; i++) {
+            // 3. 鼠标经过事件 onmouseover
+            trs[i].onmouseover = function () {
+                // console.log(11);
+                this.className = 'bg';
+            }
+            // 4. 鼠标离开事件 onmouseout
+            trs[i].onmouseout = function () {
+                this.className = '';
+            }
+        }
+
+    </script>
+</body>
+
+</html>

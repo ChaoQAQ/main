@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 同步 执行栈 
+        // 异步 任务列队 回调函数
+        // 异步一般有三种类型
+        // 1. 普通事件 click resize
+        // 2. 资源加载 load error
+        // 3.定时器 包括setInterval setTimeout
+        // 一旦栈中的所有同步任务执行完毕后 系统会依次读取任务列队中的异步任务 于是被读取的异步任务结束等待状态 进行执行栈 开始执行
+        // 4. 事件循环 主线程栈执行完毕后 执行异步任务列队 执行完毕后主线程还会继续查看异步任务有就执行 执行完毕后就清空 会反复查看执行 事件循环 event loop
+        console.log(1); // 执行栈
+        setTimeout(function() { // 任务列队
+            console.log(2);
+        }, 0);
+        console.log(3);
+        // 最后结果为 1 3 2
+    </script>
+</body>
+</html>

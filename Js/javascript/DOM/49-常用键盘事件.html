@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 常用键盘事件 keydown -> keypress -> keyup
+        // 1. keyup 键盘弹起时触发
+        // document.onkeyup = function () {
+        //     console.log('我弹起来了');
+        // }
+        document.addEventListener('keyup', function() {
+            console.log('我弹起来了keyup');
+        })
+        // 2. keydown 键盘按下时触发 能识别功能键 比如 ctrl shift 左右箭头等
+        document.addEventListener('keydown', function() {
+            console.log('我按下了触发keydown');
+        })
+        // 3. ketpress 键盘按下时触发 不能识别功能键 比如 ctrl shift 左右箭头等
+        document.addEventListener('keypress', function() {
+            console.log('我按下了触发keypress 不能识别功能键 再keydown之后触发');
+        })
+    </script>
+</body>
+</html>

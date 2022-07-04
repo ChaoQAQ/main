@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            margin: 100px 200px;
+            border: 1px solid #ccc;
+        }
+        textarea {
+            /* 禁止用户调整大小 */
+            resize: none;
+            outline: none;
+            width: 200px;
+            height: 100px;
+        }
+        ul li {
+            width: 300px;
+            background-color: pink;
+        }
+        li a {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <textarea></textarea>
+        <button>发布留言</button>
+        <ul>
+
+        </ul>
+    </div>
+    <script>
+        // 1. 获取元素
+        var btn = document.querySelector('button');
+        var text = document.querySelector('textarea');
+        var ul = document.querySelector('ul');
+        // 2. 注册事件
+        btn.onclick = function () {
+            // console.log(text.value);
+            if (text.value == '') {
+                alert('你还没有输入留言');
+                return false;
+            } else {
+                // 1. 创建元素节点
+                var li = document.createElement('li');
+                // 2. 先有li 在赋值
+                // javascript:; 和 javascript:void(0); 都是阻止链接跳转
+                // li.innerHTML = text.value + "<a href='javascript:;'>删除</a>";
+                li.innerHTML = text.value + "<span></span>" + "<a href='javascript:void(0);'>删除</a>";
+                var date = new Date();
+                console.log(date);
+                var spans = document.querySelectorAll('span');
+                for (var i = 0; i < spans.length; i++) {
+                    spans[i].innerHTML = date;
+                }
+                // 3. 添加元素节点
+                // ul.appendChild(li);
+                ul.insertBefore(li, ul.children[0]);
+                // 4. 删除元素节点 删除的是当前a链接的父节点li 
+                var as = document.querySelectorAll('a');
+                for (var i = 0; i < as.length; i++) {
+                    as[i].onclick = function() {
+                        // node.removeChild(child); 删除的是li 当前a所在的li this.parentNode;父节点
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

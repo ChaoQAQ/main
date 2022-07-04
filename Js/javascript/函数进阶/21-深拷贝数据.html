@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 深拷贝数据是拷贝多层数据 每一级别的数据都会被拷贝
+        let obj = {
+            id: 1,
+            name: 'andy',
+            msg: {
+                age: 18
+            },
+            color: ['pink', 'red']
+        };
+        let o = {};
+        // 封装深拷贝函数
+        function deepCopy(newobj, oldobj) {
+            // 1. 遍历这个旧对象
+            for(let k in oldobj) {
+                let item = oldobj[k]; // 是每一项数据的值
+                // 2. 判断我们的属性值属于哪一种数据类型
+                // 数组也是对象 所以把数组写前面 避免数组被当成对象解析
+                if (item instanceof Array) {
+                    // 3. 如果属于数组类型
+                    newobj[k] = [];
+                    deepCopy(newobj[k], item); // 将当前数据遍历拷贝给新对象的当前属性名
+                } else if (item instanceof Object) {
+                    // 4. 如果属于对象类型
+                    newobj[k] = {};
+                    deepCopy(newobj[k], item);
+                } else {
+                    // 5. 否则就是简单数据类型
+                    newobj[k] = item;
+                }
+            }
+        };
+        deepCopy(o, obj);
+        console.log(o);
+        o.msg.age = 20;
+        console.log(obj);
+        console.log(o);
+        let arr = [];
+        console.log(arr instanceof Object); // 数组也是对象
+    </script>
+</body>
+</html>

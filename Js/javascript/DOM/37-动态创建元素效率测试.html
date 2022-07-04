@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. innerHTML直接创建子元素节点 这种原本的innerHTML是拼接字符串形式 这种最慢
+        function fn1() {
+            var start = +new Date();
+            for (var i = 0; i < 3000; i++) {
+                document.body.innerHTML = "<div></div>";
+            }
+            var end = +new Date();
+            console.log(end - start);
+        }
+        fn1();
+
+        // 2. innerHTML数组创建子元素节点 这种innerHTML数组方式速度最快
+        function fn2() {
+            var start = +new Date(); // 得到当前时间
+            var arr = [];
+            for (var i = 0; i < 3000; i++) {
+                arr.push("<div></div>");
+            }
+            document.body.innerHTML = arr.join(''); // 将数组元素转换为字符串 innerHTML是识别html标签的
+            var end = +new Date();
+            console.log(end - start);
+        }
+        fn2();
+
+        // 3. document.createElement(); 创建子元素节点 这种createElement第二快
+        function fn3() {
+            var start = +new Date();
+            for (var i = 0; i < 3000; i++) {
+                var div = document.createElement('div');
+                document.body.appendChild(div);
+            }
+            var end = +new Date();
+            console.log(end - start);
+        }
+        fn3();
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div id="nav"></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+    </ul>
+    <script>
+        // query询问  selector选择器、转换器 all所有 class类
+
+        // 1. getElementsByClassName() 根据类名获取某些元素的集合 以伪数组形式存储 伪数组形式都要加 s
+        var boxs = document.getElementsByClassName('box'); // 字符串形式 对象
+        console.log(boxs);
+        // 2. querySlector() 返回指定选择器的第一个元素对象 切记 里面的选择器也是字符串 但要加符号 .box #nav li
+        var firstBox = document.querySelector('.box'); // 返回的是页面第一个类box
+        console.log(firstBox); // 对象
+        console.dir(firstBox);
+        var nav = document.querySelector('#nav'); // 返回的是页面第一个id nav
+        console.log(nav);
+        var li = document.querySelector('li');
+        console.log(li);
+        // 3. querySelectorAll(); 返回指定选择器所有元素对象集合
+        var allBox = document.querySelectorAll('.box');
+        console.log(allBox);
+        var lis = document.querySelectorAll('li');
+        console.log(lis);
+    </script>
+</body>
+</html>

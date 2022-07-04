@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        div.onclick = function (event) {  // event里面是事件对象 存放了事件的相关属性和方法 可以看作形参 是系统创建的 不需要传递参数 一般可以简写 evt e
+            event = event || window.event; // 兼容性写法 浏览器识别前面就返回前面 不能识别前面就返回后面 
+            console.log(event); // 常规浏览器写法
+            console.log(window.event); // ie专属写法
+        }
+        div.addEventListener('click', function (e) {
+            console.log(e);
+        }, false)
+
+        // 1. event是一个事件对象 写到我们侦听函数的小括号里面 当形参来看 
+        // 2. 事件对象只有有了事件才会存在 是系统创建的 所以不需要传递参数
+        // 3. 事件对象 就是我们事件的一系列相关数据的集合 跟事件有关的 比如鼠标点击事件里面就包含了鼠标的相关信息 鼠标坐标什么的 键盘事件就是有关键盘的信息 比如按下了哪个键
+        // 4. 这个事件对象我们可以自己命名 比如event evt e
+        // 5. 事件对象也有兼容性问题 ie678通过 window.event 兼容性写法 e = e || window.event
+    </script>
+</body>
+</html>

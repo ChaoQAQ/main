@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 随机生成一个 1~10的整数 我们想要用到 Math.random() 的方法来做
+        // 2. 需要一直猜到正确为止 所以需要一直循环
+        // 3. while 循环更简单
+        // 4. 核心算法 使用 if else if 多分枝语句来判断大于、小于、等于
+        function getrandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        var random = getrandom(1, 10);
+        // while (true) { // 循环条件表达式结果为真 循环一直进行 遇到break退出整个循环
+        //     var num = prompt('请输入一个1~10的随机整数');
+        //     if (num > random) {
+        //         alert('你猜大了');
+        //     } else if (num < random) {
+        //         alert('你猜小了');
+        //     } else {
+        //         alert('恭喜你，猜对了');
+        //         break; // 退出整个循环
+        //     }
+        // }
+        for (var i = 1; i <= 10; i++) { // 限制次数为10
+            var num = prompt('请输入一个1~10的随机整数');
+            if (num > random) {
+                alert('你猜大了');
+            } else if (num < random) {
+                alert('你猜小了');
+            } else {
+                alert('恭喜你，猜对了');
+                break; // 退出整个循环
+            }
+        }
+    </script>
+</body>
+</html>

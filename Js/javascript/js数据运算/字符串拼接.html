@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.检查获取字符串的长度 每个空格也要算一个长度
+        var str = 'my name is    aoteman';
+        console.log(str.length); //答案是21
+        // 2.字符串的拼接 + 只要有字符串和其它类型相拼接，其结果一定是字符串型，数值相加，字符相连
+        console.log('aa' + 'bb');   //  aabb
+        console.log('aa' + 12);   //  aa12
+        console.log('aa' + true);   //  aatrue
+        console.log(12 + true);   //  13   true = 1,  false = 0
+        console.log(12 + 12);     //  24
+
+        // 3.字符串加强  引引加加
+        var age = 18;
+        // 我们变量不要写到字符串里面，是通过和字符串相连的方式实现的
+        console.log('杨先生' + age + '岁');
+    </script>
+</body>
+</html>

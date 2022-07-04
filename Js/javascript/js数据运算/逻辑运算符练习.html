@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num = 7;
+        var str = 'qwertyu';
+        console.log(num > 5 && str.length >= num);   // 两边都为true 结果为 true
+        console.log(num < 5 && str.length >= num);    // 左为 false 右为 true 结果为 false
+        console.log(!(num < 10));                    // ！取true的反值 结果为 false
+        console.log(!(num < 10 || str.length == num));   // 左true 右true 取反结果为 false
+
+        console.log(typeof str.length); // number
+    </script>
+</body>
+</html>

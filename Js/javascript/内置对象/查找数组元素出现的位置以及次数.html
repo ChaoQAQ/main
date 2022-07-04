@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 查找数组元素出现的位置以及次数
+        var arr = ['red', 'pink', 'red', 'blue', 'red'];
+        // var index = arr.indexOf('red');
+        // console.log(index);
+        function result(arr, math) {
+            var num = 0;
+            var index = arr.indexOf(math);
+            while (index !== -1) {
+                console.log(index);
+                num++;
+                index = arr.indexOf(math, index + 1);
+            }
+            console.log('打印'+ math + '的次数是' +num);
+        }
+        var math = 'red';
+        console.log(result(arr, math));
+    </script>
+</body>
+</html>

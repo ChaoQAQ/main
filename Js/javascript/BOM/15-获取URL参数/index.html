@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        console.log(location.search); // ?uname=name
+        // 1. 先去掉？号 substr('起始位置', 截取几个字符) 从0开始 只有一个参数时就是默认从当前位置截取到结束包括当前位置
+        var params = location.search.substr(1); // uname=name
+        console.log(params); // 参数的意思
+        // 2. 利用=号把字符串分隔为数组 split('=');
+        var arr = params.split('='); // [uname, name]
+        console.log(arr);
+        // 3. 把数据写到div中
+        var div = document.querySelector('div');
+        div.innerHTML = arr[1] + ' 欢迎您';
+    </script>
+</body>
+</html>

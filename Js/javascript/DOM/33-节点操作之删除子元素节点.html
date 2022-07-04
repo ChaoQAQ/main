@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>删除</button>
+    <ul>
+        <li>光头强</li>
+        <li>熊大</li>
+        <li>熊二</li>
+    </ul>
+    <script>
+        // 1. 获取元素
+        var btn = document.querySelector('button');
+        var ul = document.querySelector('ul');
+
+        // 2. 删除子节点 node.removeChild(child)
+        // ul.removeChild(ul.children[0]);
+
+        // 3. 点击按钮依次删除里面的子元素节点
+        btn.onclick = function () {
+            if (ul.children.length == 0) {
+                this.disabled = true;
+            } else {
+                var result = ul.removeChild(ul.children[0]);
+                console.log(result); // 返回的是删除的元素节点
+            }
+        }
+    </script>
+</body>
+</html>

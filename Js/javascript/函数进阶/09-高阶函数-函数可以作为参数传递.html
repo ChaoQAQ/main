@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 高阶函数就是 把函数当作参数传递 或者 将函数作为返回值输出
+        function fn(a, b, callBack) {
+            console.log(a + b);
+            callBack && callBack();
+        };
+        fn(1, 2, function() {
+            console.log('我是把函数作为参数传递的');
+        });
+        $("div").animate(
+            {
+                left: 400
+            }, function() {
+                $("div").css("backgroundColor", "purple");
+            }
+            )
+    </script>
+</body>
+</html>

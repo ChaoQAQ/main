@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Object.defineProperty() 定义对象新属性或者修改原有属性
+        let obj = {
+            id: 1,
+            name: '小米',
+            price: 1999
+        };
+        // 1. 以前给对象添加属性和方法
+        // obj.num = 100;
+        console.log(obj);
+
+        // 2. Object.defineProperty() 定义对象新属性或者修改原有属性
+        Object.defineProperty(obj, 'num', { // 第一个值是修改的对象名 第二个是被修改的属性 第三个是对象形式目标所拥有的特性
+            value: 100 
+        })
+        console.log(obj);
+        Object.defineProperty(obj, 'price', { // 第一个值是修改的对象名 第二个是被修改的属性 第三个是对象形式目标所拥有的特性
+            value: 1000
+        })
+        console.log(obj);
+        Object.defineProperty(obj, 'id', { // 第一个值是修改的对象名 第二个是被修改的属性 第三个是对象形式目标所拥有的特性
+            // writable如果为false 就表示这个属性不可以被修改 默认false
+            writable: false,
+        })
+        obj.id = 2;
+        console.log(obj);
+        Object.defineProperty(obj, 'address', { // 第一个值是修改的对象名 第二个是被修改的属性 第三个是对象形式目标所拥有的特性
+            value: '中国山东蓝翔挖掘机',
+            // writable如果为false 就表示这个属性不可以被修改 默认false
+            writable: false,
+            // enumerable 如果值为 false 则不允许枚举遍历这个属性 默认 false
+            enumerable: false,
+            // configurable 如果值为false 则不允许删除这个属性 不允许在修改第三个参数里面的特性 默认false
+            configurable: false
+        })
+        obj.id = 2;
+        console.log(obj);
+        console.log(Object.keys(obj));
+        // Object.defineProperty(obj, 'address', { // 第一个值是修改的对象名 第二个是被修改的属性 第三个是对象形式目标所拥有的特性
+        //     value: '中国山东蓝翔挖掘机',
+        //     // writable如果为false 就表示这个属性不可以被修改 默认false
+        //     writable: true,
+        //     // enumerable 如果值为 false 则不允许枚举遍历这个属性 默认 false
+        //     enumerable: true,
+        //     // configurable 如果值为false 则不允许删除这个属性 不允许在修改第三个参数里面的特性 默认false
+        //     configurable: true
+        // })
+        console.log(obj);
+        delete obj.address;
+        delete obj.price;
+        console.log(obj);
+
+    </script>
+</body>
+</html>

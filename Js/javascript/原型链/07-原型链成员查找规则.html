@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+        Star.prototype.sing = function() {
+            console.log('唱歌');
+        }
+        // Star.prototype.sex = '女生';
+        Object.prototype.sex = '男生';
+        var ldh = new Star('刘德华', 18);
+        ldh.sex = '男';
+        console.log(ldh.sex);
+        // 1. 当访问一个对象的属性和方法时 首先查找这个对象自身有没有
+        // 2. 如果没有就查找这个对象的原型 对象原型指向原型对象构造函数本身
+        // 3. 如果函数没有就找原型对象的对象原型指向Object的原型对象
+        // 4. 依次类推一直找到Object 为止 null
+        // 5. __proto__ 对象原型的意义就在于为对象成员查找机制提供一个方向 或者说一条线
+    </script>
+</body>
+</html>

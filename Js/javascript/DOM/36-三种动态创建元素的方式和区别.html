@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <span>1</span>
+    <div class="inner"></div>
+    <div class="create"></div>
+    <script>
+        // 三种动态创建元素的方式区别
+        var btn = document.querySelector('button');
+
+        // 1. document.write() 创建元素 如果页面文档流加载完毕 再调用这句话会导致页面重新绘制
+        // document.write('<div>3</div>');
+        btn.onclick = function () {
+            document.write('<div>3</div>'); // 页面已经加载完毕 再调用它会导致页面重新绘制
+        }
+        // 2. innerHTML 创建元素 在当前元素里面创建一个子元素节点
+        var inner = document.querySelector('.inner');
+        // inner.innerHTML = "<div>innerHTML</div>";
+        var arr = [];
+        for (var i = 0; i < 100; i++) {
+            arr.push('<div>innerHTML</div>'); // 数组元素为字符串
+        }
+        console.log(arr);
+        inner.innerHTML = arr.join(''); // 将数组转换为字符串 innerHTML它能识别html标签
+
+        // 3. document.createElement() 创建元素
+        var create = document.querySelector('.create');
+        var div = document.createElement('div');
+        // div.innerHTML = '老头';
+        // div.innerText = '老头';
+        create.appendChild(div);
+    </script>
+</body>
+
+</html>

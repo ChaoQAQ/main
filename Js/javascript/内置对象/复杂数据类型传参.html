@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 复杂数据类型传参
+        function Person(name) {
+            this.name = name;
+        }
+
+        function f1(x) {
+            console.log(x.name); // 刘德华
+            x.name = '张学友'; // 这里更改了堆里name 的数据
+            console.log(x.name) ; // 张学友
+        }
+
+        var p = new Person('刘德华'); // 在栈里面存放地址指向堆
+        console.log(p.name); // 刘德华
+        f1(p); // 相当于把p在栈里的地址复制了 所以他们指向的 堆里数组一样位置
+        console.log(p.name); // 因为堆里的数据发生改变 指向的地址一样 所以这里也会发生改变 张学友
+        // 简单数据类型传参是直接给值 而复杂数据类型传参是复杂地址给 操作的同一个对象 new关键字创造的复杂数据类型
+    </script>
+</body>
+</html>

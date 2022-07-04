@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 格式化日期时分秒
+        var date = new Date(); // 得到当前时间
+        console.log(date.getHours()); // 时 这些都是返回 0 ~ 59
+        console.log(date.getMinutes()); // 分
+        console.log(date.getSeconds()); // 秒
+        // 要求封装一个函数 06:06:06
+        function getTime() {
+            var time = new Date();
+            h = time.getHours();
+            h = h < 10 ? '0' + h : h; // 利用三元运算符追加字符串补0
+            m = time.getMinutes();
+            m = m < 10 ? '0' + m : m;
+            s = time.getSeconds();
+            s = s < 10 ? '0' + s : s;
+            return h + ':' + m + ':' + s // return 返回结果 返回给函数的调用者
+        }
+        console.log(getTime());
+    </script>
+</body>
+</html>

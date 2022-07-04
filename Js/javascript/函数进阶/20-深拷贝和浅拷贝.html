@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 深拷贝和签拷贝
+        // 浅拷贝只是拷贝一层 更深层次对象级别的只拷贝引用地址
+        // 深拷贝拷贝多层 每一级的数据都会拷贝
+        let obj = {
+            id: 18,
+            name: 'andy',
+            msg: {
+                age: 18
+            }
+        }
+        let o = {};
+        for(let k in obj) {
+            // k 是属性名 obj[k]是属性值
+            o[k] = obj[k]; // 键值对方式
+        }
+        
+        // console.log(o); // 20
+        // o.msg.age = 20;
+        // console.log(o); // 20
+        // console.log(obj); // 20
+
+        // Object.assign(目标对象，需要被拷贝的对象)
+
+        Object.assign(o, obj);
+        // console.log/dir/... 这类方法输出对象时会显示该对象在内存中最新的状态
+        console.log(o); // 20
+        o.msg.age = 20;
+        console.log(o); // 20
+        console.log(obj); // 20
+    </script>
+</body>
+</html>

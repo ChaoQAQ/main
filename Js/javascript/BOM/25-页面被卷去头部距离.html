@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+            border: 1px solid hotpink;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 1. 声明了 DTD document.documentElement.scrollTop
+
+        // 2. 未声明 DTD document.body.scrollTop
+
+        // 3. 新方法 window.pageYOffset 和 window.pageXOffset IE9开始支持
+
+        // 4. 兼容性写法
+        function getScroll() {
+            return {
+                left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+                top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+            }
+        }
+        // 使用的时候 getScroll().left
+    </script>
+</body>
+</html>

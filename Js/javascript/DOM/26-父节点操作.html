@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="demo">
+        <div class="box">
+            <div class="erweima">×</div>
+        </div>
+    </div>
+    <script>
+        var box = document.querySelector('.box');
+        var erweima = document.querySelector('.erweima');
+
+        // 1. 父节点 parentNode parent父亲的意思 Node节点的意思
+        var erweima = document.querySelector('.erweima');
+        // erweima.parentNode;
+        console.log(erweima.parentNode); // 得到的是离元素最近的父级元素 亲爸爸 没有父级就返回null
+    </script>
+</body>
+</html>

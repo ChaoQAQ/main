@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 简单数据类型传参
+        function fn(a) {
+            a++;
+            console.log(a); // 11
+        }
+        var x = 10; // 存放在栈里
+        fn(x); // 相当于把值复制了一份传递给形参a
+        console.log(x); // 10 所以不会影响x
+    </script>
+</body>
+</html>

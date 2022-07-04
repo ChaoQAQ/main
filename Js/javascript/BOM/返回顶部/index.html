@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+            height: 200px;
+            margin-top: 100px;
+            background-color: pink;
+        }
+        nav {
+            height: 500px;
+            background-color: purple;
+        }
+        section {
+            height: 600px;
+            background-color: skyblue;
+        }
+        footer {
+            height: 300px;
+            background-color: blue;
+        }
+        .goBack {
+            display: none;
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            padding: 5px;
+            background-color: yellow;
+            color: hotpink;
+        }
+    </style>
+</head>
+<body>
+    <div class="goBack">返回</div>
+    <header></header>
+    <nav></nav>
+    <section></section>
+    <footer></footer>
+    <script>
+        var header = document.querySelector('header');
+        console.log(header.offsetTop);
+        var goBack = document.querySelector('.goBack');
+        var section = document.querySelector('section');
+        window.addEventListener('scroll', function() {
+            // console.log(window.scrollY);
+            // console.log(window.pageYOffset);
+            if (window.pageYOffset >= section.offsetTop) {
+                goBack.style.display = 'block';
+            } else {
+                goBack.style.display = 'none';
+            }
+        })
+        goBack.addEventListener('touchstart', function() {
+            window.scroll(0, 0);
+        })
+    </script>
+</body>
+</html>

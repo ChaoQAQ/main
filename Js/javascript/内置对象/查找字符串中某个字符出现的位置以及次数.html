@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 查找字符串'avsduivsuivsivofnuv'中所有v 出现的位置以及次数
+        // 核心算法 先查找第一个v 出现的位置 在+1
+        // 只要indexOf返回的不是 -1 就一直往后查找 
+        // 因为indexOf只能查找第一个 所有后面的查找应该是 第一次出现的位置的索引号+1
+
+        var str = 'avsduivsuivsivofnuv';
+        var index = str.indexOf('v');    // 第一次v 出现的位置索引号
+        var num = 0; // 计算次数
+        while (index !== -1) {
+            console.log(index); // 先打印第一次
+            num++; // 每次打印num + 1记录次数
+            index = str.indexOf('v', index + 1); // 每次索引号+1 往后面继续查找 打印
+        }
+        console.log('v出现的次数是：' + num);
+    </script>
+</body>
+</html>

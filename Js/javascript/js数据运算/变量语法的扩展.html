@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 更新变量
+        var myname = '杨先生';
+        console.log(myname);
+        // js代码从上倒下执行，变量两次赋值，最后一次赋值会覆盖前面的赋值
+        myname = '迪丽热巴';
+        console.log(myname); // 答案是迪丽热巴
+        // 2. 声明多个变量的写法
+        // var age = 18;
+        // var job = '司机';
+        // var gz = 6600;
+
+        var age = 18,
+            job = '司机',
+            gz = 6600;
+
+        console.log(age);
+        console.log(job);
+        console.log(gz);
+        // 3. 声明变量的特殊情况
+        // 1. 只声明不赋值  答案是undefined 未定义
+        var sex;
+        console.log(sex);
+
+        // js中从上到下执行代码，执行时报错了就不会在执行下一句js代码了 *********************** 变量命名允许 $ _ 开头，不能是数字开头
+
+        // 2. 不声明，不赋值，直接使用会报错的
+        console.log(tel);
+        // 3. 不声明，直接赋值使用,在js中可以使用，但不推荐
+        qq = 18;
+        console.log(qq);
+    </script>
+</body>
+</html>

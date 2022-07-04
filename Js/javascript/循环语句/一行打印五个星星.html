@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 一行打印五个笑脸
+        console.log('😂😂😂😂😂');
+        for (var i =1; i <= 5; i++) {
+            console.log('😂');
+        }
+        // 这里采用字符串拼接方法
+        var str = '';
+        for (var i = 1; i <= 5; i++) {
+            str = str + '😂';
+        }
+        console.log(str);
+
+        var result = ''
+        var num = prompt('请输入笑脸个数');
+        for (var i = 1; i <= num; i++) {
+             result  = result + '😂';
+        }
+        alert(result);
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 定义一个临时变量 temp
+        // 2. 把app1的值赋值给temp，让temp来保存app1的值
+        // 3. 然后把app2的值赋值给app1
+        // 4. 最后在把temp的值赋值给app2，然后输出
+        var temp,            //声明了一个临时变量为空
+            app1 = '白的',
+            app2 = '黑的';
+        temp = app1;         //app1的数据在temp
+        app1 = app2;         //转移app2的数据到app1里
+        app2 = temp;         //将app1保存在temp的数据转移到app2
+        console.log('app1白的变' + app1);
+        console.log('app2黑的变' + app2);
+    </script>
+</body>
+</html>

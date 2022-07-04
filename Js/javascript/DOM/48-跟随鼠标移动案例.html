@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        // 1. mousemove鼠标移动事件 鼠标移动就会触发这个事件
+        document.addEventListener('mousemove', function (e) {
+        // 2. 每次鼠标移动都会触发事件 再获取鼠标xy坐标再把坐标作为绝对定位的left和top值进行了
+            var x = e.pageX;
+            var y = e.pageY;
+            console.log('x的坐标是' + x, 'y的坐标是' + y);
+        // 3. 这里一定要拼接单位
+            div.style.left = x - 50 + 'px';
+            div.style.top = y - 50 + 'px';
+        })
+    </script>
+</body>
+
+</html>

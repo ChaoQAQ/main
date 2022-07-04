@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Math对象随机数方法 random() 返回一个随机的小数 0 <= x < 1  random 随机的意思
+        // 2. 这个方法括号里面不跟参数 随机生成
+        // 3. 代码验证 
+        console.log(Math.random()); //得到的是一个大于等于 0 小于 1 的小数
+
+        // 4. 我们想要得到两个数之间的 随机整数 并且包括这两个数
+        // return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
+        // return Math.floor(Math.random() * (max - min)) + min; //不含最大值，含最小值
+        function getrandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        console.log(getrandom(1, 10));
+
+        // 5. 随机点名
+        var arr = ['张三', '李四', '王二', '张麻子', '熊五'];
+        console.log(arr[getrandom(0, 4)]);
+    </script>
+</body>
+</html>

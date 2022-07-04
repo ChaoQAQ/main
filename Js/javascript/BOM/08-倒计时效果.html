@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            margin-left: 10px;
+            background-color: #000;
+            font-size: 100px;
+            color: aliceblue;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <span class="hour">1</span>
+    <span class="minute">2</span>
+    <span class="second">3</span>
+    <script>
+        // 1. 获取元素
+        var hour = document.querySelector('.hour'); // 获取小时盒子
+        var minute = document.querySelector('.minute'); // 获取分钟的盒子
+        var second = document.querySelector('.second'); // 获取秒数盒子
+        var inputTime = +new Date('2022-4-16 10:00:00'); // 返回的是我们输入的时间的总毫秒数
+        // 2. 封装倒计时函数
+        function countDown() {
+            var nowTime = +new Date(); // 返回的是我们当前时间总的毫秒数 now现在    
+            var times = (inputTime - nowTime) / 1000; // times是剩余时间总的秒数
+            var h = parseInt(times / 60 / 60 % 24); // 时
+            h = h < 10 ? '0' + h : h; // 利用三元运算符补0
+            hour.innerHTML = h; // 把剩余的小时赋值给小时盒子
+            var m = parseInt(times / 60 % 60) // 分
+            m = m < 10 ? '0' + m : m;
+            minute.innerHTML = m;
+            var s = parseInt(times % 60); // 秒
+            s = s < 10 ? '0' + s : s;
+            second.innerHTML = s;
+        }
+        // 3. 开启定时器
+        countDown(); // 先调用一次，防止页面刷新有空白 count计数 down向下 倒计时
+        setInterval(countDown, 1000);
+    </script>
+</body>
+</html>

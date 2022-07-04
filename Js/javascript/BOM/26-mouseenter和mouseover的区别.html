@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            margin: 100px auto;
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+        .son {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            background-color: hotpink;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        // mouseover会冒泡 和 mouseenter不会冒泡都是鼠标经过事件 mouseout会冒泡 和 mouseleave不会冒泡 都是鼠标离开事件
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        // 1. mouseover 会冒泡
+        father.addEventListener('mouseover', function() {
+            console.log(1);
+        })
+        // 2. mouseenter 不会冒泡
+        father.addEventListener('mouseenter', function() {
+            console.log(2);
+        })
+        father.addEventListener('mouseout', function() {
+            console.log(11);
+        })
+        father.addEventListener('mouseleave', function() {
+            console.log(22);
+        })
+
+    </script>
+</body>
+</html>

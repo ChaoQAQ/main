@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"> <button>点击</button>
+    <div style="font-size: 26px;"></div>
+    <script>
+        // trim() 修剪 去除字符串两侧空白字符 返回一个新的字符串
+        let str = ' an dy ';
+        console.log(str);
+        console.log(str.length);
+        console.log(str.trim());
+        console.log(str.trim().length);
+
+        let input = document.querySelector('input');
+        let button = document.querySelector('button');
+        let div = document.querySelector('div');
+        button.addEventListener('click', function() {
+            let value = input.value.trim(); // 去除字符串两端的空白字符
+            if (value != '') {
+                console.log(value);
+                div.innerHTML = value;
+            } else {
+                alert('请输入字符');
+            }
+        })
+    </script>
+</body>
+</html>

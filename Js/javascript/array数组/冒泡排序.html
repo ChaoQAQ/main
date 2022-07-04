@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 冒泡排序是一种算法 把一系列的数据按照一定的顺序进行排列显示 从小到大或者从大到小
+        // var arr = [5, 4, 3, 2, 1];
+        var arr = [5, 2, 3, 4, 1];
+        // var arr = [5, 2, 3, 2, 1];
+        var temp = 0;
+        for (var i = 0; i <= arr.length - 1; i++) { // 外层循环管趟数
+            for (var j = 0; j <= arr.length - i - 1; j++) { // 里面循环管每一躺交换次数
+                // 内部交换两个变量的值 前一个和后一个数组元素相比较
+                // 判断两个数前者是否大于后者 大于就交换位置 不大于就不动 下一轮循环因数组索引号改变，取的是该索引号的值在于后一个元素比较 所以不会因为元素位置 或者元素相等而影响排序
+                if (arr[j] > arr[j + 1]) { // arr[j] > arr[j + 1] 从小到大排列 前者大于后者就交换位置
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        console.log(arr);
+        var arr = [5, 2, 3, 4, 1];
+        // var arr = [5, 2, 3, 2, 1];
+        var temp = 0;
+        for (var i = 0; i <= arr.length - 1; i++) { // 外层循环管趟数
+            for (var j = 0; j <= arr.length - i - 1; j++) { // 里面循环管每一躺交换次数
+                // 内部交换两个变量的值 前一个和后一个数组元素相比较
+                // 判断两个数前者是否大于后者 大于就交换位置 不大于就不动 下一轮循环因数组索引号改变，取的是该索引号的值在于后一个元素比较 所以不会因为元素位置 或者元素相等而影响排序
+                if (arr[j] < arr[j + 1]) {  // arr[j] < arr[j + 1] 从大到小排列 前者小于后者就交换位置
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        console.log(arr);
+    </script>
+</body>
+</html>

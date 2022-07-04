@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1. 因为移动端的点击 300ms以内连续点击两下屏幕 可以实现放大缩小功能 -->
+    <!-- 2. 目前有两种解决方案 -->
+    <!-- 3. 在视口标签里写上禁用缩放功能 content="user-scalable=no" -->
+    <!-- 4. 利用touch事件自己封装这个事件解决300ms延迟问题 -->
+    <button></button>
+    <script>
+        var btn = document.querySelector('button');
+        // btn.addEventListener('click', function() {
+        //     alert(1);
+        // })
+        // 调用
+        tap(btn, function() {
+            alert(1);
+        })
+        // 封装tap 解决click 300ms 延时
+        function tap(obj, callback) {
+            var isMove = false;
+            var startTime = 0; // 记录触摸时候的时间 now现在
+            obj.addEventListener('touchstart', function() {
+                startTime = Date.now(); // 记录触摸开始时间
+            })
+            obj.addEventListener('touchmove', function() {
+                isMove = true; // 看看是否有滑动 有就算拖拽 不算点击
+            })
+            obj.addEventListener('touchend', function() {
+                if (!isMove && (Date.now() - startTime) < 150) { // 如果手指触摸和离开时间小于150ms算点击
+                    callback && callback(); // 执行回调函数
+                }
+                isMove = false; // 取反重置
+                startTime = 0; // 开始时间重置
+            })
+        }
+    </script>
+</body>
+</html>

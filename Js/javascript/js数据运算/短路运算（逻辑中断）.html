@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.我们的布尔值参与的逻辑运算 true && false == false
+        // 2.123 && 456 是值或者是表达式参与运算？
+        // 3.逻辑 与 && 短路运算 如果表达式1为 真 返回表达式2 如果表达式1为假 返回表达式1
+        console.log(123 && 456);  // 456
+        console.log(0 && 456);    // 0
+        // 为假就停止 为真就一直计算
+        console.log(0 && 1 && 345 * 333);  //  0  0 && 1 返回0 停止后面计算
+        console.log(1 && 2 && 345 * 333 && 6);  //  1   1 && 2 返回2  2 && 345 * 333 返回345 * 333 && 6 返回6
+        // 如果有 空的 或者 否定的为假 其余为真 0 '' null undefined NaN
+
+        // 4.逻辑 或 || 短路运算 如果表达式1结果为真 就返回表达式1 如果表达式1结果为假 就返回表达式2
+        // 或 || 不管表达式1为真为假都不会再计算后面的了 非 && 表达式1为真会继续执行后面的
+        console.log(11 || 22);                    // 11
+        console.log(11 || 22 || 33);              // 11
+        console.log(11 || 22 || 33 || 0 || 66);   // 11
+        console.log(0 || 22 || 33 || 0 || 66);    // 22
+    </script>
+</body>
+</html>

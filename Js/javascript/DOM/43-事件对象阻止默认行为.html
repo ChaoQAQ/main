@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>123</div>
+    <a href="http://www.baidu.com">百度</a>
+    <script>
+        // 1. 返回事件类型 事件对象.type 返回的事件类型不带 on
+        var div = document.querySelector('div');
+        div.addEventListener('click', fn, false);
+        function fn(e) {
+            e.type;
+            console.log(e.type); // click 不带on
+        }
+        // 2. 阻止事件默认行为 比如让链接不跳转 或者让按钮不提交
+        var a = document.querySelector('a');
+        a.addEventListener('click', function(e) {
+            e.preventDefault(); // DOM标准写法 prevent防止 default默认
+        }, false);
+        // 3. 传统的注册事件方式
+        a.onclick = function (e) {
+            // 普通浏览器 e.preventDefault(); 方法
+            e.preventDefault();
+            // 低版本浏览器 ie678 returnValue 属性
+            e.returnValue;
+            // 我们可以利用 return false 也能阻止默认行为 没有兼容性问题 特点 return 后面的代码不执行了
+            return false;
+            alert('hi');
+
+        }
+
+    </script>
+</body>
+</html>

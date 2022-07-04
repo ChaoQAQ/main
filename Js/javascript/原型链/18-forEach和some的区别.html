@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = ['pink', 'green', 'red', 'blue', 'yellow'];
+        // 1. forEach 遍历 迭代
+        // arr.forEach(function(value) {
+        //     if (value === 'green') {
+        //         console.log('找到了');
+        //         return true; // 在 forEach里面 return true不会终止 迭代 遍历
+        //     }
+        //     console.log(11);
+        // })
+        // 2. some 迭代 遍历
+        // arr.some(function(value) {
+        //     if (value === 'green') {
+        //         console.log('找到了');
+        //         return true; // 在 some里面 return true会终止 迭代 遍历 效率跟高
+        //     }
+        //     console.log(11);
+        // })
+        // 3. filter 迭代 遍历
+        arr.filter(function(value) {
+            if (value === 'green') {
+                console.log('找到了');
+                return true; // 在 filter里面 return true不会终止 迭代 遍历
+            }
+            console.log(11);
+        })
+    </script>
+</body>
+</html>

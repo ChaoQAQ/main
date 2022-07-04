@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log('人' != '阿凡达');
+        // true || true && true           结果为 true 
+        console.log(4 >= 6 || '人' != '阿凡达' && !(12 * 2 == 144) && true);
+        var num = 10;
+        // true && true  结果为 true
+        console.log(5 === num / 2 && (2 + 2 * num).toString() === '22');
+
+        // false && true && false 结果为false
+        var a = 3 > 5 && 2 < 7 && 3 == 4;
+        console.log(a);
+
+        // true || true || true  结果为true
+        var b = 3 <= 4 || 3 > 1 || 3 != 2;
+        console.log(b);
+
+        var c = 2 === '2';
+        console.log(c);   // false
+
+        // true || true && false   结果为 true
+        var d = !c || b && a;
+        console.log(d);
+
+
+        // 逻辑运算符 ! 非   >  && 与   > || 或
+    </script>
+</body>
+</html>

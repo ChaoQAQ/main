@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .message {
+            color: #999;
+        }
+        .green {
+            color: green;
+        }
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="text" class="ipt">
+        <span class="message">请输入6~12位密码</span>
+    </div>
+    <script>
+        // 首先判断事件是表单失去焦点事件 onblur
+        // 如果输入正确则提示正确信息 颜色为绿色
+        // 如果输入不是6~12位 则提示错误信息 颜色为红色
+        // 因为类名样式变化比较多 我们采取className修改样式
+
+        // 1. 获取元素
+        var ipt = document.querySelector('.ipt');
+        var message = document.querySelector('.message');
+        // 2. 注册事件 失去焦点 onblur
+        ipt.onblur = function() {
+            // 根据表单里面的值的长度 ipt.value.length
+            if (this.value.length < 6 || this.value.length > 12) {
+                message.className = 'red';
+                message.innerHTML = '你输入的位数不对，请输入6~12位数';
+            } else {
+                message.className = 'green';
+                message.innerHTML = '输入正确';
+            }
+        }
+    </script>
+</body>
+</html>

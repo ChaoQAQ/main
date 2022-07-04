@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击跳转页面</button>
+    <div></div>
+    <script>
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        // btn.addEventListener('click', function () {
+        //     window.location.href = 'http://www.itcast.cn';
+        // })
+        var timer = 5;
+        
+        function fn() {
+            if (timer == 0) {
+                window.location.href = 'http://www.itcast.cn';
+            } else {
+                div.innerHTML = '你的页面将于' + timer + '秒后跳转';
+                timer--;
+            }
+        }
+        fn(); // 先调用一次防止刚刷新页面 页面空白等待效果
+        setInterval(fn, 1000);
+    </script>
+</body>
+
+</html>

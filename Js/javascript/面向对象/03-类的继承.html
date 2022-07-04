@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 类的继承  extends关键字用于类声明或者类表达式中 以创建一个类该类是另一个类的子类
+        // class Father {
+        //     constructor() {
+                
+        //     }
+        //     money() {
+        //         console.log('extends继承100');
+        //     }
+        // }
+        // class Son extends Father {
+            
+        // }
+        // let son = new Son();
+        // son.money();
+        
+        class Father {
+            constructor(x, y) { // 父类构造函数
+                this.x = x;
+                this.y = y;
+            }
+            sum() {
+                console.log(this.x + this.y);
+            }
+        }
+        // 2. super关键字用于访问和调用一个对象的父对象上的函数 可以调用父类的构造函数也可以调用父类的普通函数
+        class Son extends Father {
+            constructor(x, y) {
+                super(x, y); // super关键字调用父类的构造函数 可以实现子类参数传递给父类
+            }
+        }
+        let son = new Son(1, 2);
+        // Son的实参传给Son的构造函数的形参在传给super的形参 super方法调用父类的构造函数传替参数在执行父类的方法
+        son.sum();
+    </script>
+</body>
+</html>

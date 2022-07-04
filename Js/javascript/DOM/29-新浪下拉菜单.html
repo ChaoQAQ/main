@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        .box {
+            width: 1000px;
+            margin: 200px auto;
+        }
+
+        .nav {
+            display: flex;
+        }
+
+        .nav>li {
+            position: relative;
+            width: 200px;
+            height: 50px;
+        }
+
+        .nav>li a {
+            display: block;
+            width: 200px;
+            height: 50px;
+        }
+
+        .nav>li ul {
+            display: none;
+            position: absolute;
+            top: 50px;
+        }
+
+        .nav>li ul li {
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="nav">
+            <li>
+                <a href="#">微博</a>
+                <ul>
+                    <li>老坛酸菜牛肉面</li>
+                    <li>老坛酸菜牛肉面</li>
+                    <li>老坛酸菜牛肉面</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">微博</a>
+                <ul>
+                    <li>老坛酸菜牛肉面</li>
+                    <li>老坛酸菜牛肉面</li>
+                    <li>老坛酸菜牛肉面</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">微博</a>
+                <ul>
+                    <li>老坛酸菜牛肉面</li>
+                    <li>老坛酸菜牛肉面</li>
+                    <li>老坛酸菜牛肉面</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">微博</a>
+                <ul>
+                    <li>老坛酸菜牛肉面</li>
+                    <li>老坛酸菜牛肉面</li>
+                    <li>老坛酸菜牛肉面</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">微博</a>
+                <ul>
+                    <li>老坛酸菜牛肉面</li>
+                    <li>老坛酸菜牛肉面</li>
+                    <li>老坛酸菜牛肉面</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // 1. 获取元素
+        var nav = document.querySelector('.nav');
+        var lis = nav.children;
+        // 2. for循环注册事件
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onmouseover = function () {
+                this.children[1].style.display = 'block';
+            }
+            lis[i].onmouseout = function () {
+                this.children[1].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

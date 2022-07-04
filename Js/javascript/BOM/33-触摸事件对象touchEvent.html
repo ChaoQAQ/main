@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        // 1. 获取元素
+        var div = document.querySelector('div');
+        // 2. touch事件在PC端不生效
+        div.addEventListener('touchstart', function(e) {
+            console.log('手指触摸DOM元素事件');
+            console.log(e);
+            // touches 正在触摸屏幕的所有手指列表
+            // targetTouches 正在触摸当前DOM元素的手指列表
+            // changedTouches 手指状态发生改变的列表 有手指触摸会触发 有手指离开也会触发
+            // 因为我们一般触摸的是元素 所以经常使用的是 targetTouches
+            console.log(e.targetTouches[0]); // 就可以得到正在触摸dom元素的第一个手指的相关信息 比如 手指坐标等等 正在触摸的可以是多个手指 所以是个伪数组
+            console.log(typeof e.targetTouches); // 返回的是一个对象
+        })
+        div.addEventListener('touchmove', function() {
+            console.log('手指在DOM元素身上移动事件');
+        })
+        div.addEventListener('touchend', function(e) {
+            console.log('手指离开DOM元素事件');
+            console.log(e); 
+        })
+    </script>
+</body>
+</html>

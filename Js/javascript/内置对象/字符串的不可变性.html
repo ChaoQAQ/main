@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 字符串的不可变性
+        var str = 'andy';
+        console.log(str); // andy
+        str = 'red';
+        console.log(str); // red 虽然str输出的值变了 实际上 andy 还在内存中 只是 str指向了red 在js中字符串不可以改变的 只能改变指向地址
+        // 因为我们的字符串不可变性 所以不要大量拼接字符串
+        var str = '';
+        for (var i = 1; i <= 100000000; i++) { // 这样的时候就会卡
+            str += i;
+        }
+        console.log(str);
+    </script>
+</body>
+</html>

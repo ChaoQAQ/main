@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 40vw;
+            height: 25vw;
+            margin: 10vw auto 0;
+            border: 1px solid #ccc;
+        }
+        thead {
+            background-color: hotpink;
+        }
+        td {
+            height: 5vw;
+            width: 10vw;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    <input type="checkbox" name="" id="j_cbAll">
+                </td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox" name="" id="j_tb">
+                </td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="" id="j_tb">
+                </td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="" id="j_tb">
+                </td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="" id="j_tb">
+                </td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        // 1. 全选和取消全选的做法 让下面所有的复选框checked属性 选中状态根据全选按钮
+        // 获取元素
+        var j_cbAll = document.getElementById('j_cbAll');
+        var j_tbs = document.querySelector('tbody').querySelectorAll('#j_tb');
+        // 注册事件
+        j_cbAll.onclick = function() {
+            // this.checked 它可以得到当前复选框的选中状态 选中时结果为true 否则false
+            console.log(this.checked); 
+            for (var i = 0; i < j_tbs.length; i++) {
+                j_tbs[i].checked = this.checked; // 把全选按钮的选中状态赋值给下面单个复选框的状态
+            }
+        }
+        // 2. 下面复选框需要全部选中 上面的全选才能选中的做法 给下面所有复选框绑定点击事件 每次点击都要判读其他复选框的选中状态
+        for (var i = 0; i < j_tbs.length; i++) {
+            j_tbs[i].onclick = function () {
+                // flag控制全选按钮是否被选中
+                var flag = true;
+                for (var i = 0; i < j_tbs.length; i++) {
+                    // console.log(j_tbs[i].checked);
+                    if (!j_tbs[i].checked) { // 页面刷新所有的复选框都未选中结果为false 取反为true然后运行if语句 改变flag全选值 最后赋值给全选按钮
+                        flag = false;
+                        break; // 当检测到有一个没被选上直接退出循环 节约运行次数
+                    }
+
+                    // if (j_tbs[i].checked == false) { // 如果都不等于false if语句不执行 flag不改变 否则执行if语句改变flag值
+                    //     flag = false;
+                    // }
+                }
+                j_cbAll.checked = flag;
+            }
+        }
+    </script>
+</body>
+</html>

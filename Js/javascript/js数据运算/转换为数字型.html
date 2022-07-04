@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var age = prompt('请输入你的年龄');
+        // 1.parseInt(变量) 可以把字符型转换为数字型    结果取整数    从左到右开始取，第一个数为字母则结果为NaN
+        console.log(parseInt(age));        //18
+        console.log(parseInt(true));       //NaN
+        console.log(parseInt(undefined));  //NaN
+        console.log(parseInt('120px'));    //120
+        console.log(parseInt('px3338'));   //NaN
+        // 2.parseFloat(变量) 可以把字符型转换为数字型    结果取可以取小数  浮点数float
+        console.log(parseFloat('3.13'));  //3.13
+        console.log(parseFloat('120px')); //120
+        console.log(parseFloat('true'));  //NaN
+        console.log(parseFloat('3.98'));  //3,98
+        // 3.利用 Number(变量) 强制转换成数字型
+        var str = '123';
+        console.log(Number(str));   // 123
+        // 4.利用算术运算 隐式转换  -  *  /
+        console.log('123' - '11');  // 112
+        console.log('a' * '11');    // NaN
+        console.log('11' * 'a');    // NaN
+        console.log('11' / 'a');    // NaN
+    </script>
+</body>
+</html>

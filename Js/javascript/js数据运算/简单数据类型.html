@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var flag = true;   // flag   布尔型
+        var flag1 = false;   // flag1   布尔型
+        console.log(flag + 1);  //true参与加法运算当1来看
+        console.log(flag1 + 1);  //false参与加法运算当0来看
+
+        // 如果一个变量声明了没有赋值 结果就是 undefined 未定义数据类型
+        var str;
+        console.log(str);
+
+        var num = undefined;
+        console.log(num + 'pink');  // undefinedpink
+        console.log(num + 1);  // NaN undefined和数字相加最后结果是 NaN 非数字
+        // null 空值
+        var space = null;
+        console.log(space + 1);   // 1  null会当成0
+        console.log(space + true);   // 1  null会当成0
+    </script>
+</body>
+</html>

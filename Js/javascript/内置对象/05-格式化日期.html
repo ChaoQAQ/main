@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 格式化日期年月日 
+        var date = new Date(); // 这是一个构造函数 下面都是调用构造函数中的方法函数 所以要加 小括号
+        console.log(date.getFullYear()); // 返回的是当前日期 年
+        console.log(date.getMonth() + 1); // 返回的是月份 返回的月份小 1 月 因为是 0~11月 所以要 ＋ 1
+        console.log(date.getDate()); // 返回的是 几号
+        console.log(date.getDay()); // 返回的是 星期几 周一是1 周六是6 周日是0
+        // 我们写一个中国人 喜欢的日期格式
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1; // 一定要加1
+        var dates = date.getDate();
+        var day = date.getDay(); // 星期天 是0 所以数组索引号第一个应该是星期天 0~6
+        var arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六']
+        console.log('今天是：' + year + '年' + month + '月' + dates + '日 ' + arr[day]); // 格式化日期年月日 星期几 一个空格再字符串里会显示
+    </script>
+</body>
+</html>

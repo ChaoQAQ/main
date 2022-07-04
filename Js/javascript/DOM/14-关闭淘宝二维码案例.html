@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 100px auto;
+        }
+        .box img {
+            width: 100%;
+            height: 100%;
+        }
+        .box i {
+            position: absolute;
+            top: 0;
+            left: -30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="../../img/刘德华.webp" alt="">
+        <i>关闭</i>
+    </div>
+    <script>
+        // 1. 获取元素
+        var btn = document.querySelector('i');
+        var box = document.querySelector('.box');
+        // 2. 注册事件 程序处理
+        btn.onclick = function() {
+            box.style.display = 'none'; // 隐藏元素
+        } 
+    </script>
+</body>
+</html>
