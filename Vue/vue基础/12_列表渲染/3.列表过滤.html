@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表过滤</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <!-- 遍历数组 第一个参数是每一项 第二个参数是索引号 -->
+        <h2>人员列表</h2>
+        <!-- 双向绑定 数据能从data流向页面 也能从页面流向data 绑定的是具有value属性的元素 -->
+        <input type="text" v-model="keyWord">
+        <ul>
+            <li v-for="(p, index) in filPersons" :key="p.id">
+                {{p.name}}-{{p.age}}-{{p.sex}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.config.productionTip = false; // 阻止 vue 在启动时生成 生产提示
+
+        // 列表过滤 watch监视属性 实现
+        // #region 区域折叠
+        // new Vue({
+        //     el: '#root',
+        //     data: {
+        //         keyWord: '', // 被监视的属性必须存在
+        //         persons: [
+        //             {
+        //                 id: '01',
+        //                 name: '马冬梅',
+        //                 age: '18',
+        //                 sex: '女'
+        //             },
+        //             {
+        //                 id: '02',
+        //                 name: '周冬雨',
+        //                 age: 19,
+        //                 sex: '女'
+        //             },
+        //             {
+        //                 id: '03',
+        //                 name: '周杰伦',
+        //                 age: 20,
+        //                 sex: '男'
+        //             },
+        //             {
+        //                 id: '04',
+        //                 name: '温兆伦',
+        //                 age: 22,
+        //                 sex: '男'
+        //             }
+        //         ],
+        //         filPersons: []
+        //     },
+        //     watch: {
+        //         // 1. 监视 keyWord 
+        //         keyWord: { // 只需要用最新的值
+        //             immediate: true, // 立即调用一次 字符串默认会有空
+        //             handler(val) {
+        //                 this.filPersons = this.persons.filter(item => { // filter不会改变原数组
+        //                     return item.name.indexOf(val) !== -1;
+        //                 })
+        //             }
+        //         }
+        //     }
+        // })
+        // #endregion
+
+        // 列表过滤 computed计算属性 实现
+        new Vue({
+            el: '#root',
+            data: {
+                keyWord: '', 
+                persons: [
+                    {
+                        id: '01',
+                        name: '马冬梅',
+                        age: '18',
+                        sex: '女'
+                    },
+                    {
+                        id: '02',
+                        name: '周冬雨',
+                        age: 19,
+                        sex: '女'
+                    },
+                    {
+                        id: '03',
+                        name: '周杰伦',
+                        age: 20,
+                        sex: '男'
+                    },
+                    {
+                        id: '04',
+                        name: '温兆伦',
+                        age: 22,
+                        sex: '男'
+                    }
+                ]
+            },
+            computed: {
+                filPersons() { // 页面初次调用这个函数 就会执行 
+                    return this.persons.filter(item => {
+                        return item.name.indexOf(this.keyWord) !== -1;
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

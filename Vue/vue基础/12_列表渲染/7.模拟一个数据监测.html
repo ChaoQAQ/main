@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模拟一个数据监测</title>
+</head>
+
+<body>
+    <script>
+        let data = {
+            name: '尚硅谷',
+            address: '北京'
+        }
+
+        // 创建一个监视的实例对象 用于监视data中属性的变化
+        const obs = new Observer(data);
+        console.log(obs);
+
+        // 准备一个vm实例对象
+        let vm = {};
+        vm._data = obs;
+        // console.log(data);
+        console.log(obs);
+        console.log(vm._data);
+
+        function Observer(obj) {
+            // 汇总对象中所有的可枚举属性形成的一个数组
+            const keys = Object.keys(obj);
+            // 遍历
+            keys.forEach((k) => {
+                Object.defineProperty(this, k, { // 此处this指向构造函数本身 Observer
+                    get() {
+                        return obj[k]; // 读取构造函数的name属性时 给这个构造函数本身返回一个obj的name属性 值为data.name的值
+                    },
+                    set(val) {
+                        console.log(`${k}被修改了，我要去解析模板了，生成虚拟DOM，然后对比DOM...`);
+                        obj[k] = val; // 修改了这个构造函数name属性的值时就将构造函数name修改后的值赋值给data的name属性
+                    }
+                })
+            })
+        }
+    </script>
+</body>
+
+</html>

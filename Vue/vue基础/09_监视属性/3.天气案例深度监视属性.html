@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气案例深度监视属性</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        深度监视：
+            (1) Vue 中的 watch 默认不监视对象内部值得改变（一层）；
+            (2) 配置 immediate: true 初始化时让 handler 调用一下 立即； 
+            (3) 配置 deep: true 可以监视对象内部值改变（多层）；
+        备注：
+            (1) Vue 自身可以监视对象内部值得改变 但Vue提供的 watch 默认不可以；
+            (2) 使用 watch 时根据数据的具体结构 决定是否采用深度监视；
+     -->
+
+    <div id="root">
+        <h1>今天天气很{{info}}</h1>
+        <button @click="changeWeather">点击切换天气</button>
+        <hr/>
+        <button v-on:click="numbers.a++">a的值是{{numbers.a}}</button>
+        <hr/>
+        <button @click="numbers.b++">b的值是{{numbers.b}}</button>
+        <hr/>
+        <button @click="numbers.c.d.e++">e的值是{{numbers.c.d.e}}</button>
+        <hr/>
+    </div>
+    <script>
+        Vue.config.productionTip = false; // 阻止 vue 在启动时生成 生产提示
+
+        // 本质上都是改变了 data 中的数据 让其 Vue 重新解析模板
+        const vm = new Vue({
+            el: '#root',
+            data() {
+                return {
+                    isHot: true,
+                    numbers: {
+                        a: 1,
+                        b: 1,
+                        c: {
+                            d: {
+                                e: 1
+                            }
+                        }
+                    }
+                }
+            },
+            computed: {
+                info() {
+                    return this.isHot ? '炎热' : '凉爽';
+                }
+            },
+            methods: {
+                changeWeather() {
+                    this.isHot = !this.isHot;
+                }
+            },
+            watch: { // watch 监视属性 观察
+                isHot: {
+                    // immediate: true, // 初始化时让 handler 调用一下 立即 
+                    // handler 什么时候调用？ 当 isHot 发生改变时
+                    handler(newValue, oldValue) { // 处理程序
+                        console.log('isHot被修改了', newValue, oldValue);
+                    }
+                },
+                // 监视多级结构中某个属性的变化
+                // 'numbers.a': {
+                //     handler() {
+                //         console.log('numbers里面的a改变了');
+                //     }
+                // },
+                // 监视多级中所有属性的变化
+                numbers: {
+                    deep: true, // 开启深度监视 深的
+                    handler() {
+                        console.log('numbers改变了');
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 每个组件本质是一个名为VueComponent的构造函数 且不是程序员定义的 是创建组件时调用Vue.extend生成的
+        // 2. 每次创建一个组件 就会调用Vue.extend 而这个函数返回的是一个名为VueComponent的构造函数
+        // 3. 并且每次调用返回的这个构造函数都是现定义的 而Vue帮我们执行的 new VueComponent(options)
+        // 4. 我们编写完组件 执行Vue解析时会帮我们创建每个组件的实例对象VueComponent现生成的
+        // 5. 特别注意：每次调用Vue.extend，返回的都是一个全新的VueComponent！！！！
+
+        Vue.extend = function (extendOptions) {
+            // ...
+            var Sub = function VueComponent(options) {
+                this._init(options);
+            };
+            // ...
+            return Sub;
+          }
+    </script>
+</body>
+
+</html>

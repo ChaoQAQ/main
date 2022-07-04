@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sessionStorage</title>
+</head>
+    <h1>sessionStorage</h1>
+    <button onclick="setItem()">存储一个数据</button>
+    <button onclick="getItem()">读取一个数据</button>
+    <button onclick="removeItem()">移除一个数据</button>
+    <button onclick="clearAll()">清除所有数据</button>
+<body>
+    <script>
+        // sessionStorage 本地存储
+        function setItem() {
+            sessionStorage.setItem('key', 'value');
+            sessionStorage.setItem('张三', '18');
+            sessionStorage.setItem('电脑', '5399');
+            sessionStorage.setItem('电脑', JSON.stringify({name: '李四', age: 18}));
+        }
+        function getItem() {
+            console.log(sessionStorage.getItem('key'));
+            console.log(sessionStorage.getItem('张三'));
+            console.log(JSON.parse(sessionStorage.getItem('电脑')));
+            // 没有该数据返回null null转换为对象还是null
+            console.log(JSON.parse(sessionStorage.getItem('电脑1')));
+        }
+        function removeItem() {
+            sessionStorage.removeItem('key');
+        }
+        function clearAll() {
+            sessionStorage.clear();
+        }
+    </script>
+</body>
+</html>

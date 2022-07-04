@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.set的使用</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>学校名称：{{school.name}}</h1>
+        <h1>学校地址：{{school.address}}</h1>
+        <hr />
+        <h2>姓名：{{student.name}}</h2>
+        <h2 v-on:click.v-once="show">校长：{{school.leader}}</h2>
+        <h2>年龄：真实{{student.age.rAge}}，对外{{student.age.sAge}}</h2>
+        <h2>爱好</h2>
+        <ul>
+            <li v-for="(h, index) in student.hobby" :key="index">
+                {{h}}
+            </li>
+        </ul>
+        <h2>朋友们</h2>
+        <ul>
+            <li v-for="(f, index) in student.friends" :key="index">
+                {{f.name}}--{{f.age}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.config.productionTip = false; // 阻止 vue 在启动时生成 生产提示
+
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                school: {
+                    name: '尚硅谷',
+                    address: '北京',
+                },
+                student: {
+                    name: 'tom',
+                    age: {
+                        rAge: 40,
+                        sAge: 29
+                    },
+                    hobby: ['抽烟', '喝酒', '烫头'], 
+                    friends: [
+                        { name: 'jerry', age: 35 },
+                        { name: 'tony', age: 36 }
+                    ]
+                }
+            },
+            methods: {
+                show() {
+                    // Vue 不能检测数组和对象的变化
+                    // Vue.set(this.school, 'leader', '一个帅气的男生');
+                    vm.$set(vm.school, 'leader', '一个帅气的男生');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

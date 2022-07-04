@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试修改响应式数据</title>
+</head>
+<body>
+    <script>
+        let person = {
+            name: '张三',
+            age: 18
+        }
+
+        let p = new Proxy(person, {
+            set(target, propName, value) {
+                console.log(`${propName}被修改了，我要去更新界面了！`);
+                // target[propName] = value;
+                Reflect.set(target, propName, value);
+            }
+        })
+
+        // 通过name修改的是 自己定义的name张三 不是响应式数据里面的 
+        let name = p.name;
+    </script>
+</body>
+</html>

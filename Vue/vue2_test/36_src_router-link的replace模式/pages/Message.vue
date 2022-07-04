@@ -1,0 +1,39 @@
+<template>
+  <div>
+        <ul>
+        <li v-for="m in messageList" :key="m.id">
+          <!-- 跳转路由并携带 params参数 to的字符串写法 -->
+          <!-- <router-link :to="`/home/message/detail/${m.id}/${m.title}`">{{m.title}}</router-link> -->
+
+          <!-- 跳转路由并携带 params参数 to对象写法时 不能使用path配置 只能使用name配置 -->
+          <router-link :to="{
+            name: 'detail',
+            params: {
+              id: m.id,
+              title: m.title
+            }
+          }">
+            {{m.title}}
+          </router-link>
+        </li>
+    </ul>
+    <hr/>
+    <router-view></router-view>
+  </div>
+</template>
+
+<script>
+    export default {
+        name: 'Message',
+        data() {
+          return {
+            messageList: [
+              {id: '001', title: '信息1'},
+              {id: '002', title: '信息2'},
+              {id: '003', title: '信息3'}
+            ]
+          }
+        }
+    }
+</script>
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3.x的响应式原理</title>
+</head>
+<body>
+    <!-- 
+        Vue3.x的响应式
+            实现原理：
+                1. 通过Proxy（代理）：拦截对象中任意属性的变化 包括：属性值的读写、属性的添加、属性的删除等
+                2. 通过Reflect（反射）：对被代理对象的属性进行操作
+                new Proxy(data, {
+                    // 拦截读取属性值
+                    get(target, propName) {
+                        // 通过window下的内置对象Reflect读取target身上的propName属性值
+                        return Reflect.get(target, propName);
+                    },
+                    // 拦截设置属性值或添加新属性
+                    set(target, propName, value) {
+                        // 通过window下的内置对象Reflect修改或设置target身上的propName属性值 值为value
+                        return Reflect.set(target, propName, value);
+                    },
+                    // 拦截删除属性
+                    deleteProperty(target, propName) {
+                        // 通过window下的内置对象Reflect删除target身上的propName属性 删除成功返回true
+                        return Reflect.deleteProperty(target, propName);
+                    }
+                })
+     -->
+    <script>
+        // 源数据
+        let data = {
+            name: '张三',
+            age: 18
+        }
+
+        // 模拟Vue2.x中实现响应式
+        //#region 
+        // 创建一个监视的实例对象 用于监视data中属性的变化
+        // const obs = new Observer(data);
+        // console.log(obs);
+        // // 准备一个vm实例对象
+        // let vm = {}
+        // vm._data = obs;
+
+        // function Observer(obj) {
+        //     // 汇总对象中所有的可枚举属性形成的一个数组
+        //     const keys = Object.keys(obj);
+        //     keys.forEach(k => {
+        //         // 构造函数中的this指向它的实例对象obs
+        //         console.log(this);
+        //         Object.defineProperty(this, k, {
+        //             get() {
+        //                 // 读取对象属性写成中括号 中括号里面的值可以是变量
+        //                 console.log(`有人读取了${obj}里面的${k}`);
+        //                 return obj[k]; // 读取构造函数的name属性时 给这个构造函数本身返回一个obj的name属性 值为data.name的值
+        //             },
+        //             set(value) {
+        //                 console.log(`${k}被修改了，我要去解析模板了，生成虚拟DOM，然后对比DOM...`);
+        //                 obj[k] = value; // 修改了这个构造函数name属性的值时就将构造函数name修改后的值赋值给data的name属性
+        //             }
+        //         })
+        //     })
+        // }
+        //#endregion
+
+        // 模拟Vue3.x中实现响应式
+        //#region 
+        // Proxy.revocable(target, handler); 该方法用来创建一个可撤销的代理对象 revocable可撤销
+        const person = new Proxy(data, {
+            // Proxy的get有人读取person的某个属性时调用
+            get(target, propName) { // target代理的目标对象 propName被读取的属性名
+                console.log(`有人读取了person身上的${propName}属性`);
+                // return target[propName]; // 返回的是代理对象被读取属性的值 中括号里面可以是变量
+                return Reflect.get(target, propName); // 通过window下的内置对象Reflect读取target身上的propName属性值
+            },
+            // Proxy的set有人修改person的某个属性、或给person追加某个属性时调用
+            set(target, propName, value) { // target代理的目标对象 propName被读取的属性名 value被修改或添加的值
+                console.log(`有人修改了person身上的${propName}属性，我要去更新界面了！`);
+                // target[propName] = value;
+                Reflect.set(target, propName, value); // 通过window下的内置对象Reflect修改或设置target身上的propName属性值 值为value
+            },
+            // Proxy的deleteProperty有人删除person的某个属性时调用
+            deleteProperty(target, propName) { // target代理的目标对象 propName被读取的属性名
+                console.log(`有人删除了person身上的${propName}属性，我要去更新界面了！`);
+                // return delete target[propName]; // 将删除的结果返回 删除成功为true
+                return Reflect.deleteProperty(target, propName); // 通过window下的内置对象Reflect删除target身上的propName属性 删除成功返回true
+            }
+        })
+        //#endregion
+
+        let obj = {a: 1, b: 2}
+
+        // 通过Object.defineProperty去操作 不方便捕获错误 js单线程 操作失败就停止执行 除非抛出错误
+        //#region 
+        // try { // 接收有可能出错的配置
+        //     Object.defineProperty(obj, 'c', {
+        //         get() {
+        //             return 3;
+        //         }
+        //     })
+        //     Object.defineProperty(obj, 'c', {
+        //         get() {
+        //             return 4;
+        //         }
+        //     })
+        // } catch(error) { // 收到失败的原因
+        //     console.log(error);
+        // }
+        //#endregion
+
+        // 通过Reflect.defineProperty去操作 它有返回值 值为布尔值
+        // Reflect 是一个内置的对象 window下的对象 它提供拦截 JavaScript 操作的方法
+        //#region 
+        // const x1 = Reflect.defineProperty(obj, 'c', {
+        //     get() {
+        //         return 3;
+        //     }
+        // })
+        // console.log(x1); // 设置成功返回true
+        // const x2 = Reflect.defineProperty(obj, 'c', {
+        //     get() {
+        //         return 4;
+        //     }
+        // })
+
+        // if(x2) {
+        //     console.log('某某某操作成功了');
+        // } else {
+        //     console.log('某某某操作失败了');
+        // }
+        // console.log(x2); // 设置失败返回false
+        //#endregion
+        // console.log('@@@');
+    </script>
+</body>
+</html>

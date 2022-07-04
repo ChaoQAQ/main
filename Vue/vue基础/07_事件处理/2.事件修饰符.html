@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue事件修饰符</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        * {
+            margin-bottom: 20px;
+        }
+        .box {
+            height: 200px;
+            background-color: pink;
+        }
+        .box-stop {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+        .one {
+            width: 200px;
+            height: 160px;
+            background-color: hotpink;
+            border: 1px solid red;
+        }
+        .two {
+            width: 100px;
+            height: 100px;
+            margin: 10px 10px;
+            background-color: green;
+        }
+        .list {
+            width: 200px;
+            height: 400px;
+            background-color: skyblue;
+            overflow: auto;
+        }
+        li {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        Vue中的事件修饰符：
+            1. prevent：阻止事件默认行为（常用）；
+            2. stop：阻止事件冒泡（常用）；
+            3. once：事件只触发一次（常用）；
+            4. captrue：使用事件的捕获模式；
+            5. self：只有event.target是当前操作的元素时才触发事件 self 自己；
+            6. passive：事件的默认行为立即执行 无需等待事件回调执行完毕；
+            备注：
+                (1) 事件一共有三个阶段 捕获阶段、目标阶段、冒泡阶段 默认在冒泡阶段执行回调函数；
+                (2) scroll 元素滚动事件 滚动条到底了 在往下滚动就不会触发事件了；
+                (3) wheel 滑轮滑动事件 只要鼠标滚轮滚动就会一直触发事件；
+                (4) 事件修饰符可以连着写 @click.prevent.stop="demo2"；
+     -->
+
+    <div id="root">
+        <h1>{{name}}</h1>
+
+        <div class="box">
+            <!-- 1. prevent：阻止事件默认行为（常用）； -->
+            <a href="http://www.baidu.com" v-on:click.prevent="demo1(1)">点击跳转到百度，阻止事件默认行为prevent</a>
+        </div>
+
+        <div class="box" @click="demo2">
+            div1
+            <!-- 2. stop：阻止事件冒泡（常用）； -->
+            <!-- <div @click.stop="demo2" class="box-stop">阻止事件冒泡stop</div> -->
+            <!-- 事件修饰符可以连着写 -->
+            <a href="http://www.baidu.com" @click.prevent.stop="demo2" class="box-stop">阻止事件冒泡stop</a>
+        </div>
+
+        <div class="box">
+            <!-- 3. once：事件只触发一次（常用）； -->
+            <button v-on:click.once="demo3">事件只触发一次once</button>
+        </div>
+
+        <div class="box">
+            <!-- 事件一共有三个阶段 捕获阶段、目标阶段、冒泡阶段 默认在冒泡阶段处理回调函数 -->
+            <!-- 4. captrue：使用事件的捕获模式； -->
+            <div class="one" v-on:click.captrue="demo4(1)">
+                <div class="two" @click="demo5(2)"></div>
+            </div>
+        </div>
+
+        <div class="box" @click.self="demo6">
+            div1
+            <!-- 5. self：只有event.target是当前操作的元素时才触发事件 self 自己； -->
+            <div @click="demo6" class="box-stop">只有event.target是当前操作的元素时才触发事件self自己</div>
+        </div>
+
+        <!-- 6. passive：事件的默认行为立即执行 无需等待事件回调执行完毕； -->
+        <!-- scroll 元素滚动事件 滚动条到底了 在往下滚动就不会触发事件了-->
+        <!-- wheel 滑轮滑动事件 只要鼠标滚轮滚动就会一直触发事件-->
+        <ul class="list" @wheel.passive="demo7">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <script>
+        Vue.config.productionTip = false; // 阻止 vue 在启动时生成 生产提示
+
+        new Vue({
+            el: '#root',
+            data() {
+                return {
+                    name: '事件修饰符'
+                }
+            },
+            methods: {
+                demo1(msg) {
+                    console.log(msg);
+                },
+                demo2() {
+                    console.log('Vue阻止事件冒泡stop');
+                },
+                demo3() {
+                    console.log('事件只触发一次once');
+                },
+                demo4(a) {
+                    console.log(a);
+                    // console.log('正在使用事件捕获模式captrue');
+                },
+                demo5(b) {
+                    console.log(b);
+                    // console.log('正在使用事件捕获模式captrue');
+                },
+                demo6(e) {
+                    console.log(e.target);
+                    console.log('self只有event.target是当前操作的元素时才触发事件self自己');
+                },
+                demo7() {
+                    for (let i = 0; i < 100000; i++) {
+                        console.log('@');
+                    }
+                    console.log('累坏了');
+                },
+            }
+        })
+    </script>
+</body>
+</html>

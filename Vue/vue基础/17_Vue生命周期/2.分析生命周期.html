@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>分析生命周期</title>
+	<!-- 引入Vue -->
+	<script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+	<!-- 准备好一个容器-->
+	<div id="root" :x="n">
+		<h2 v-text="n"></h2>
+		<h2>当前的n值是：{{n}}</h2>
+		<button @click="add">点我n+1</button>
+		<button @click="bye">点我销毁vm</button>
+	</div>
+</body>
+
+<script type="text/javascript">
+	Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+
+	new Vue({
+		el: '#root',
+		// 有template配置项则优先解析，该配置项有且只有一个根标签，解析结果会替换原标签节点
+		// template:`
+		// 	<div>
+		// 		<h2>当前的n值是：{{n}}</h2>
+		// 		<button @click="add">点我n+1</button>
+		// 	</div>
+		// `,
+		data: {
+			n: 1
+		},
+		methods: {
+			add() {
+				console.log('add')
+				this.n++
+			},
+			bye() {
+				console.log('bye')
+				this.$destroy()
+			}
+		},
+		watch: {
+			n() {
+				console.log('n变了')
+			}
+		},
+		beforeCreate() {
+			console.log("1--beforeCreate--数据初始化完成之前，此阶段无法拿到data中的数据");
+			console.log(this); // 钩子函数里面的this都指向Vue实例vm
+		},
+		created() {
+			console.log("2--created--数据初始化之后，此阶段可以拿到data中的数据，但页面都尚未开始解析");
+			console.log(this.n);
+		},
+		beforeMount() {
+			console.log("3--beforeMount--页面挂载之前，此阶段虚拟dom已经生成，当尚未挂载到页面中");
+		},
+		mounted() {
+			console.log("4--mounted--页面挂载之后，此阶段操作dom生效");
+		},
+		beforeUpdate() {
+			console.log("5--beforeUpdate--页面更新之前，此阶段数据已经更新，但尚未更新页面");
+		},
+		updated() {
+			console.log("6--updated--页面更新之后触发");
+		},
+		beforeDestroy() {
+			this.n = 100
+			console.log("7--beforeDestroy--页面销毁之前,此阶段更改数据生效，但也页面不会更新");
+		},
+		destroyed() {
+			console.log("8--destroyed--已成功销毁");
+		},
+	})
+</script>
+
+</html>

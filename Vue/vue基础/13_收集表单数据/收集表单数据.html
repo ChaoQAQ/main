@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收集表单数据</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        收集表单数据：
+            若 <input type="text"> 则 v-model 收集的是value值 用户输入的就是value值；
+            若 <input type="radio"> 则v-model收集的就是value值 且要给标签配置value值；
+            若 <input type="checkbox"> 
+                1. 没有配置input的value属性 那么收集的就是 checked （勾选 or 未勾选 是布尔值）；
+                2. 配置input的value属性：
+                    (1) v-model的初始值是非数组 那么收集的就是 checked（勾选 or 未勾选 是布尔值）；
+                    (2) v-model的初始值是数组 那么收集的就是value组成的数组；
+            备注：v-model的三个修饰符：
+                1. lazy：失去焦点再收集数据；
+                2. number：输入字符串转为有效数字；
+                3. trim：输入首尾空格过滤； 
+     -->
+     
+     
+     
+    <div id="root">
+        <!-- <form> 元素表示文档中的一个区域，此区域包含交互控件，用于向 Web 服务器提交信息 -->
+        <!-- form里面包含着一个表单内容 action 传送的意思 提交地址 -->
+        <form action=""  v-on:submit.prevent="demo">
+            <!-- lable的for值跟input的id值相同匹配 或者 把input标签放在lable标签里面 -->
+            <label>账号：<input type="text" v-model.trim="userInfo.account"> </label>
+            <br /> <br />
+            <label>密码：<input type="password" v-model:value="userInfo.password"> </label>
+            <br /> <br />
+            <!-- 单选框设置相同name值可实现多选一 -->
+            性别：<label> 男 <input type="radio" name="sex" value="male" v-model="userInfo.sex"> </label>
+                  <label> 女 <input type="radio" name="sex" value="female" v-model="userInfo.sex"> </label>
+            <br /> <br />
+            年龄：<input type="number" v-model:value.number="userInfo.age">
+            <br /> <br />
+            爱好：<label> 抽烟 <input type="checkbox" value="chouyan" v-model="userInfo.hobby"> </label>
+                 <label> 喝酒 <input type="checkbox" value="hejiu" v-model="userInfo.hobby"> </label> 
+                 <label> 打牌 <input type="checkbox" value="dapai" v-model="userInfo.hobby"> </label>
+            <br />
+            <br />
+            <label for="city">所属校区：</label>
+            <!-- HTML <select> 元素表示一个提供选项菜单的控件 -->
+            <select id="city" v-model:value="userInfo.city">
+                <!-- <option> 选项 定义在 <select> <optgroup> 或 <datalist> 元素中包含的项 可以在弹出窗口和 HTML 文档中的其他项目列表中表示菜单项 value值监视被选中时提交给表单的值 -->
+                <!-- option 的 value 值等于 空 时就会被默认选中 -->
+                <option value="">请选择校区</option>
+                <option value="beijing">北京</option>
+                <option value="shanghai">上海</option>
+                <option value="wuhan">武汉</option>
+                <option value="shenzhen">深圳</option>
+            </select>
+            <br />
+            <br />
+            <!-- lazy 懒惰的 双向绑定修饰符 表单失去焦点触发双向绑定 -->
+            <label> 其他信息：<textarea v-model:value.lazy="userInfo.other"></textarea></label>
+            <br /> <br />
+            <label> <input type="checkbox" v-model:value="userInfo.agree"> 阅读并接受<a href="#">《用户协议》</a> </label>          
+            <br /> <br />
+            <button>提交</button>
+        </form>
+    </div>
+    <script>
+        Vue.config.productionTip = false; // 阻止 vue 在启动时生成 生产提示
+
+        new Vue({
+            el: '#root',
+            data: {
+                userInfo: {
+                    account: '',
+                    password: '',
+                    sex: '',
+                    age: '',
+                    hobby: [],
+                    city: '',
+                    other: '',
+                    agree: ''
+                }
+            },
+            methods: {
+                demo() {
+                    const str = JSON.stringify(this.userInfo);
+                    console.log(str);
+                }   
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表排序</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <!-- 遍历数组 第一个参数是每一项 第二个参数是索引号 -->
+        <h2>人员列表</h2>
+        <!-- 双向绑定 数据能从data流向页面 也能从页面流向data 绑定的是具有value属性的元素 -->
+        <input type="text" v-model="keyWord">
+        <button @click="sortType = 2">升序排列</button>
+        <button @click="sortType = 1">降序排列</button>
+        <button @click="sortType = 0">初始排列</button>
+        <ul>
+            <li v-for="(p, index) in filPersons" :key="p.id">
+                {{p.name}}-{{p.age}}-{{p.sex}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.config.productionTip = false; // 阻止 vue 在启动时生成 生产提示
+
+        new Vue({
+            el: '#root',
+            data: {
+                keyWord: '', 
+                sortType: 0, // 0 就是原顺序 1 就是降序 2 就是升序
+                persons: [
+                    {
+                        id: '01',
+                        name: '马冬梅',
+                        age: 26,
+                        sex: '女'
+                    },
+                    {
+                        id: '02',
+                        name: '周冬雨',
+                        age: 22,
+                        sex: '女'
+                    },
+                    {
+                        id: '03',
+                        name: '周杰伦',
+                        age: 32,
+                        sex: '男'
+                    },
+                    {
+                        id: '04',
+                        name: '温兆伦',
+                        age: 27,
+                        sex: '男'
+                    }
+                ]
+            },
+            computed: { // 计算属性简写 getter 每次被访问都会触发 getter
+                filPersons() { // 页面初次调用这个函数 就会执行 
+                    const arr =  this.persons.filter(item => {
+                        return item.name.indexOf(this.keyWord) !== -1;
+                    })
+                    // 判断一下是否需要排序 为 0 时不执行 直接渲染 arr 为 1 就是降序 不为 1 就是升序
+                    if (this.sortType) { 
+                        // sort() 方法用原地算法对数组的元素进行排序 并返回数组 对象可以按照某个属性排序
+                        arr.sort((a, b) => {
+                            // 根据每一项（对象）的年龄来排序
+                            return this.sortType === 1 ? b.age - a.age : a.age - b.age;
+                        })
+                    }
+                    return arr;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
