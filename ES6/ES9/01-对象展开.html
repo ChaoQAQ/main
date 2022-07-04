@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Rest 参数 与 spread 扩展运算符在 ES6 中已经引入 不过 ES6 中只针对数组 在 ES9 中为对象提供了像数组一样的 rest 参数和运算符
+
+        // 1. 将对象作为参数进行传参
+        function fn({ host, port, ...type }) { // 剩下的会组成一个对象
+            console.log(host);
+            console.log(port);
+            console.log(type); // 是剩余属性组成的的对象
+        }
+
+        fn({
+            host: '127.0.0.1',
+            port: 3306,
+            username: 'root',
+            password: 'root',
+            type: 'master'
+        })
+
+        const f1 = {
+            q: '无敌'
+        }
+        const f2 = {
+            e: '金身'
+        }
+        const f3 = {
+            w: '狂暴'
+        }
+        const f4 = {
+            w: 'dans'
+        }
+
+        // ...f1 => q: '无敌' 
+        const result = {...f1, ...f2, ...f3, ...f4};
+        console.log(result); // 合并一个对象 相同属性名会被去重 保留最后一个
+    </script>
+</body>
+
+</html>

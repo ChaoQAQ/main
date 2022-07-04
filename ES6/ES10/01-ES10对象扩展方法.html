@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Object.fromEntries() 方法把键值对列表转换为一个对象 把二维数组转换为对象
+        // Object.fromEntries() 方法接收一个键值对的列表参数，并返回一个带有这些键值对的新对象
+        // Object.fromEntries() 执行与 Object.entries 互逆的操作
+
+        const result = Object.fromEntries([
+            ['name', '尚硅谷'],
+            ['xueke', 'java, 前端']
+        ])
+        console.log(result); // {name: '尚硅谷', xueke: 'java, 前端'}
+
+        // 通过 Object.fromEntries， 可以将 Map 转换为 Object
+        const m = new Map();
+        m.set('name', 'ATGUIGU');
+        console.log(m); // {'name' => 'ATGUIGU'}
+        console.log(Object.fromEntries(m)); // {name: 'ATGUIGU'}
+
+
+        // Object.entries() 条目 方法返回一个给定对象自身可枚举属性的键值对数组
+        let o = {
+            name: 'andy',
+            age: 18
+        }
+        console.log(Object.entries(o)); // [Array(2), Array(2)] 键值对的二维数组
+    </script>
+</body>
+</html>

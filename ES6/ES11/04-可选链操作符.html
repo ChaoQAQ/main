@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ?. 可选链操作符 类似于 && 前者为真返回后者 前者为假返回前者 避免没有这个参数产生报错
+        // 比如，思考一个存在嵌套结构的对象 obj 不使用可选链的话，查找一个深度嵌套的子属性时，需要验证之间的引用
+
+        function main(name) {
+            // const mz = name && name.sing && name.sing.name;
+            const mz = name?.sing?.name; // 如果传入了参数 name 并且里面有 sing 并且sing里面有name属性 否则返回 undefined
+            console.log(mz);
+        }
+
+        main({
+            sing: {
+                name: '小红'
+            },
+            sing2: {
+                name: '小黑'
+            }
+        });
+    </script>
+</body>
+</html>

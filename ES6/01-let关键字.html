@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let 具有块级作用域 {} 里面有let声明的变量 for循环()里面声明的变量 全局作用域下无法访问 没有变量提升 不能先赋值在声明 不能在同一作用域下声明同一变量名 let存在暂时死去作用域 let 跟 var 声明同一变量名 会报错显示变量名已声明
+        // var 没有块级作用域 可以重复声明变量 有变量名提升 可以先赋值在声明
+        for (let i = 0; i < 6; i++) {
+            //  i 为局部变量
+        }
+        // console.log(i); // i is not defined
+        for (var i = 0; i < 6; i++) {
+            //  i 为全局变量
+        }
+        console.log(i); // 5
+        if (true) {
+            let n = 2;
+        }
+        // console.log(n); // n is not defined
+        if (true) {
+            var n = 2;
+        }
+        console.log(n); // 2
+        var num = 10;
+        // let num = 10;
+        if (true) {
+            // console.log(num); // let块级作用域影响 显示未声明定义
+            let num = 20; // let 会有暂时死区
+        }
+        console.log(num); // 10
+
+        var arr = [];
+        for (var i = 0; i < 2; i++) {
+            arr[i] = function() {
+                console.log(i);
+            }
+        }
+        // 关键点 变量 i 是全局作用域 函数执行输出的是全局作用域下 i 的值
+        // 循环完毕后 i = 2时不满足条件 退出循环 调用函数执行内容打印i 而i是全局作用域 所以结果为2
+        arr[0](); // 2
+        arr[1](); // 2
+
+        var arr = [];
+        for (let i = 0; i < 2; i++) {
+            arr[i] = function() {
+                console.log(i);
+            }
+        }
+        // 关键点 每次循环都会产生一个块级作用域 每个块级作用域中的变量的是不同的 函数执行时输出 i 是上一级（循环产生的块级作用域）作用域下 i 的值
+        // let 声明的i是具有块级作用域的 所以在循环的时候 i 就有值了
+        arr[0](); // 0
+        arr[1](); // 1
+    </script>
+</body>
+
+</html>

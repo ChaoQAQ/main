@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // get set
+        class Phone {
+            get price () {
+                console.log('价格属性被读取了');
+                return 'iloveyou';
+            }
+            set price (newValue) { // set 绑定的属性必须要有一个形参 用来保存结果
+                console.log('价格属性被修改了');
+                console.log(newValue); // 得到被修改后的值
+            }
+        }
+        // 在 javascript 中，如果试着改变一个属性的值，那么对应的 setter 将被执行。setter 经常和 getter 连用以创建一个伪属性。不可能在具有真实值的属性上同时拥有一个 setter 器
+        let s = new Phone();
+        // get语法将对象属性绑定到查询该属性时将被调用的函数
+        console.log(s.price); // 访问 get 绑定的属性就会执行该函数
+
+        // 当尝试设置属性时，set语法将对象属性绑定到要调用的函数
+        s.price = 'free';
+    </script>
+</body>
+</html>

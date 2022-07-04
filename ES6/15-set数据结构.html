@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Ste 本身是一个构造函数 用来生成 Set 结构 Set 对象允许你存储任何类型的唯一值 无论是原始值或者是对象引用 不会存储或者添加相同数据
+        let o = new Set();
+        console.log(typeof o); // object 
+        let arr = [1, 2, 3, 4, 5];
+        let s1 = new Set(arr);
+        // size 返回 Set 对象中的值的个数
+        console.log(s1.size); // 5 s1里面有5个数据
+        console.log(s1);
+        let s2 = new Set();
+        // 1. add(value) 在 Set 尾部添加一个元素 返回 Set 对象
+        s2.add(2).add(6).add(6);
+        console.log(s2);
+        // 2. delete(value) 移除 Set 某个元素
+        s2.delete(2);
+        console.log(s2);
+        // 3. has(value) 判断一个值是否在 Set 里面存在 返回布尔值 
+        console.log(s2.has(3)); // false
+        // 4. clear() 清除 Set 里面所有成员 没有返回值
+        s2.clear();
+        console.log(s2); // 0
+    </script>
+</body>
+</html>

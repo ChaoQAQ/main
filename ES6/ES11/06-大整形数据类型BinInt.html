@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // BigInt 是一种内置对象，它提供了一种方法来表示大于 2^53 - 1 的整数。这原本是 Javascript中可以用 Number 表示的最大数字。BigInt 可以表示任意大的整数
+
+        // 大整形
+        let n = 521n;
+        console.log(n, typeof (n)); // 521n 'bigint'
+
+        // 将整数转换为 bigint类型 BigInt()
+        let n1 = 123;
+        console.log(BigInt(n1)); // 123n
+        // console.log(BigInt(3.11)); // 只能将整数转换为 BigInt 类型
+
+        // 大数值运算 大数值运算 number会出问题 BigInt不会出问题
+        let max = Number.MAX_SAFE_INTEGER; // 表示number最大值
+        console.log(max); // 9007199254740991
+        console.log(max + 1); // 9007199254740992
+        console.log(max + 2); // 9007199254740992
+
+        // bigint 类型 不能跟整数 直接相加
+        console.log(BigInt(max)); // 9007199254740991n
+        console.log(BigInt(max) + BigInt(1)); // 9007199254740992n
+        console.log(BigInt(max) + BigInt(2)); // 9007199254740993n
+    </script>
+</body>
+
+</html>

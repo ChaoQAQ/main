@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Symbol.hasInstance用于判断某对象是否为某构造器的实例。因此你可以用它自定义 instanceof 操作符在某个类上的行为
+        class Person {
+            static [Symbol.hasInstance] (param) { // 将 o 作为参数 传递过来
+                console.log(param);
+                console.log('我被用来检测类型了');
+                return true;
+            }
+        }
+        let o = {};
+        console.log(o instanceof Person);
+        // 2. 内置的Symbol.isConcatSpreadable符号用于配置某对象作为Array.prototype.concat()方法的参数时是否展开其数组元素
+        // concat方法创建一个新的数组，它由被调用的对象中的元素组成，每个参数的顺序依次是该参数的元素（如果参数是数组）或参数本身（如果参数不是数组）。它不会递归到嵌套数组参数中
+        let arr1 = [1, 2, 3];
+        let arr2 = [4, 5, 6];
+        arr1 = arr1.concat(arr2); // concat 合并创建一个新数组 不会改变原数组
+        console.log(arr1);
+        arr2[Symbol.isConcatSpreadable] = false; // 控制当前数组在合并时是否展开合并函数以数组格式合并
+        console.log(arr1.concat(arr2));
+    </script>
+</body>
+</html>

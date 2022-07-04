@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 该Promise.allSettled()全部结算 方法返回一个在所有给定的promise都已经fulfilled或rejected后的promise 返回一个对象组成的数组 里面每个对象是对应的Promise的状态跟值 
+        //  当您有多个彼此不依赖的异步任务成功完成时，或者您总是想知道每个promise的结果时，通常使用它 相比之下，Promise.all() 更适合彼此相互依赖或者在其中任何一个reject时立即结束
+
+        // 声明两个 Promise 对象
+        const p1 = new Promise((resolve, reject) => {
+            // resolve('商品数据 - 1');
+            reject('出错了');
+        })
+        const p2 = new Promise((resolve, reject) => {
+            // resolve('商品数据 - 2');
+            reject('出错了');
+        })
+
+        // 调用 Promise.allSettled() 方法 返回一个 promise 对象 但是它的状态始终是成功状态 
+        const result = Promise.allSettled([p1, p2]);
+        console.log(result); // 返回 一个数组 里面每个对象放着每个Promise对象的 状态 跟返回值
+
+        // Promise.all() 也是返回一个Promise 对象 有一个 Promise 状态失败 就会返回失败 必须都成功才会返回成功状态
+        // const result = Promise.all([p1, p2]);
+        // console.log(result); // 返回一个Promise 对象 里面有个数组放着返回值
+        </script>
+</body>
+</html>

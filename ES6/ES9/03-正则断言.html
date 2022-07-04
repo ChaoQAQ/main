@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 声明一个字符串
+        let str = 'JS5211314你知道吗555啦啦啦';
+
+        // 向前断言  x(?=y) 根据目标字符后面的字判断
+        // const reg = /\d+(?=啦)/; // \d 是所有数字 ?=啦 是判断是否等于啦 + 是匹配一个或多个
+
+        // const result = reg.exec(str);
+
+        // console.log(result[0]); // 555
+
+        // 向后断言 (?<=y)x 根据目标字符前面的字判断
+        const reg = /(?<=吗)\d+/; // 注意(?<=吗) 小于号表示前面 等于号表示满足 感叹号表示不满足
+
+        const result = reg.exec(str);
+
+        console.log(result[0]); // 555
+    </script>
+</body>
+</html>

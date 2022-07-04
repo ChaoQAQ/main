@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 异步编程 文件操作 网络操作ajax request 数据库等
+        // 2. 1s后控制台输出 111 2s后控制台输出222 3s后输出333
+        // 3. 回调地狱
+        
+        // 一共 6s 完成
+        // setTimeout(() => {
+        //     console.log(111);
+        //     setTimeout(() => {
+        //         console.log(222);
+        //         setTimeout(() => {
+        //             console.log(333);
+
+        //         }, 3000)
+        //     }, 2000)
+        // }, 1000)
+
+        
+// 同步任务是主线程上排队执行 只有上一个任务执行完毕才会执行下一个任务
+
+// 异步任务不进入主线程 而是进入异步队列 前一个任务是否完成不会影响后一个任务的执行
+
+// 回调地狱 就是在异步函数中顺序执行而不断嵌套调用的回调函数
+
+// 回调地狱就是为了实现异步任务执行代码顺序执行而出现的一种操作 它会造成我们的代码可读性非常差 后期不好维护
+        // 一共 6s 完成
+        function one() {
+            setTimeout(() => {
+                console.log(111); 
+                // one 任务完成后执行 two 任务 这样就解决了异步编程 顺序执行任务的回调地狱问题 避免了嵌套多个异步任务 代码缩进
+                two(); 
+            }, 1000)
+        }
+        function two() {
+            setTimeout(() => {
+                console.log(222);
+                thee();
+            }, 2000)
+        }
+        function thee() {
+            setTimeout(() => {
+                console.log(333);
+            }, 3000)
+        }
+        function * gen() {
+            yield one();
+            // one();
+        }
+        // gen().next();
+        let iterator = gen();
+        iterator.next(); // 调用next 方法 执行一段 yield 语句表达式跟前面的代码 遇到 yield 语句暂停执行
+        // console.log(iterator.next()); // {value: undefined, done: true}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="module">
+        // module 模块
+        // form 类型
+        // import 引入
+
+        // 通用方式引入
+        // 1. 引入分别暴露模块
+        // import * as m1 from "./src/01-模块化的使用.js";
+        // console.log(m1); // m1 是变量 是引入的所有内容
+
+        // // 2. 引入统一暴露模块
+        // import * as m2 from "./src/m2.js";
+        // console.log(m2);
+
+        // // 3. 引入默认暴露模块
+        // import * as m3 from "./src/m3.js";
+        // console.log(m3);
+        // m3.default.change(); // 引入默认的 会包一层 default 对象
+
+        // 解构赋值方式引入
+        // import {school, teach} from "./src/01-模块化的使用.js";
+        // console.log(school);
+
+        // import {name as mz, sing} from "./src/m2.js";
+        // console.log(mz);
+
+        // import {default as m3} from "./src/m3.js";
+        // console.log(m3);
+
+        // 简便形式 针对默认暴露
+        // import m3 from "./src/m3.js";
+        // console.log(m3);
+
+        // name as 替换后的name
+
+        // 静态的 import 语句用于导入由另一个模块导出的绑定。无论是否声明了 strict mode，导入的模块都运行在严格模式下。在浏览器中，import 语句只能在声明了 type="module" 的 script 的标签中使用
+
+        // import 名字 from "绝对路径";
+        // import * as name from "module-name";
+
+    </script>
+
+    <script src="./src/js/app.js" type="module"></script>
+</body>
+
+</html>

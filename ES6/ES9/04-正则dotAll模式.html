@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // dotAll 模式 dotAll 属性表明是否在正则表达式中一起使用"s"修饰符
+        // . 是元字符 除了换行以外的任意单个字符 匹配除“\n”和"\r"之外的任何单个字符。要匹配包括“\n”和"\r"在内的任何字符
+        // \s 是匹配任何不可见字符，包括空格、制表符、换页符等等。等价于[ \f\n\r\t\v]
+        // ? 匹配前面的子表达式零次或一次
+
+        let str = `
+        <ul>
+            <li>
+                <a>肖申克的救赎</a>
+                <p>1994</p>
+            </li>
+            <li>
+                <a>阿甘正传</a>
+                <p>1996</p>
+            </li>
+        </ul>
+        `;
+        // 声明正则匹配
+        // const reg = /<li>\s+<a>(.*?)<\/a>\s+<p>(.*?)<\/p/;
+
+        // 如果使用了"s"修饰符，dotAll 的值将返回Boolean类型的true，否则将返回false
+        const reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/gs;
+
+        // 执行匹配
+        // const result = reg.exec(str); // 不能全局匹配
+
+        let result; // null
+        let data = [];
+        while(result = reg.exec(str)) {
+            data.push({title: result[1], time: result[2]});
+        }
+
+        console.log(data); 
+    </script>
+</body>
+
+</html>

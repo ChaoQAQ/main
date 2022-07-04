@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <script>
+        // ...叫做扩展运算符 可以将数组拆分为以逗号分隔的参数序列
+        let arr = [1, 2, 3, 4, 5, 6];
+        console.log(...arr); // 1 2 3 4 5 6
+        console.log(1, 2, 3, 4, 5, 6);
+
+        // 1. 扩展运算符合并数组
+        let arr1 = [1, 2, 3];
+        // ...arr = 1, 2 ,3, 4, 5, 6
+        // ...arr1 = 1, 2, 3
+        let arr2 = [...arr, ...arr1]; // [1, 2, 3, 4, 5, 6, 1, 2, 3] 
+        console.log(arr2);
+        // 2. push() 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度
+        let arr3 = [1, 2, 3];
+        let arr4 = [4, 5, 6];
+        arr3.push(...arr4);
+        // console.log(arr3.push(...arr4)); // 6 返回的是该数组长度
+        console.log(arr3); // [1, 2, 3, 4, 5, 6]
+        // 3. 利用扩展运算符将伪数组转换为真正的数组 这样就可以使用数组的内置方法了
+        let divs = document.getElementsByTagName('div');
+        console.log(divs);
+        let arr6 = [...divs];
+        arr6.push('a');
+        console.log(arr6);
+        // 4. 利用扩展运算符 克隆数组
+        let arrc = [1, 2, 3, 4, 5];
+        let result = [...arrc];
+        console.log(result);
+    </script>
+</body>
+
+</html>

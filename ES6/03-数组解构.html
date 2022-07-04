@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组解构 允许我们按照一一对应的关系从数组中提取值 然后赋值给变量 没有被赋值的变量显示undefined
+        let arr = [1, 2, 3, 4, 5];
+        // let [a, b, c, d, e, f] = arr;
+        // console.log(a); // 1
+        // console.log(b); // 2
+        // console.log(c); // 3
+        // console.log(d); // 4
+        // console.log(e); // 5
+        // console.log(f); // undefined
+        // 2. 将剩余数组元素赋值给一个变量 返回一个数组
+        let [a, ...b] = arr;
+        console.log(a);
+        console.log(b);
+    </script>
+</body>
+</html>

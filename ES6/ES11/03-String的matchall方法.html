@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // String.prototype.matchAll() 方法返回一个包含所有匹配正则表达式的结果及分组捕获组的迭代器     
+
+        let str = `
+        <ul>
+            <li>
+                <a>肖申克的救赎</a>
+                <p>1994</p>
+            </li>
+            <li>
+                <a>阿甘正传</a>
+                <p>1996</p>
+            </li>
+        </ul>
+        `;
+        // 声明正则匹配
+        const reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/sg;
+
+        // 调用方法
+        const result = str.matchAll(reg);
+
+        // for (let v of result) {
+        //     console.log(v);
+        // }
+        console.log(result);
+
+        let arr = [...result];
+        console.log(arr);
+    </script>
+</body>
+</html>

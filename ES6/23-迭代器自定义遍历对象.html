@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 一些内置类型拥有默认的迭代器行为，其他类型（如 Object）则没有。下表中的内置类型拥有默认的@@iterator方法
+        // 声明一个对象
+        const bj = {
+            name: '一班',
+            stus: [
+                'xh',
+                'xm',
+                'xa',
+                'xc'
+            ],
+            // Symbol.iterator 为每一个对象定义了默认的迭代器。该迭代器可以被 for...of 循环使用
+            [Symbol.iterator] () { // 部署 Iterator接口
+                let index = 0; // 记录索引号
+                let that = this; // 保存this值
+                return { // 返回一个指针对象
+                    next: function() { // 指针对象 next 方法 指针自动指向数据结构的第一个成员
+                        if (index < that.stus.length) { // 判断遍历迭代是否完成
+                            const relust = { value: that.stus[index], done: false };
+                            index++; // 每次迭代完毕后指针向后移动 直到最后一个成员
+                            return relust; // 返回结果
+                        } else {
+                            return { value: undefined, done: true }; // value是值 done 是迭代是否完成
+                        }
+                    }
+                }
+            }
+        }
+
+        // 遍历整个对象
+        for (let v of bj.stus) {
+            console.log(v);
+        }
+    </script>
+</body>
+</html>

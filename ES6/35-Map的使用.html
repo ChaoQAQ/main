@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Map可以说是升级版的对象 Map 对象保存键值对 并且能够记住键的原始插入顺序任何值（对象或者原始值）都可以作为一个键或一个值
+        // 一个 Map 对象在迭代时会根据对象中元素的插入顺序来进行——一个 for...of 循环在每次迭代后会返回一个形式为 [key，value] 的数组
+        // Map 默认情况不包含任何键。只包含显式插入的键 而Object有一个原型对象 原型对象上的键名可能跟我设置的键名一样
+        // 一个 Map 的键可以是任意值，包括函数、对象或任意基本类型	一个 Object 的键必须是一个 String 或是 Symbol
+
+        // 1. 声明 实例化 Map
+        let m = new Map();
+
+        // 2. 添加元素 set 方法 采用键值对 键值都可以是任意类型的数据 Map会记录插入元素的顺序
+        m.set('name', '尚硅谷');
+        m.set('chang', function() {
+            console.log('我们可以改变你');
+        })
+        let key = {
+            school: 'ATGUIGU'
+        }
+        m.set(key, ['北京', '上海', '深圳']);
+        console.log(m);
+
+        // 3. 删除 Map中的元素 delete
+        m.delete('name');
+        console.log(m); // log打印的引用数据类型是在内存中最新的状态
+
+        // 4. Map中的元素个数 size属性
+        console.log(m.size);
+
+        // 5. 获取 Map 中的元素 get方法
+        console.log(m.get('chang'));
+        console.log(m.get(key));
+
+        // 6. 清空 Map clear方法
+        // m.clear();
+        console.log(m);
+
+        // 7. 遍历 Map
+        for (let v of m) {
+            console.log(v); // 打印的每一项是键值对的数组
+        }
+
+        // 8. has方法检测 Map中是否包含某个元素 返回 booolean值
+        console.log(m.has('name'));
+    </script>
+</body>
+</html>

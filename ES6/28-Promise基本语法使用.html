@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 实例化 Promise 对象 Promise 对象用于表示一个异步操作的最终完成 (或失败)及其结果值
+        const p = new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                // let data = '用户数据';
+                // resolve(data); // 成功
+
+                let err = '数据读取失败';
+                reject(err); // 失败
+            }, 1000)
+        });
+
+        // 2. 调用 Promise 对象的 then 方法
+        p.then(function(value) { // 成功就执行第一个回调函数 
+            console.log(value); 
+        }, function(reason) {
+            console.error(reason); // 失败就执行第二个回调函数
+        });
+
+        // Promise 是js中的一个原生对象 是一种异步编程的解决方案 可以替换掉传统的回调函数解决方案
+        // Promise 构造函数接收一个函数作为参数 我们需要处理的异步任务就卸载该函数体内 该函数的连个参数是 resolve reject 异步任务执行成功时调用 resolve 函数返回结果 反之调用 reject
+        // Promise 对象的 then 方法用来接收处理成功或者失败时响应的数据 catch 方法用来接收处理失败时相应的数据
+        // Promise 对象的链式编程可以保证代码的执行顺序 前提是每一次在 then 处理完后 一定要 return 一个 Promise 对象 这样才能在下一次 than 时接收到数据
+    </script>
+</body>
+</html>

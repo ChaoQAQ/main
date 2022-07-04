@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // includes() 包括 方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回 false
+        // indexOf()方法返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1
+        // 1. includes 类似于 indexOf
+        const arr = [1, 3, 4, 5, 7];
+        console.log(arr.includes(2)); // false
+        console.log(arr.includes(3)); // true
+
+        // 2. ** 类似于 Math.pow() 
+        // 求幂运算符（**）返回将第一个操作数加到第二个操作数的幂的结果。它等效于Math.pow，不同之处在于它也接受BigInts作为操作数
+        console.log(2 ** 10); // 1024 计算 2 的 10 次方
+        console.log(Math.pow(2, 10)); // 1024
+    </script>
+</body>
+</html>

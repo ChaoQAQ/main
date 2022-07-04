@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // await 等候的意思 操作符用于等待一个Promise 对象的结果 它只能在异步函数 async function 中使用
+        // [返回值] = await 表达式; 表达式是一个 Promise 对象或者任何要等待的值 返回 Promise 对象的处理结果 如果等待的不是 Promise 对象 则返回该值本身
+        // 如果该值不是一个 Promise await 会把该值转换为已正常处理的Promise，然后等待其处理结果
+        // 如果 Promise 处理异常，则异常值被抛出
+
+        // try...catch 尝试 接住的意思 语句标记要尝试的语句块，并指定一个出现异常时抛出的响应
+
+        // await 表达式会暂停当前 async function 的执行 等待 Promise 处理完成 若 Promise 正常处理(fulfilled) 其回调的resolve函数参数作为 await 表达式的值 继续执行 async function 若 Promise 处理异常(rejected) await 表达式会把 Promise 的异常原因抛出 另外 如果 await 操作符后的表达式的值不是一个 Promise 则返回该值本身。
+        const p = new Promise((resolve, reject) => {
+            // resolve('成功状态');
+            reject('失败状态');
+        })
+        async function fn() {
+            try {
+                // try 尝试 成功就执行 
+                const result = await p;
+                console.log(result);
+            } catch (e) {
+                // catch 接住 失败就执行
+                console.log(e);
+            }
+        }
+        fn();
+    </script>
+</body>
+
+</html>

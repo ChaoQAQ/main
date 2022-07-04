@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Set 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用
+        // Set对象是值的集合，你可以按照插入的顺序迭代它的元素。 Set中的元素只会出现一次，即 Set 中的元素是唯一的
+        let arr = [1, 2, 2, 3, 5, 7, 5];
+        // 1. 数组去重
+        // let result = [...new Set(arr)]; // 扩展运算符将伪数组转为真数组
+        // console.log(result); 
+
+        // 2. 交集 就是两个数组相同的数据
+        let arr2 = [2 ,3, 2, 7, 9];
+        // let result = [...new Set(arr)].filter(item => {
+        //     let s2 = new Set(arr2);
+        //     if (s2.has(item)) { // 判断 Set类型 s2 里面有没有 arr 的每一项元素 has 返回值是 blo
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // })
+        // console.log(result);
+
+        // 3. 并集 就是合并在一起
+        // let union = [...new Set([...arr, ...arr2])];
+        // console.log(union);
+
+        // 4. 差集
+        let diff = [...new Set(arr)].filter(item => !(new Set(arr2).has(item)));
+        console.log(diff);
+    </script>
+</body>
+</html>

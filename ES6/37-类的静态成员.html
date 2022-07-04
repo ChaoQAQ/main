@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Phone () {
+
+        }
+        Phone.name = '手机'; // 这是给构造函数添加的属性 被称为静态成员
+        Phone.chang = function () {
+            console.log('我可以改变世界');
+        }
+        Phone.prototype.size = '5.5inch';
+
+        let nokia = new Phone(); // 实例对象的方法是从构造函数的原型对象 prototype 上找的
+
+        console.log(nokia);
+        console.log(nokia.name);
+        console.log(nokia.size);
+
+        // class Phone {
+            // static 静态
+        //     static name = '手机';
+        //     static chang () {
+        //         console.log('我可以改变世界');
+        //     }
+        // }
+
+        // let nokia = new Phone();
+
+        // console.log(nokia.name);
+        // console.log(Phone.name);
+
+        // 1. 实例成员就是构造函数内部通过 this 添加的成员 就是实例成员 实例成员只能通过实例化的对象来访问
+        // 2. 静态成员 在构造函数本身上添加的成员 就是静态成员
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // find() 方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined
+        // find() 方法遍历数组每一项 返回满足函数体条件的第一项数组元素
+        let arr = [{
+            id: 1,
+            name: 'andy'
+        }, {
+            id: 2,
+            name: 'red'
+        }];
+        o = arr.find(item => item.id === 2);
+        // o = arr.find(function(item) {
+        //     return item.id === 2;
+        // })
+        console.log(o);
+    </script>
+</body>
+</html>

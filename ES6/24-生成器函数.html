@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 生成器函数就是一个特殊的函数
+        // 异步编程 纯回调函数 node fs ajax mongodb
+        // yield 产量的意思 关键字用来暂停和恢复一个生成器函数（(function* 或遗留的生成器函数）
+        // yield关键字实际返回一个IteratorResult对象，它有两个属性，value和done
+        // 一旦遇到 yield 表达式，生成器的代码将被暂停运行，直到生成器的 next() 方法被调用。每次调用生成器的next()方法时，生成器都会恢复执行，直到达到以下某个值
+        // yield，导致生成器再次暂停并返回生成器的新值。 下一次调用next()时，在yield之后紧接着的语句继续执行
+        // 如果将参数传递给生成器的next()方法，则该值将成为生成器当前yield操作返回的值
+        // yield 后面跟的是一个表达式
+
+        function * gen() {
+            console.log(111);
+            yield '表达式1';
+            console.log(222);
+            yield '表达式2';
+            console.log(333);
+            yield '表达式3';
+        }
+        let iterator = gen();
+        console.log(iterator); // 返回一个对象
+        // iterator.next(); // 返回的是值 内容
+        console.log(iterator.next()); // 返回的是一个对象
+        console.log(iterator.next()); // 返回的是一个对象
+        console.log(iterator.next()); // 返回的是一个对象
+        console.log(iterator.next()); // 返回的是一个对象
+        for (let v of gen()) {
+            console.log(v); // 打印的是表达式值 表达式1
+        }
+    </script>
+</body>
+</html>

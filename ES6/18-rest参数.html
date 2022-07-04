@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // rest 放松休息的意思
+        // ES6 引入 rest 参数 用于获取函数的实参 用来代替 arguments
+        // ES5 获取实参的方式 arguments 返回一个对象 是一个伪数组 不能使用数组的方法
+        function date() {
+            console.log(arguments); // 返回一个伪数组 本质是一个对象
+            console.log(typeof arguments); // 本质是一个对象
+        }
+        date('柏芝', '敏慧', '洁莹');
+
+        // rest 参数
+        function star(a, ...args) {
+            console.log(a); // 柏芝
+            console.log(args); // 返回一个真数组 是剩余参数组成的数组 可以使用数组方法
+            console.log(typeof args); // 数组也是对象
+        }
+        star('柏芝', '敏慧', '洁莹');
+    </script>
+</body>
+</html>

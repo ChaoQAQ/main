@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 执行生成器不会执行生成器函数体的代码，只是获得一个遍历器
+        // 一旦调用 next，函数体就开始执行，一旦遇到 yield 就返回执行结果，暂停执行
+
+        // 所以第一次调用next 遇到 yield 就直接暂停了 所以不能进行传参 第二次调用 next 就恢复第一句yield 并接受参数
+
+        // 第二次 next 的参数会作为第一次 yield 的结果传递给函数体，以此类推，所以第一次 next 调用的参数没用
+        function* gen(arg) {
+            console.log(arg); // aaa
+            let one = yield 111;
+            console.log(one); // next没有传参返回 undefined 传参了就显示实参
+            let two = yield 222;
+            console.log(two);
+            let thee = yield 333;
+            console.log(thee);
+        }
+        // 1. 执行获取迭代对象
+        let iterator = gen('aaa'); // 调用生成器函数 初始化 返回一个迭代器
+        console.log(iterator.next()); // 第一个next 传参会报错显示未定义
+        // 2. next 方法可以传递参数
+        console.log(iterator.next('aaa')); // 第2个next 传参会让第一句yield接受
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next()); 
+    </script>
+</body>
+
+</html>

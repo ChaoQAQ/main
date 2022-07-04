@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const关键字 声明一个常量 常量就是值（内存地址） 不能变化的量 不能改变内存地址
+        // 1. 不能给 const 声明的常量 赋值修改地址
+        const PI = 3.14;
+        // PI = 3.1415926; 
+        console.log(PI);
+        const arr = [1, 2];
+        arr[0] = 2; // 复杂数据类型时 可以修改常量里面的数据 不能修改常量内存中的地址
+        // arr = [2, 2]; // 不能给 const 声明的常量赋值修改地址
+        console.log(arr);
+        // 2. const 声明的常量也有块级作用域
+        const num = 10;
+        if (true) {
+            const num = 20;
+            console.log(num); // 20
+            if (true) {
+                const num = 30;
+                console.log(num); // 30
+            }
+        }
+        console.log(num); // 10
+        let str;
+        // 3. const 声明常量时必须赋值
+        // const str1;
+    </script>
+</body>
+</html>

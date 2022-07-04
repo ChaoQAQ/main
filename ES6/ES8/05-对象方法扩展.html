@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 声明对象
+        const school = {
+            name: '尚硅谷',
+            cities: ['北京', '深圳', '上海'],
+            xueke: ['前端', 'Java', '大数据', '运维']
+        }
+
+        // 1. Object.keys() 方法返回一个对象的自身可枚举属性名组成的数组
+        console.log(Object.keys(school)); 
+
+        // 2. Object.values() 方法返回一个对象自身的所有可枚举属性值的数组 ( 区别在于 for-in 循环枚举原型链中的属性 )
+        console.log(Object.values(school));
+
+        // 3. Object.entries() 进行的意思 方法返回一个对象自身可枚举属性的 键值对 数组
+        console.log(Object.entries(school));
+
+        // 4. 创建 Map
+        // 一个 Map 对象在迭代时会根据对象中元素的插入顺序来进行——一个 for...of 循环在每次迭代后会返回一个形式为 [key，value] 的数组
+        const m = new Map(Object.entries(school)); // 快速创建 Map 对象
+        console.log(m.get('name')); // 得到 Map 对象 里面键名为 name 的值
+
+        // 5. Object.getOwnPropertyDescriptors() 方法用来获取一个对象的所有自身属性的描述符 
+        // get得到 Own拥有 Property所有物 Descriptors描述符
+        console.log(Object.getOwnPropertyDescriptors(school)); // 得到该对象每一个属性的 描述符 就是值可不可以修改 可不可以被枚举遍历 该属性可不可以被删除之类的 
+        
+        // 6. Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象
+
+        // 7. Object.create()方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__
+        // Object.create(proto，[propertiesObject])
+        // Object.create(原型对象，要定义其可枚举属性或修改的属性描述符的对象)
+
+        const obj = Object.create(null, {
+            name: {
+                // 设置值
+                value: '尚硅谷',
+                // 属性特性
+                writable: true, // 值可修改
+                enumerable: true, // 该数值可以被枚举遍历
+                configurable: true // 该属性可以被删除 该属性的特性可以被修改
+            }
+        })
+        console.log(obj);
+    </script>
+</body>
+</html>

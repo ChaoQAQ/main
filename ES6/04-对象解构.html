@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 对象解构 允许我们使用变量的名字匹配对象的属性 匹配成功将对象属性的值赋值给变量
+        let obj = {
+            name: 'andy',
+            age: 18
+        }
+        // 1. 等号左边name 与对象 obj的name匹配成功就将 obj的name属性赋值给name变量
+        // let {name, age, sing} = obj;
+        // console.log(name);
+        // console.log(age);
+        // 2. 给新的变量名赋值
+        let {name: myname, age: myage} = obj;
+        console.log(myname);
+        console.log(myage);
+    </script>
+</body>
+</html>

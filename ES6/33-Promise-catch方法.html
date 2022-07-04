@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Promise catch 拦截 方法用于promise组合中的错误处理
+        const p = new Promise((resolve, reject) => {
+            reject('出错了');
+        });
+        p.catch(reason => {
+            // Console.warn() 向 Web 控制台输出一条警告信息
+            console.warn(reason);
+        })
+    </script>
+</body>
+</html>

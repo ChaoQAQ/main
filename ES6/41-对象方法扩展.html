@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Object.is() 方法判断两个值是否为同一个值
+        console.log(Object.is(120, 120)); // true
+        console.log(Object.is(NaN, NaN)); // true
+        console.log(NaN === NaN); //         false
+
+        // 2. Object.assign() 分配 方法用于将所有可枚举属性的值从一个或多个源对象分配到目标对象 它将返回目标对象 相同属性后面会覆盖前面的值
+        let obj1 = {
+            name: 'atguigu',
+            city: ['武汉', '北京']
+        }
+
+        let obj2 = {
+            name: 'haima',
+            city: ['北京'],
+            text: '111'
+        }
+
+        console.log(Object.assign(obj1, obj2)); // 后面的相同键名属性内容会覆盖前面的
+
+        // 3. Object.setPrototypeOf() 方法设置一个指定的对象的原型 到另一个对象或  null
+        const school = {
+            name: '尚硅谷'
+        }
+        const cities = {
+            xaioqu: ['北京', '上海']
+        }
+
+        Object.setPrototypeOf(school, cities); // 将 cities 对象作为 school的原型对象
+        console.log(school);
+        console.log(cities);
+
+        // 4. Object.getPrototypeOf() 方法返回指定对象的原型
+
+        console.log(Object.getPrototypeOf(school)); // 得到 school 的原型对象
+    </script>
+</body>
+</html>

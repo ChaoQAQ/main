@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. async 异步的意思 使用async关键字声明的函数 其中允许使用await关键字 async和await关键字让我们可以用一种更简洁的方式写出基于Promise的异步行为 而无需刻意地链式调用promise
+
+        // 2. async函数一定会返回一个promise对象 如果一个async函数的返回值看起来不是promise 那么它将会被隐式地包装在一个promise对象中 返回的 Promise对象状态有三种情况
+
+        // 1. 非 Promise 对象会被包装在一个 Promise对象中 并且状态为成功
+        // 2. 是 Promise对象状态由Promise对象内部的调用决定
+        // 3. 抛出一个错误返回的结果是失败状态
+
+        // async函数可能包含0个或者多个await表达式 await表达式会暂停整个async函数的执行进程并出让其控制权 只有当其等待的基于promise的异步操作被兑现或被拒绝之后才会恢复进程 promise的解决值会被当作该await表达式的返回值 使用async / await关键字就可以在异步代码中使用普通的try / catch代码块。
+        async function fn() {
+            // return 1; // 成功状态
+            // return NaN;
+            return new Promise ((resolve, reject) => {
+                // resolve('成功状态');
+                // reject('失败状态');
+                throw new Error('出错了'); // 失败
+            })
+        }
+
+        const result = fn();
+        console.log(result); // 一定是一个 Promise 对象 值为函数返回的值
+
+        // 调用 then 方法
+        result.then(value => {
+            console.log(value);
+        }, reason => {
+            console.warn(reason);
+        })
+    </script>
+</body>
+
+</html>

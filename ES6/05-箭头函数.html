@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 箭头函数是来简化函数定义语法的 因为箭头函数没有名字 所以我们经常把箭头函数赋值给一个变量 又因为函数名不可变型 所以用常量更好
+        // const 函数名 = (形参) => {函数体};
+        const fn = (a, b) => {
+            return a + b; // 箭头函数在花括号内也要用 return 返回结果给函数的调用者
+        };
+        console.log(fn(10, 20)); // 30
+
+        // 2. 箭头函数 函数体类只有一句代码时 并且代码的执行结果就是函数的返回值 此时函数体的大括号和 return 都可以省略 
+
+        const fn1 = (a, b) => a + b;
+        console.log(fn1(1, 2)); // 3
+
+        // 3. 箭头函数中 如果只有一个形参 形参外面的小括号也可以省略
+        const fn2 = a => a;
+        console.log(fn2(2)); // 2
+
+        // 4. 箭头函数不绑定 this 箭头函数没有自己的 this 关键字 如果在箭头函数中使用 this this关键字将指向函数定义位置的上下文this
+        const fn3 = () => console.log(this); 
+        fn3(); // window
+        const fn4 = () => {
+            console.log(this);
+        }
+        fn4(); // window
+        function fn5() {
+            console.log(this);
+            return () => {
+                console.log(this);
+            }
+        }
+        // fn5()(); // window
+        let obj = {name: 'andy'};
+        let res = fn5.call(obj); // call方法调用函数改变this指向
+        res(); // 此时里面的this都指向obj
+        
+        let o = {
+            name: '奥特曼',
+            saHai: function() {
+                console.log(this);
+            }
+        }
+        o.saHai(); // o 调用了名字为 saHai这个函数 所以this 指向o
+        // let age = 18; // let 声明的变量没有在window里产生属性 所以window里面没有age这个属性
+        var age = 18;
+
+        let obj1 = {
+            name: '小强',
+            job: () => {
+                console.log(this); // window
+                console.log(this.age); // var 18
+            }
+        }
+        obj1.job(); // window
+        console.dir(window);
+    </script>
+</body>
+
+</html>
