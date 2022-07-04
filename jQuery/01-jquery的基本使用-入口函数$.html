@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        // $('div').hide(); // jquery就是通过js封装的函数跟方法 也叫js库 更简单的操作
+
+        // 1. jquery的入口函数写法第一种
+        // ready已经准备好了
+        // 等着页面加载完毕再执行js代码
+        // $(document).ready(function() {
+        //     $('div').hide();
+        // })
+
+        // 2. jquery的入口函数写法第二种
+        // 等着页面加载完毕再执行js代码 相当于原生js的 DOMContentLoaded事件
+        $(function() {
+            $('div').hide();
+        })
+    </script>
+    <div></div>
+</body>
+</html>

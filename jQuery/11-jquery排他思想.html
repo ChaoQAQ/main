@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+</head>
+<body>
+    <button>点击按钮</button>
+    <button>点击按钮</button>
+    <button>点击按钮</button>
+    <button>点击按钮</button>
+    <button>点击按钮</button>
+    <button>点击按钮</button>
+    <script>
+        $(function() {
+
+            // 1. jquery有隐式迭代 会给所有按钮绑定事件
+            $('button').click(function() {
+            // 2. 当前的按钮背景颜色改变
+                $(this).css('background', 'pink');
+            // 3. 其余兄弟去掉背景颜色 隐式迭代
+                $(this).siblings('button').css('background', '');
+            })
+        })
+    </script>
+</body>
+</html>

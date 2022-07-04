@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        $(function() {
+            // 如果针对同一类元素做不同操作 需要用到遍历元素 类似于for 但比for强大
+            var arr = ['red', 'yellow', 'blue'];
+            var sum = 0;
+            // 1. each()方法遍历元素 each每一个的意思
+            $("div").each(function(index, domEle) {
+                // 回调函数第一个参数一定是索引号 可以自己指定索引号名称
+                console.log(index); // 索引号
+                // 回调函数第二个参数一定是 dom元素对象 也是自己命名
+                console.log(domEle); // dom元素
+                $(domEle).css("color", arr[index]);
+                sum += parseInt($(this).text());
+            })
+            console.log(sum);
+            // 2. $.each() 方法遍历元素 主要用于遍历数据 处理数据 可以遍历任何对象
+            $.each($("div"), function(index, ele) {
+                console.log(index);
+                console.log(ele);
+            })
+            $.each(arr, function(index, ele) {
+                console.log(index);
+                console.log(ele);
+            })
+            $.each({
+                name: "andy",
+                age: 18,
+                job: "打螺丝"
+            }, function(index, ele) {
+                console.log(index); // 输出的是name age job 属性名
+                console.log(ele); // 输出的是 andy 18 打螺丝 属性值
+                // 类似于原生js 中的 for in
+                // for (var k in obj) {}
+            })
+        })
+    </script>
+</body>
+</html>

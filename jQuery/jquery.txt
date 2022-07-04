@@ -1,0 +1,99 @@
+ready准备好的
+hide隐藏
+muted静音
+play玩 活动的 自动播放
+odd奇数
+even偶数
+first第一
+last最后
+eq(index)
+find( )找到
+hasClass( )有类名
+siblings( )兄弟姐妹 除自己外的兄弟元素
+nextAll（[ ]）自己之后的兄弟元素
+prevtAll([ ]) 自己之前的兄弟元素
+show(speed, easing, fn()) 显示 速度 缓和 回调函数 三个参数可以省略不写
+slow缓慢的
+normal典型的
+fast快速的
+swing摆动
+linear匀速
+slideDown( )下滑下拉
+slideUp( )上拉上滑
+slideToggle( )上下滑动切换
+hover(mouseenter, mouseleave)鼠标经过离开切换事件 只写一个函数就是经过离开都会触发
+stop( )方法用于停止动画 写到动画或者效果的前面 相当于停止上一次的动画
+fadeIn( )淡入 逐渐显示元素
+fadeOut( )淡出 逐渐隐藏元素
+fadeToggle( )淡入淡出切换
+fadeTo(动画执行时间, 最终透明度 )修改元素透明度 这两个参数必须写
+animate(需要动画的内容以对象方式存储, 动画时间, 动画运动曲线, 回调函数)
+small小的
+big大的
+king人，君主，人物
+element.prop( ) 道具 获取或者设置元素固有的属性
+element.attr( ) 获取或者设置自定义属性 返回字符串
+element.data( )数据缓存 data() 这个里面的数据是存放在元素内存里面 
+element.data("index")这个方法获取data-index h5 自定义属性 第一个 不用写data- 而且返回的是数字型
+复选框元素:checked可以得到被选中的元素
+element.html( )获取修改html
+element.text( )获取修改text
+element.val( )获取修改value
+increment增量
+decrement减量
+price价格
+parent( )返回最亲一级父元素
+parents( )返回指定祖先元素
+toFixed( )保留几位小数 到 固定
+element.each( )方法遍历元素 each每一个的意思
+each(function(index, domEle) { }回调函数第一个参数一定是索引号 可以自己指定索引号名称
+回调函数第二个参数一定是 dom元素对象 也是自己命名
+$.each() 方法遍历元素 主要用于遍历数据 处理数据 可以遍历任何对象
+$.each($("div"), function(index, ele) {}
+count计数
+amount数量
+$("<li>我是创建的li</li>")创建元素节点
+element.append(li); // 在该元素的内部子元素后面添加元素
+element.prepend($("<li>我是前面的li</li>")); // 在该元素的内部子元素前面添加元素 预先准备好的
+element.before($("<div>外部前面</div>"));
+element.after($("<div>外部后面</div>"));
+element.remove(); // 删除匹配的元素 自杀
+element.empty($()); // 删除匹配元素的子节点 empty空的意思
+element.html(""); // 删除匹配元素里面的子节点
+cart运货马车
+item项目 一件商品
+batch一批
+inner内部的
+outer外部的
+width() height() 获取设置元素 width和height大小 
+innerWidth() innerHeight() 获取设置元素 width和height + padding大小  inner内部
+outerWidth() outerHeight() 获取设置元素 width和height + padding +border大小  outer外部
+outerWidth(true) outerHeight(true) 获取设置元素 width和height + padding + border + margin大小 
+他们里面的参数为空就是获取值 返回数字型 为数字就是修改宽度或者高度 参数可以不写单位 默认px
+position( )获取距离带有定位父级位置（偏移）如果没有带有定位的父级，则以文档为准 这个方法只能获取不能设置偏移
+offset( )获取设置距离文档的位置（偏移) 不会受父级影响 注意里面的top 是属性 不是方法
+ scrollTop() 被卷去头部
+ scrollLeft()被卷去左侧 
+animate（ ）动画函数里面有个scrollTop属性 可以设置位置 但是是元素做动画 因此我们给body和html做动画
+recommend推荐
+fixedtool固定 工具 电动 固定电梯
+on（）事件处理
+element.on(事件类型, 元素的子元素选择器, 回调函数)
+on({click: function(){},mouseenter: function(){} }) 
+$("div").on("mouseenter mouseleave", function() {}
+on() 可以给未来动态创建的元素绑定事件
+click是绑定在ul身上的 但是触发的对象是ul 里面的 li      事件委托 事件委派
+$("ul").on("click", "li", function() {}// li 一定是绑定事件对象的子元素
+ off(事件类型，事件委托的元素，回调函数) 事件解绑 可以解绑以on绑定的事件
+one( )只能触发一次的绑定事件
+元素.事件(); 会触发元素的默认行为
+元素.trigger("事件名") 会触发元素的默认行为 
+元素.triggerHandler("事件名") 不会触发元素的默认行为 trigger触发 handler处理中 板机枪
+ event.stopPropagation(); // 阻止事件冒泡
+event.preventDefault(); // 阻止默认行为 或者 return false
+$.extend(浅拷贝，拷贝对象最终目标，待拷贝对象)
+$.extend(true, target, obj1,obj2)延申扩展
+jquery的多库共存就是$标识符的冲突 有两种 第一种有jQuery 第二种自己定义 用jQuery.noConflict( ) 不冲突的意思
+canvas画布
+fullpage满的页面
+modal模态

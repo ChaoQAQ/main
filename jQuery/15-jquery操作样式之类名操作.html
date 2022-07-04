@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            background-color: pink;
+            transition: all .5s;
+        }
+        .current {
+            transform: rotate(360deg);
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="current"></div>
+    <script>
+        $(function() {
+            // 1. 添加类名 addClass()
+            // $('div').click(function() {
+            //     $(this).addClass('current');
+            // })
+            // 2. 删除类名 removeClass()
+            // $('div').click(function() {
+            //     $(this).removeClass('current');
+            // })
+            // 3. 切换类名 toggleClass()
+            $('div').click(function() {
+                $(this).toggleClass('current');
+            })
+        })
+    </script>
+</body>
+</html>

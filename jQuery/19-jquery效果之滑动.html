@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div {
+            display: none;
+            width: 200px;
+            height: 600px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button>下拉slideDown</button>
+    <button>上拉slideUp</button>
+    <button>滑动切换slideToggle</button>
+    <div></div>
+    <script>
+        // $('button').eq(0).slideUp(slow, linear, function() {
+
+        // })
+        $('button').eq(0).click(function() {
+            // 下拉 slideDown()
+            $('div').slideDown(1000); // 完成需要时间1000毫秒
+        })
+        $('button').eq(1).click(function() {
+            // 上拉 slideUp()
+            $('div').slideUp(1000); 
+        })
+        $('button').eq(2).click(function() {
+            // 滑动切换 slideToggle()
+            $('div').slideToggle(1000); // 切换显示或隐藏
+        })
+        // 一般情况下 我们都不加参数直接显示于隐藏进行了
+    </script>
+</body>
+</html>

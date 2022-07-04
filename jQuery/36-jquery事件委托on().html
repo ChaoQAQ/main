@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul>
+    <ol>
+        <li>我是ol的li</li>
+        <li>我是ol的li</li>
+        <li>我是ol的li</li>
+        <li>我是ol的li</li>
+        <li>我是ol的li</li>
+        <li>我是ol的li</li>
+    </ol>
+    <script>
+        $(function() {
+            // on() 可以给未来动态创建的元素绑定事件
+            // $("ul li").click(function() {
+            //     alert(11);
+            // })
+            // click是绑定在ul身上的 但是触发的对象是ul 里面的 li
+            $("ul").on("click", "li", function() { // li 一定是绑定事件对象的子元素
+                alert(1);
+            })
+
+            var li = $("<li>我是后来的li</li>");
+            $("ul").append(li);
+        })
+    </script>
+</body>
+</html>

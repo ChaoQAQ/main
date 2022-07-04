@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        $(function() {
+            console.log($('div').css('width')); // 只写属性 不写属性值返回的是该属性值 返回字符串带单位
+            // $('div').css('width', '300px'); // 生成行内样式改变宽度
+            $('div').css('width', 300); // 属性名一定要加引号 属性值可以不加引号跟单位 默认px
+            $('div').css({
+                width: 600,
+                height: 600,
+                backgroundColor: 'red',
+                // 如果是复合属性必须采用驼峰命名法 如果不是数字 则需要加引号
+            })
+        })
+    </script>
+</body>
+</html>

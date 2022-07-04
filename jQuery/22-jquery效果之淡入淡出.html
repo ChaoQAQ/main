@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div {
+            display: none;
+            width: 200px;
+            height: 600px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button>淡入fadeIn</button>
+    <button>淡出fadeOut</button>
+    <button>淡入淡出切换fadeToggle</button>
+    <button>修改透明度fadeTo</button>
+    <div></div>
+    <script>
+        $(function() {
+            $("button").eq(0).click(function() {
+                // 淡入fadeIn() 显示元素
+                $("div").fadeIn();
+            });
+            $("button").eq(1).click(function() {
+                // 淡出fadeOut() 隐藏元素
+                $("div").fadeOut();
+            });
+            $("button").eq(2).click(function() {
+                // 淡入淡出切换fadeToggle()
+                $("div").fadeToggle(200);
+            });
+            $("button").eq(3).click(function() {
+                // 修改透明度fadeTo(动画时间, 透明度)
+                $("div").fadeTo(500, 0.5); // 修改透明度的动画时间跟透明度两个参数必须写
+            });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+</head>
+<body>
+    <div class="gradFather">
+        <div class="father">
+            <div class="son"></div>
+        </div>
+    </div>
+    <nav>
+        <p>我是屁</p>
+        <div>
+            <p>xaio</p>
+        </div>
+        <p>我是p</p>
+    </nav>
+    <script>
+        // 注意一下都是方法 带括号
+        $(function() {
+            // 1. 父 parent() 返回的是最近一级的元素 亲爸爸
+            console.log($('.son').parent());
+            // 2. 子
+            // (1) children() 类似于子代选择器的 ul>li children()不写参数就是所有亲儿子
+            $('nav').children('p').css('color', 'red');
+            // (2) find() 可以选择里面所有的孩子 包括儿子和孙子 类似于 ul li 后代选择器
+            $('nav').find('p').css('background', 'pink'); // 不写参数就是选择所有后代 写了就是选择指定后代
+            // 3. 兄
+        })
+    </script>
+</body>
+</html>

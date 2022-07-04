@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+</head>
+<body>
+    <div>惊喜不，意外不</div>
+    <div>惊喜不，意外不</div>
+    <div>惊喜不，意外不</div>
+    <div>惊喜不，意外不</div>
+    <div>惊喜不，意外不</div>
+    <div>惊喜不，意外不</div>
+    <ul>
+        <li>jquery隐式迭代就是给匹配到的所有元素循环遍历 不用我们自己循环遍历数组 从而简化我们的操作</li>
+        <li>jquery隐式迭代就是给匹配到的所有元素循环遍历 不用我们自己循环遍历数组 从而简化我们的操作</li>
+        <li>jquery隐式迭代就是给匹配到的所有元素循环遍历 不用我们自己循环遍历数组 从而简化我们的操作</li>
+        <li>jquery隐式迭代就是给匹配到的所有元素循环遍历 不用我们自己循环遍历数组 从而简化我们的操作</li>
+        <li>jquery隐式迭代就是给匹配到的所有元素循环遍历 不用我们自己循环遍历数组 从而简化我们的操作</li>
+        <li>jquery隐式迭代就是给匹配到的所有元素循环遍历 不用我们自己循环遍历数组 从而简化我们的操作</li>
+    </ul>
+    <script>
+        $(function() {
+            // 1. 获取6个div元素
+            console.log($('div'));
+            // 2. 给6个div设置背景颜色为pink色 jquery对象不能使用style
+            $('div').css('backgroundColor', 'pink');
+            // 3. 隐式迭代就是把匹配的所有元素内部进行循环遍历 给每个元素添加css这个方法
+            $('ul li').css('color', 'red');
+        })
+    </script>
+</body>
+</html>

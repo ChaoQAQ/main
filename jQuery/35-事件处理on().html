@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .current {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        $(function() {
+            // 1. 单个事件注册
+            // $("div").click(function() {
+            //     $(this).css("background", "purple");
+            // })
+            // $("div").mouseenter(function() {
+            //     $(this).css("background", "skyblue");
+            // })
+
+            // 2. 事件处理 on 绑定一个或多个事件
+            // 1. 以对象形式
+            // $("div").on({
+            //     mouseenter: function() {
+            //         $(this).css("background", "purple");
+            //     },
+            //     mouseleave: function() {
+            //         $(this).css("background", "skyblue");
+            //     }
+            // })
+
+            // 2. 如果事件处理程序相同
+            $("div").on("mouseenter mouseleave", function() {
+                $(this).toggleClass("current");
+            })
+        })
+    </script>
+</body>
+</html>

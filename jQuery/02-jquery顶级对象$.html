@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 1. $ 是jQuery的别称 (另外的名字)
+        // $(function() {
+        //     alert(11);
+        // })
+
+        jQuery(function () { // 因为jquery是调用函数方法属性 使用驼峰命名法 js Query查询 所有使用时名字加括号
+            jQuery('div').hide();
+        })
+        // 2. $ 同时也是jQuery的 顶级对象
+    </script>
+</body>
+
+</html>

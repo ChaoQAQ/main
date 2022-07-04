@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+    <script src="./jquery.min.js"></script>
+    <script>
+        $(function() {
+            $("div").on({
+                click: function() {
+                    console.log("我点击了");
+                },
+                mouseover: function() {
+                    console.log("我经过了");
+                }
+            })
+            // 1. 事件解绑 off(事件类型，事件委托的元素，回调函数)
+            // $("div").off(); // 不写参数就是解绑所有事件
+            $("div").off("click");
+            $("ul").on("click", "li", function() {
+                alert(1);
+            }) 
+            $("ul").off("click", "li"); // 解绑事件委托
+            // 2. one() 只能触发一次的事件绑定
+            $("p").one("click", function() {
+                alert("11");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div></div>
+    <ul>
+        <li>我们超级厉害</li>
+        <li>我们超级厉害</li>
+        <a href="">啊</a>
+        <li>我们超级厉害</li>
+        <li>我们超级厉害</li>
+        <li>我们超级厉害</li>
+        <li>我们超级厉害</li>
+    </ul>
+    <p>只能执行事件一次</p>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button>animate动画方法</button>
+    <div></div>
+    <script>
+        $("button").click(function() {
+            // $("div").animate(需要动画的内容以对象方式存储, 动画时间, 动画运动曲线, 回调函数)
+            $("div").animate({
+                width: 600,
+                height: 300,
+                top: 60,
+                left: 60,
+                opacity: 0.6
+            }, 500, function() {
+                alert(11);
+            })
+        })
+    </script>
+</body>
+</html>
