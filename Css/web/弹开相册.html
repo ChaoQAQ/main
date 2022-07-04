@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cube</title>
+</head>
+
+<body>
+    <div class="cube">
+        <div class="box" onclick="boom()">
+            <div class="child child-th1">
+                <img src="./皮卡丘.jpg">
+            </div>
+            <div class="child child-th2">
+                <img src="./小恶魔.jpg">
+            </div>
+            <div class="child child-th3">
+                <img src="./皮卡丘.jpg">
+            </div>
+            <div class="child child-th4">
+                <img src="./小恶魔.jpg">
+            </div>
+            <div class="child child-th5">
+                <img src="./皮卡丘.jpg">
+            </div>
+            <div class="child child-th6">
+                <img src="./小恶魔.jpg">
+            </div>
+            <div class="inner-box">
+                <div class="inner inner-th1">
+                    <img src="./皮卡丘.jpg">
+                </div>
+                <div class="inner inner-th1">
+                    <img src="./小恶魔.jpg">
+                </div>
+                <div class="inner inner-th1">
+                    <img src="./皮卡丘.jpg">
+                </div>
+                <div class="inner inner-th1">
+                    <img src="./小恶魔.jpg">
+                </div>
+                <div class="inner inner-th1">
+                    <img src="./皮卡丘.jpg">
+                </div>
+                <div class="inner inner-th1">
+                    <img src="./小恶魔.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    @keyframes cubeAction {
+        0% {
+            transform: rotateX(0) rotateY(0);
+        }
+
+        50% {
+            transform: rotateX(180deg) rotateY(180deg);
+        }
+
+        100% {
+            transform: rotateX(360deg) rotateY(360deg);
+        }
+    }
+
+    .cube {
+        width: 200px;
+        height: 200px;
+        margin: 200px auto;
+        perspective: 800px;
+    }
+
+    .box {
+        transform-style: preserve-3d;
+        width: 100%;
+        height: 100%;
+        animation: cubeAction 20s linear infinite alternate;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .child {
+        position: absolute;
+        opacity: 0.8;
+    }
+
+    .child img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .child-th6 {
+        transform: rotateX(90deg) translateZ(100px);
+    }
+
+    .child-th5 {
+        transform: rotateX(-90deg) translateZ(100px);
+    }
+
+    .child-th4 {
+        transform: rotateY(-90deg) translateZ(100px);
+    }
+
+    .child-th3 {
+        transform: rotateY(90deg) translateZ(100px);
+    }
+
+    .child-th2 {
+        transform: translateZ(100px);
+    }
+
+    .child-th1 {
+        transform: rotateY(180deg) translateZ(100px);
+    }
+
+    .inner-box {
+        width: 90px;
+        height: 90px;
+    }
+
+    .inner {
+        position: absolute;
+        opacity: 0.8;
+    }
+
+    .inner img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .inner-box div:nth-child(1) {
+        transform: rotateY(180deg) translateZ(45px);
+    }
+
+    .inner-box div:nth-child(2) {
+        transform: translateZ(45px);
+    }
+
+    .inner-box div:nth-child(3) {
+        transform: rotateY(90deg) translateZ(45px);
+    }
+
+    .inner-box div:nth-child(4) {
+        transform: rotateY(-90deg) translateZ(45px);
+    }
+
+    .inner-box div:nth-child(5) {
+        transform: rotateX(-90deg) translateZ(45px);
+    }
+
+    .inner-box div:nth-child(6) {
+        transform: rotateX(90deg) translateZ(45px);
+    }
+</style>
+
+</html>
+<script>
+    function boom() {
+        var box = document.getElementsByClassName('box')[0]
+        box.childNodes[1].style.transform = "rotateY(180deg) translateZ(171px)";
+        box.childNodes[3].style.transform = "translateZ(171px)";
+        box.childNodes[5].style.transform = "rotateY(90deg) translateZ(171px)";
+        box.childNodes[7].style.transform = "rotateY(-90deg) translateZ(171px)";
+        box.childNodes[9].style.transform = "rotateX(-90deg) translateZ(171px)";
+        box.childNodes[11].style.transform = "rotateX(90deg) translateZ(171px)";
+    }
+</script>

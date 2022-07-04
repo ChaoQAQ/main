@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				animation();
+			}
+			function animation(){
+				//创建一个画布
+				var canvas=document.createElement("canvas");
+				//将
+				document.body.appendChild(canvas);
+				//绘画布设置一个颜色
+				canvas.style.backgroundColor="black";
+				//将屏幕的宽高设置为画布的宽高
+				canvas.width=window.innerWidth;
+				canvas.height=window.innerHeight;
+				//设置绘图环境
+				var context=canvas.getContext("2d");
+				//定义一个数组，保存绘制的粒子
+				var particles=[];
+				loop();
+				//定义一个函数，来不停的画粒子
+				function loop(){
+					setInterval(function(){
+						//清空画布
+						//清空的是一个矩形区域的左上角坐标，矩形区域的宽度和高度
+						context.clearRect(0,0,canvas.width,canvas.height);
+						//调用画粒子的方法，随机产生一个圆心
+						var part=new particle(canvas.width*0.5,canvas.height*0.5);
+						//将粒子对象存入数组
+						particles.push(part);
+						//遍历数组
+						for (var i=0;i<particles.length;i++){
+							particles[i].update();
+						}
+					},30)
+					
+				}
+				//定义一个构造函数，来专门创建粒子对象
+				/* 
+				 this:
+				 1.以函数的形式，this永远都是window
+				 2.以方法的形式调用，this调用方法的那个对象
+				 3.以构造函数的形式调用，this是新建的那个对象
+				 4.以call和apply的形式调用，this是制定的对象
+				 */
+				function particle(xpos,ypos){
+					//定义粒子的圆心坐标
+					this.xpos=xpos;
+					this.ypos=ypos;
+					//改变y方向的变化值
+					this.yVal=-7;
+					//x方向随机变化
+					this.xVal=Math.random()*8-4;
+					//设置一个重力因素
+					this.gravity=0.1;
+					//定义一个方法画圆
+					this.draw=function(){
+						//开启新的路径
+						context.beginPath();
+						//绘制圆 圆心坐标，半径，起始弧度，终止弧度，绘制方向
+						context.arc(this.xpos,this.ypos,5,0,2*Math.PI,false);
+						//结束路径
+						context.closePath();
+						//颜色填充
+						context.fill();
+						}
+				//更新
+				this.update=function(){
+					//更新圆心坐标
+					this.xpos=this.xpos+this.xVal;
+					this.ypos=this.ypos+this.yVal;
+					//更新y方向的变化值
+					this.yVal=this.yVal+this.gravity;
+					//更新画笔的颜色
+					context.fillStyle=getRandomColor();
+					//更新完成，画新的粒子
+					this.draw();
+				}
+			}
+			//定义一个函数，封装颜色
+			function getRandomColor(){
+				//ffffff(16)=16777215(10)
+				return "#"+Math.floor(Math.random()*16777215).toString(16);
+			}
+		}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

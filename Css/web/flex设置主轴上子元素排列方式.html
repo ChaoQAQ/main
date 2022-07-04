@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            width: 1000px;
+            height: 600px;
+            background-color: pink;
+            /* 默认主轴是 X轴 row */
+            flex-direction: row;
+            /* 使用justify-content属性时先确定好主轴方向 */
+            /* 靠在头部开始排列 start */
+            /* justify-content: start; */
+            /* 靠在尾部开始排列 不反转 end */
+            /* justify-content: end; */
+            /* 在主轴上居中对齐，主轴为x就是水平居中对齐，主轴为y就是垂直居中对齐 center */
+            /* justify-content: center; */
+            /* 平分剩余空间 space-around */
+            /* justify-content: space-around; */
+            /* 先两边贴边，在平分剩余空间，非常重要，space-between */
+        }
+        span {
+            width: 200px;
+            height: 150px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
+</body>
+</html>

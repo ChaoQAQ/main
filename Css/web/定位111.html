@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 800px;
+            height: 800px;
+            /* margin: 100px; */
+            /* 给父级添加overflow：hidden，或者加边框border可以解决外边距塌陷 */
+            /* overflow: hidden; */
+            /* border: 1px solid red; */
+            background-color: pink;
+            /* 相对定位参照本身，且占有原来的位置 */
+            position: relative;
+            /* 绝对定位参照父级带有定位的元素，不占有位置，可以是绝对定位，相对定位，固定定位 */
+            /* position: absolute; */
+            /* 固定定位参照文档，不占有位置 加了固定定位的盒子一定要有宽度*/
+            /* position: fixed; */
+            top: 100px;
+
+        }
+        .box-2 {
+            /* 当子级盒子与父级都有相同的上外边距，就会出现外边距合并 */
+            /* 父盒子没有上外边距，子盒子设置了上外边距，就会出现上外边距塌陷，父级跟子级一起下降 */
+            margin-top: 100px;
+            /* margin-left: 100px; */
+            width: 500px;
+            height: 500px;
+            background-color: purple;
+            position: absolute;
+            top: 100px;
+        }
+        .box-3 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box-2">
+            <div class="box-3"></div>
+        </div>
+    </div>
+</body>
+</html>

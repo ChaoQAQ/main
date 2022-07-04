@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        div{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            border-radius: 50%;
+            /* 圆角 */
+            /* animation: move 3s infinite alternate; */
+            /* 调用动画 3秒，X次，无限次,原路返回 */
+            animation: move 5s infinite;
+        }
+        div:hover{
+            animation-play-state: paused;
+            /* 运动暂停 */
+        }
+        /* 定义动画 */
+        @keyframes move{
+            /* 25%{ 
+                transform: translateX(800px) rotateX(3600deg);
+                background-color: seagreen;
+            }
+            50%{
+                transform: translateX(800px) translateY(500px);
+                background-color: rgba(226, 23, 209, 0.603);
+            }
+            75%{
+                transform: translateX(0) translateY(500px);
+                background-color: springgreen;
+            }
+            100%{
+                transform: translateY(0);
+             } */
+           form{
+
+            }
+            to{
+                transform: translateX(800px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

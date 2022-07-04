@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            overflow: hidden;
+            width: 0;
+            height: 50px;
+            background-color: yellow;
+            font-size: 20px;
+            /* 让我们的文字强制一行显示 */
+            white-space: nowrap;
+            animation: w 4s steps(8) forwards;
+        }
+        @keyframes w {
+            form {
+                width: 0;
+            }
+            to {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>我在世纪佳缘等你</div>
+</body>
+</html>

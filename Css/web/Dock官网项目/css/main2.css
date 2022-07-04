@@ -1,0 +1,644 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* 顶部导航栏部分样式 */
+header {
+    /*设置头部的高度*/
+    height: 80px;
+    /*弹性布局,只会约束子标签，不会管子标签的后代*/
+    display: flex;
+    justify-content:  space-around;
+    width: 100%;
+    /*固定定位,不跟着屏幕滚动而滚动*/
+    position: fixed;
+    background-color: white;    
+    top: 0;
+    z-index: 99;
+}
+header div{
+    margin: 5px 0px;
+    display: flex;
+    /*水平轴对齐*/
+    align-items: center;
+}
+header div img{
+    height: 100%;
+}
+header div h2{
+    font-size: 28px;
+    font-weight: 200;
+    color: rgb(48,48,48);
+    margin-left: 10px;
+}
+header ul{
+    list-style-type: none;
+    /*弹性布局*/
+    display: flex;
+    align-items: center;
+    /*超出部分隐藏*/
+    overflow: hidden;
+} 
+header ul a{
+    text-decoration: none;
+    color: rgb(100,100,100);
+    font-weight: 100;
+    display: block;
+    padding: 0px 12px;
+    height: 80px;
+    line-height: 80px;
+}
+header ul li{
+    /*相对定位，用来让添加的遮盖视图有参考点*/
+    position: relative;
+}
+/*使用动态的方式创建一个盒子视图,用来产生动态效果*/
+header ul li:before{
+    /*默认添加的是一个行内元素,相当于span*/
+    content: "";
+    /*转换为块元素,才可以设置宽高*/
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: #d63a42;
+    
+    /*为了让添加的元素不会破坏已有的布局,并且可以重叠在其他元素上,需要设置定位*/
+    position: absolute;
+    /*让视图定位到顶部外面*/
+    top: -100%;
+    left: 0;
+    z-index: -10;
+    /*设置视图默认透明*/
+    opacity: 0;
+    /*让添加的这个元素的高度改变时有一个过渡效果*/
+    transition: all .35s linear;
+}
+header ul li:hover:not(.active)::before{
+    top:0;
+    opacity: 1;
+}
+header ul li:hover a{
+    color: white;
+}
+header .active a{
+    background-color: #de0f18;
+    color: white;
+}
+header nav ul{
+    list-style: none;
+    flex-grow: 1;
+    height: 201px;
+    position: relative;
+}
+header nav ul li{
+    float: left;
+    position: relative;
+    margin-left: 10px;
+    left: 10%;
+    top: 40px;
+    line-height: 100px;
+    height: 100px;
+}
+/* banner图模块样式 */
+.banner{
+    /* 相对定位 */
+    position: relative;
+}
+.banner img{
+    width: 100%;
+    margin-top: 80px;
+}
+/* banner图上文字位置样式 */
+.banner .con{
+    width: 700px;
+    margin: 120px auto;
+    text-align: center;
+    color: rgb(252, 240, 240);
+    position: absolute; 
+    top: 30%;
+    left: 30%;
+    background-color: rgba(250, 250, 250, 0.1);
+    border-radius: 5px;
+}
+.banner .con h1{
+    font-size: 28px;
+}
+.banner .con p{
+    padding: 10px;
+    /* 字间距 */
+    letter-spacing: 2px;
+    font-size: 18px;
+    line-height: 180%;
+    text-align: left;
+}
+
+.jump  {
+	position: relative;
+	width: 90%;
+	margin: 0 auto;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid;
+}
+
+.jump a {
+	margin-left: 10px;
+}
+
+.jump a {
+	text-decoration: none;
+	color: #000000;
+}
+
+/* 网站服务模块样式 */
+.title{
+    margin-top: 50px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.title p{
+    margin: 5px;
+}
+.title p:nth-child(1){
+    font-size: 25px;
+    font-weight: 100px;
+}
+.title p:nth-child(2){
+    font-size: 13px;
+}
+.title p:nth-child(3){
+    font-size: 19px;
+    color: gray;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    padding: 6px 25px;
+    display: inline-block;
+}
+.Web-Services .con-box{
+    width: 1100px;
+    height: 360px;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+}
+.Web-Services .box{
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    /*设置过度效果*/
+    transition: all .25s linear;
+    border: 1px solid gainsboro;
+}
+.Web-Services .box:nth-child(1) div{
+    background-color: rgb(183,185,64);
+}
+.Web-Services .box:nth-child(2) div{
+    background-color: rgb(71,191,130);
+}
+.Web-Services .box:nth-child(3) div{
+    background-color: rgb(110,139,214);
+}
+.Web-Services .box:nth-child(4) div{
+    background-color: rgb(173,83,196);
+}
+.Web-Services .box:nth-child(5) div{
+    background-color: rgb(224,93,109);
+}
+.Web-Services .box div{
+    padding: 20px;
+}
+.Web-Services .box div h2{
+    margin-top: 20px;
+    color: white;
+    font-weight: normal;
+}
+.Web-Services .box p{
+    margin: 30px 20px 0 15px;
+    color: darkgray;
+    font-size: 14px;
+    text-align: left;
+}
+/*盒子阴影效果*/
+.Web-Services .box:hover{
+    box-shadow: 0px 5px 10px gray;
+}
+
+/* 搜索服务模块样式 */
+.Seo-Services .con-box{
+    margin-top: 40px;
+height: 437px;
+/* 弹性盒子布局 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Seo-Services .con-box div:first-child{
+    width: 466px;
+    text-align: center;
+}
+.Seo-Services .con-box div:last-child{
+    width: 466px;
+    height: 100%;
+    background: url(../images/search.png) no-repeat center center;
+}
+.Seo-Services .con-box div:first-child p{
+    font-size: 36px;
+}
+.Seo-Services .con-box div:first-child h1{
+    font-size: 50px;
+    color: #005faf;
+    font-weight: bold;
+}
+
+/* 后端服务模块样式 */
+.Backend-Services .con-box{
+    height: 160px;
+    width: 1100px;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+}
+.Backend-Services .con-box div{
+    width: 25%;
+    text-align: center;
+    padding: 10px;
+    transition: all .35s linear;
+}
+.Backend-Services .con-box div:hover{
+    box-shadow: 0px 2px 10px gainsboro; 
+}
+.Backend-Services .con-box img{
+    height: 100px;
+}
+/* 更多服务模块样式 */
+.More-Services ul{
+    width: 1100px;
+    margin: auto;
+    margin-top: 50px;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.More-Services ul li{
+    width: 20%;
+    height: 170px;
+    box-sizing: border-box;
+    border-bottom: 2px solid red;
+    padding: 1px 1px 0px 1px;
+    position: relative;
+}
+.More-Services ul li img{
+    width: 100%;
+    height: 100%;
+}
+/* 伪类选择器，在li标签之前添加一个块元素设置模板效果 */
+.More-Services ul li:before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color:rgb(0,0,0,.5) ;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.More-Services ul li p{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: whitesmoke;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0px;
+    font-size: 18px;
+    transition: all .25s linear;
+}
+/* 鼠标覆盖时选中效果 */
+.More-Services ul li:hover p{
+    bottom: 50px;
+}
+/*底部*/
+footer{
+    background-color: #494443;
+    padding: 80px 0px;
+    margin-top: 100px;
+}
+/* 底部导航栏弹性布局 */
+footer>div:first-child{
+    height: 112px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+footer>div ul{
+    width: 200px;
+    /* 取消列表标签默认样式 */
+    list-style-type: none;
+}
+/* 设置每组导航栏之间的间隔线 */
+footer .line{
+    height: 80px;
+    width: 1px;
+    background-color: white;
+    margin-right: 30px;
+    margin-top: 20px;
+}
+/* 设置超链接样式 */
+footer>div ul li a{
+    text-decoration: none;
+    color: gray;
+    font-size: 14px;
+    font-weight: 100;
+}
+footer>div ul li:first-child{
+    color: white;
+}
+footer>div:last-child{
+    margin-top: 50px;
+    text-align: center;
+    color: gray;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+/* 主体样式*/
+.banner{
+    /* 相对定位 */
+    position: relative;
+}
+.banner img{
+    width: 100%;
+    margin-top: 80px;
+}
+/* banner图上文字位置样式 */
+.banner .con{
+    width: 700px;
+    margin: 120px auto;
+    text-align: center;
+    color: rgb(252, 240, 240);
+    position: absolute; 
+    top: 30%;
+    left: 30%;
+    background-color: rgba(250, 250, 250, 0.1);
+    border-radius: 5px;
+}
+.banner .con h1{
+    font-size: 28px;
+}
+.banner .con p{
+    padding: 10px;
+    /* 字间距 */
+    letter-spacing: 2px;
+    font-size: 18px;
+    line-height: 180%;
+    text-align: left;
+}
+/* 关于我们 */
+.about-us{
+    width: 1100px;
+    margin: auto;
+    margin-top: 30px;
+}
+.title{
+    text-align: center;
+}
+.title div{
+    width: 100px;
+    height: 5px;
+    background-color: red;
+    margin: auto;
+}
+/* 小标题样式 */
+.title h1{
+    font-size: 35px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin: 10px auto;
+}
+.title p{
+    width: 850px;
+    margin: auto;
+    margin-top: 10px;
+    letter-spacing: 2px;
+    white-space: pre-line;
+    line-height: 180%;  
+}
+.title h3{
+    letter-spacing: 2px;
+    font-size: 18px;
+    font-weight: normal;
+}
+.about-us{
+    border: 1px solid white;
+    margin-top: 50px;
+}
+.about-us .img-box{
+    height: 200px;
+    width: 650px;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.about-us .img-box div{
+    width: 100px;
+    height: 100px;
+    text-align: center; 
+}
+.about-us .img-box div{
+    height: 64px;
+}
+
+/* 我们做什么模块样式 */
+.what-do{
+    margin-top: 50px;
+}
+/* 弹性盒子设置左右两边布局 */
+.what-do .box{
+    margin-top: 20px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+}
+/* 调整左边图片位置及大小 */
+.what-do .left-img{
+    width: 430px;
+    height: 100%;
+    margin: 0px 30px;
+    background: url(../images/food.jpg) no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+/* 设置文本样式 */
+.what-do .left-img div{
+    height: 132px;
+    color: rgb(48,48,48);
+    background-color: rgba(250,250,250,.5);
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding: 20px;
+}
+.what-do .left-img div a{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+/* 右边盒子大小 */
+.what-do .right-box{
+    height: 100%;
+    width: 630px;
+    margin-left: 30px;
+}
+/* 右边盒子内容布局 */
+.what-do .right-box .item{
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    border-bottom: gray solid 1px;
+}
+.what-do .right-box .item div:first-child{
+    width: 110px;
+    height: 115px;
+    text-align: center;
+    color: white;
+    margin: 16px 20px;
+}
+.what-do .right-box .item div:first-child h1{
+    background-color: #dc0710;
+    height: 80px;
+    line-height: 80px;
+    font-size: 35px;
+}
+.what-do .right-box .item div:first-child h4{
+    background-color: black;
+    height: 35px;
+    line-height: 35px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+/* 盒子阴影，鼠标覆盖时生效 */
+.what-do .right-box .item div:first-child:hover{
+    box-shadow: 0px 0px 10px 1px red;
+}
+.what-do .right-box .item div:last-child{
+    width: 460px;
+    height: 115px;
+}
+.what-do .right-box .item div:last-child h4{
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+.what-do .right-box .item div:last-child p{
+    font-size: 14px;
+    color: gray;
+    margin: 10px auto;
+    /* 弹性伸缩盒子模型显示 */
+    display: -webkit-box;
+    /* 垂直排列子元素 */
+    -webkit-box-orient: vertical;
+    /* 显示的行数 */
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+.what-do .right-box .item div:last-child a{
+    text-decoration: none;
+    color: darkgray;
+    font-size: 14px;
+}
+/* 伪类选择器，添加图片 */
+.what-do .right-box .item div:last-child a::before{
+    content: url(../images/icon-tag.png);
+    /* 设置为行内块标签 */
+    display: inline-block;
+    width: 20px;
+}
+ /* 服务项目模块样式 */
+ .service-pre{
+    /* 上边距 */
+    margin-top: 100px;
+}
+/* 内容弹性盒子布局space-between */
+.service-pre .box{
+    width: 1100px;
+    height: 192px;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+/* 内容三个盒子的样式 */
+.service-pre .box div{
+    background-color: orange;
+    width: 30%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.service-pre .box div:nth-child(1){
+    background-color: rgb(247,167,45);
+}
+.service-pre .box div:nth-child(2){
+    background-color: rgb(225,94,43);
+}
+.service-pre .box div:nth-child(3){
+    background-color: rgb(195,34,2);
+}
+/* 设置定位和过渡属性 */
+.service-pre .box p{
+    position: absolute;
+    top:100%;
+    left: 100%;
+    opacity: 0;
+    color: white;
+    width: 230px;
+    transition: transform .35 linear;
+}
+.service-pre .box div img{
+    width: 220px;
+    transition: transform .35 linear;
+}
+/* 鼠标覆盖时的缩放和偏移 */
+.service-pre .box div:hover img{
+    transform: translate(-40px,-35px) scale(0.6,0.6);
+}
+.service-pre .box div:hover p{
+    top: 90px;
+    left: 100px;
+    opacity: 1;
+}
+
+/* 我们的客户模块样式 */
+/* 边距调整 */
+.customer{
+    margin-top: 100px;
+}
+.customer .title{
+    margin-bottom: 30px;
+}
+/* 超出部分隐藏 滚动条展示 */
+.customer .box{
+    background-color: gainsboro;
+    width: 100%;
+    min-width: 1100px;
+    margin-top: 30px;
+    overflow: scroll;
+}
+/* 弹性盒子布局 */
+.customer .box ul{
+    list-style-type: none;
+    width: 200%;
+    padding: 50px 0px;
+    display: flex;
+    justify-content:space-around;
+}

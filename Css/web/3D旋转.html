@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 200px;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            transition: all 1s;
+        }
+        div:hover {
+            transform: rotateX(45deg);
+            transform: rotateY(45deg);
+            transform: rotateZ(45deg);
+            /* 1就是需要旋转，0就是不需要，用逗号分隔 */
+            transform: rotate3d(1, 0, 0, 45deg);
+            /* x轴和y轴就是沿着x，y的对角线旋转 */
+            transform: rotate3d(1, 1, 0, 45deg);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* css3盒子模型 */
+        * {
+            box-sizing: border-box;
+            /* webkit网络工具包，webkit内核 */
+            -webkit-box-sizing: border-box;
+        }
+        /* 点击高亮我们需要清除清除 设置为transparent 完全透明 */
+        a {
+            /* tap开发技术， highlight突出的， color颜色，
+            移动端点击时高亮的背景颜色我们不需要，所以设置透明色 */
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* 在移动端浏览器默认的外观在 ios 上加上这个属性才能给按钮和输入框自定义样式 */
+        button,
+        input {
+            /*appearance 外观 
+              去掉移动端浏览器默认的外观，我们才可以给他设置更好看的外观 */
+            -webkit-appearance: none;
+        }
+        /* 禁用长按页面时弹出的菜单 */
+        img,
+        a {
+            /* touch触摸， callout插图，零件，长按时弹出的菜单栏 */
+            -webkit-touch-callout: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="#">111</a>
+    <img src="./images/tudou.png" alt="">
+    <button>111</button>
+    <input type="text">
+</body>
+</html>

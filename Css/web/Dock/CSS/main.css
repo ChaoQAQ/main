@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 头部 */
+
+header{
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    z-index: 99;
+}
+
+header div{
+    margin: 5px 0px;
+    display: flex;
+    align-items: center;
+}
+
+header div img{
+    height: 100%;
+}
+
+header div h2{
+    font-size: 28px;
+    font-weight: 200;
+    color: rgb(48, 48, 48);
+    margin-left: 10px;
+}
+
+header ul{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+header ul a{
+    text-decoration: none;
+    color: rgb(100, 100, 100);
+    font-weight: 100;
+    display: block;
+    padding: 0px 12px;
+    height: 80px;
+     line-height: 80px;
+}
+
+header ul li{
+    position: relative;
+}
+
+header ul li:before{
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: #d63a42;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: -10;
+    opacity: 0;
+    transition: all .35s linear;
+}
+
+header ul li:hover:not(.active)::before{
+    top: 0;
+    opacity: 1;
+}
+
+header ul li:hover a{
+    color: white;
+}
+
+header .active a{
+    background-color: #de0f18;
+    color: white;
+}
+
+/* 底部 */
+
+footer{
+    background-color: #494443;
+    padding: 80px 0px;
+    margin-top: 100px;
+}
+
+footer>div:first-child{
+    height: 112px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+footer>div ul{
+    width: 200px;
+    list-style-type: none;
+}
+
+footer .line{
+    height: 80px;
+    width: 1px;
+    background-color: white;
+    margin-right: 30px;
+    margin-top: 20px;
+}
+
+footer>div ul li a{
+    text-decoration: none;
+    color: gray;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+footer>div ul li:first-child{
+    color: white;
+}
+
+footer>div:last-child{
+    margin-top: 50px;
+    text-align: center;
+    color: gray;
+    font-style: 14px;
+    letter-spacing: 2px;
+}

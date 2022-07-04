@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            border: 2px solid skyblue;
+        }
+        /* 只要不是基线对齐就不会有空白缝隙,行内块默认基线对齐 */
+        /* 把行内块转换为块级元素也不会有空白空隙 */
+        img {
+            /* vertical-align: top; */
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="images/tudou.png" alt="">pink
+    </div>
+</body>
+</html>

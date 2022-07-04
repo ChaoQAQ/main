@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0, user-scalable=no ">
+    <title>Document</title>
+    <style>
+        /* 比如iPhone8，css3像素 50px*50px 的在iPhone8中显示 100px*100px，在iPhone8中图片就放大了两倍，图片放大后会变得模糊
+        我们采取的措施就是放一个css3像素 100px*100px 的图片，然后手动的把图片缩小为 50px*50px css3像素，然后在iPhone8中显示大了两倍，
+        就相当于还原了原来图片大小就会避免图片放大模糊的问题
+        如果是iPhone8我们就应该准备比我们实际需要大小图片大小的两倍，这也就是2倍图方法 */
+        img:nth-child(2) {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/" alt="">
+    <img src="./images/" alt="">
+</body>
+</html>

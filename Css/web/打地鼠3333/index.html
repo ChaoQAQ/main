@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			#gamediv{
+				width: 330px;
+				height: 330px;
+				margin: 50px auto;
+			}
+		</style>
+		<script type="text/javascript">
+			//设置屏幕加载完成以后再执行js
+			window.onload=function(){
+				var gamediv=document.getElementById("gamediv");
+				//开启定时器
+			    setInterval(function(){
+					//产生一个0-8的随机数
+					var x=Math.floor(Math.random()*100)%9;
+					//gamediv.children 拿到gamediv的子元素，返回的是数组
+					var img=gamediv.children[x];
+					//将随机的这一个草坪换成老鼠
+					img.src="img/2.png";
+					//产生随机数将老鼠变为草坪
+					var y=Math.floor(Math.random()*100)%9;
+					var img=gamediv.children[y];
+					img.src="img/5.jpg";
+				},100)
+			}
+			//定义一个函数，实现点击得分的效果
+			var numb=0;
+			function beat(img){
+			//
+			var srcstr=img.src;
+			console.log(srcstr);
+			//
+			//
+			if(srcstr.charAt(srcstr.length-5=="2")){
+				img.src="img/5.jpg";
+				numb++;
+				//
+				document.getElementById("sorce").innerHTML="得分："+numb;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="gamediv">
+			<img src="img/5.jpg" width="100px" height="100px" onclick="beat(this)"/>
+			<img src="img/5.jpg" width="100px" height="100px" onclick="beat(this)"/>
+			<img src="img/5.jpg" width="100px" height="100px" onclick="beat(this)"/>
+			<img src="img/5.jpg" width="100px" height="100px" onclick="beat(this)"/>
+			<img src="img/5.jpg" width="100px" height="100px" onclick="beat(this)"/>
+			<img src="img/5.jpg" width="100px" height="100px" onclick="beat(this)"/>
+			<img src="img/5.jpg" width="100px" height="100px" onclick="beat(this)"/>
+			<img src="img/5.jpg" width="100px" height="100px" onclick="beat(this)"/>
+			<img src="img/5.jpg" width="100px" height="100px" onclick="beat(this)"/>
+		</div>
+		<p id="sorce" style="width: 100px;height: 100px;margin: 0px auto;"></p>
+	</body>
+</html>

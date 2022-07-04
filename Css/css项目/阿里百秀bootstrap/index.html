@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--线上引入js文件 HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <!-- 引入bootstrap的样式文件 -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <!-- 引入我们自己的css样式文件 -->
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- row可以取消父元素的左右padding值,而且会使子元素高度和父元素高度一样 -->
+        <div class="row">
+            <!-- 在bootstrap框架里,因为列是浮动的,不能通过手写margin值于其他列保持距离,
+                浮动的加了margin值会超出container容器宽度会再起一行显示,这不是我们想要的效果,
+                经常清除一列的一个padding值,保留另一个padding值,在在一列里套上一个盒子用来跟父元素的下一列保持距离 -->
+            <header class="col-md-2">
+                <div class="logo">
+                    <a href="#">
+                        <!-- 在超小屏幕xs中隐藏hidden-xs xs小于768px宽度 占屏幕宽度100%-->
+                        <img src="./images/logo_03.png" alt="" class="hidden-xs">
+                        <!-- 在超小屏幕xs中显示visible-xs -->
+                        <span class="visible-xs">阿里百秀</span>
+                    </a>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li>
+                            <!-- bootstrap的字体图标就是调用类名,就是在该元素前面加一个伪元素before -->
+                            <a href="#" class="glyphicon glyphicon-camera">生活馆</a>
+                        </li>
+                        <li>
+                            <a href="#" class="glyphicon glyphicon-picture">自然绘</a>
+                        </li>
+                        <li>
+                            <a href="#" class="glyphicon glyphicon-phone">科技潮</a>
+                        </li>
+                        <li>
+                            <a href="#" class="glyphicon glyphicon-gift">奇趣事</a>
+                        </li>
+                        <li>
+                            <a href="#" class="glyphicon glyphicon-glass">美食杰</a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <article class="col-md-7">
+                <div class="news clearfix">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="./upload/lg_03.png" alt="">
+                                <p>阿里百秀</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./upload/xs_03.png" alt="">
+                                <p>奇了 成都一小区护卫长得像马云 市民纷纷求合影</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./upload/xs_03.png" alt="">
+                                <p>奇了 成都一小区护卫长得像马云 市民纷纷求合影</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./upload/xs_03.png" alt="">
+                                <p>奇了 成都一小区护卫长得像马云 市民纷纷求合影</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./upload/xs_03.png" alt="">
+                                <p>奇了 成都一小区护卫长得像马云 市民纷纷求合影</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="publish">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h3>生活馆 关于指甲的10个健康知识 你知道几个？</h3>
+                            <p class="text-muted hidden-xs">alibaixui 发布于 2015-11-23</p>
+                            <p class="hidden-xs">指甲是经常容易被人们忽略的身体部位，指甲是经常容易被人们忽略的身体部位，
+                                指甲是经常容易被人们忽略的身体部位，指甲是经常容易被人们忽略的身体部位</p>
+                            <p class="text-muted">阅读(2417)评论(1)赞(18)标签：健康/感染/指甲/疾病/皮肤/营养/趣味生活</p>
+                        </div>
+                        <div class="col-sm-3 hidden-xs">
+                            <img src="./upload/pic_03.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="publish">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h3>生活馆 关于指甲的10个健康知识 你知道几个？</h3>
+                            <p class="text-muted hidden-xs">alibaixui 发布于 2015-11-23</p>
+                            <p class="hidden-xs">指甲是经常容易被人们忽略的身体部位，指甲是经常容易被人们忽略的身体部位，
+                                指甲是经常容易被人们忽略的身体部位，指甲是经常容易被人们忽略的身体部位</p>
+                            <p class="text-muted">阅读(2417)评论(1)赞(18)标签：健康/感染/指甲/疾病/皮肤/营养/趣味生活</p>
+                        </div>
+                        <div class="col-sm-3 hidden-xs">
+                            <img src="./upload/pic_03.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="publish">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h3>生活馆 关于指甲的10个健康知识 你知道几个？</h3>
+                            <p class="text-muted hidden-xs">alibaixui 发布于 2015-11-23</p>
+                            <p class="hidden-xs">指甲是经常容易被人们忽略的身体部位，指甲是经常容易被人们忽略的身体部位，
+                                指甲是经常容易被人们忽略的身体部位，指甲是经常容易被人们忽略的身体部位</p>
+                            <p class="text-muted">阅读(2417)评论(1)赞(18)标签：健康/感染/指甲/疾病/皮肤/营养/趣味生活</p>
+                        </div>
+                        <div class="col-sm-3 hidden-xs">
+                            <img src="./upload/pic_03.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="publish">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h3>生活馆 关于指甲的10个健康知识 你知道几个？</h3>
+                            <p class="text-muted hidden-xs">alibaixui 发布于 2015-11-23</p>
+                            <p class="hidden-xs">指甲是经常容易被人们忽略的身体部位，指甲是经常容易被人们忽略的身体部位，
+                                指甲是经常容易被人们忽略的身体部位，指甲是经常容易被人们忽略的身体部位</p>
+                            <p class="text-muted">阅读(2417)评论(1)赞(18)标签：健康/感染/指甲/疾病/皮肤/营养/趣味生活</p>
+                        </div>
+                        <div class="col-sm-3 hidden-xs">
+                            <img src="./upload/pic_03.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                
+            </article>
+            <aside class="col-md-3">
+                <a href="#" class="banner">
+                    <img src="./upload/banner_03.png" alt="">
+                </a>
+                <a href="#" class="hot">
+                    <span class="btn btn-primary">热搜</span>
+                    <h4 class="text-primary">欢迎加入中国博客联盟</h4>
+                    <p class="text-muted">这里收入国内各个领域的优秀博客，这里收入国内各个领域的优秀博客，这里收入国内各个领域的优秀博客，这里收入国内各个领域的优秀博客</p>
+                </a>
+            </aside>
+        </div>
+    </div>
+</body>
+
+</html>

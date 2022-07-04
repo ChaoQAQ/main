@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            width: 600px;
+            height: 600px;
+            background-color: pink;
+            /* 设置主轴x轴 */
+            /* flex-direction: row; */
+            /* 设置主轴装不开就换行 */
+            /* flex-wrap: wrap; */
+            /* flex-flow就是设置flex-direction跟flex-wrap的简写，写两个值，用空格隔开，先确定主轴在确定是否换行 */
+            /* row就是行x轴,column就是列y轴 */
+            flex-flow: column wrap;
+            /* 设置侧轴（单行使用）居中对齐  行之间会有空白缝隙*/
+            /* align-items: center; */
+            /* 设置多行居中对齐，行之间不会有空隙 */
+            /* align-content: center; */
+            /* 设置多行先两头贴边在平分剩余空间 */
+            align-content: space-between;
+            /* 设置子元素拉伸平分父元素剩余高度 前提是不能设置子元素需要拉伸的 高度或者宽度 的情况下    */
+            align-content: stretch;
+        }
+        span {
+            /* width: 200px; */
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+    </div>
+</body>
+</html>

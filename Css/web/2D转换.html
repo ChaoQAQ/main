@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 移动盒子的位置   外边距   定位   2D转换移动 */
+        div {
+            width: 200px;
+            height: 200px;
+        }
+        /* transform: translate(x,y); */
+        div {
+            background-color: blue;
+            /* 只动x轴transform: translate(100px,0) */
+            transform: translateX(100px);
+            transform: translateY(100px);
+            /* transform: translate(100px,100px); */
+        }
+        p {
+            height: 400px;
+        }
+        span {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            transform: translate(50%,50%);
+        }
+        .hd {
+            position: relative;
+            width: 1000px;
+            height: 800px;
+            background-color: purple;
+        }
+        .bd {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            /* margin-top: -100px; */
+            /* margin-left: -100px; */
+            width: 200px;
+            height: 200px;
+            transform: translate(-50%,-50%);
+
+            /* 利用定位让盒子距离上边跟左边一半的距离，在利用translate百分比偏移相对于本身的一半距离让盒子水平垂直居中 */
+
+            background-color: #ccc;
+        }
+        img {
+            /* 谁做过渡动画给谁加过渡 */
+            transition: all .5s;
+            border-radius: 50%;
+        }
+        img:hover {
+            transform: rotate(360deg);
+        }
+        /* transform：rotate  2D平面旋转，deg就是度数的单位，值为正数就是顺时针旋转，负数为逆时针旋转 */
+        /* 在transform：translate中顶部横是x，竖着是y，从顶部开始 */
+        /* 只动一个轴的时候写了一个x一个y只生效一个 */
+        /* translate优点  不会影响其他元素位置，占用原来的位置 */
+        /* translate(50%,50%)   百分比是相当于自身大小 因此可以配合定位让一个盒子水平垂直居中*/
+        /* 对行内标签没有效果,行内块级标签会生效 */
+    </style>
+</head>
+<body>
+    <img src="./images/tudou.png" alt="">
+
+    <div></div>
+    <p></p>
+    <span>1</span>
+    <input type="text">
+    <section class="hd">
+        <section class="bd"></section>
+    </section>
+</body>
+</html>

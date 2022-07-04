@@ -1,0 +1,77 @@
+body {
+    min-width: 320px;
+    /* 因为设计稿750px，body默认整个屏幕，所以我们要设置body最大750px */
+    max-width: 750px;
+    /* flexible 给我们划分了 10等份 */
+    width: 10rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica;
+    background-color: #f2f2f2;
+}
+a {
+  font-size: .333333rem;
+  text-decoration: none;
+}
+/* flexible.js是根据屏幕的大小来划分10等份的，使得html文字初始大小为 屏幕宽度除以10 并且权重很高，！important就是设置权重无穷大，
+flexible的优点是屏幕大小发生一点改变就会改变html文字大小，相比less＋媒体查询更为直接
+设置最小宽度750px，意思就是如果屏幕超过750px，html文档就一直按照750px设计稿走，不会让我们的页面超过750px */
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 75px!important;
+  }
+}
+/* search-content */
+.search-content {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10rem;
+  height: 1.173333rem;
+  background-color: #ffc001;
+}
+.classify {
+  position: relative;
+  width: 1.173333rem;
+  height: 1.173333rem;
+}
+.classify img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: .48rem;
+  height: .8rem;
+}
+.search {
+  position: relative;
+  flex: 1;
+}
+.search input {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  /* 去掉选中时默认的蓝色边框 */
+  outline: none;
+  /* 去掉input默认的边框 */
+  border: 0;
+  width: 100%;
+  height: .88rem;
+  padding: 0 .733333rem;
+  font-size: .333333rem;
+  color: #666;
+  background-color: #fff2cc;
+  /* 圆角就是高度的一半 */
+  border-radius: .44rem;
+}
+.login {
+  width: 1.173333rem;
+  height: 1.173333rem;
+  line-height: 1.173333rem;
+  /* text-align只对图片和文字生效 */
+  text-align: center;
+  color: #fff;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* 透视写在需要观察元素的父元素上，单位px，视距近大远小，像素值大物体越小，值小物体越大 */
+            /* 透视只能给父盒子使用  translateZ能控制不同的子盒子 */
+            perspective: 600px;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* X左边负数，右边正数，Y下边正数，上边负数，Z平面离眼睛的距离为正数，离后面为负数 */
+            /* transform: translateX(100px) translateY(100px) translateZ(100px); */
+            /* transformZ就是平面向我们眼睛靠近100px  Z轴单位一般跟 px单位 */
+            /* transform: translateZ(100px); */
+            /* 简写，3d必须有3个值，没有就写0 */
+            /* transform: translate3d(x, y, z); */
+            transform: translate3d(400px, 100px, 100px);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

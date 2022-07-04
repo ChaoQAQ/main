@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* 1.先给父级添加 flex 属性 */
+            display: flex;
+            width: 1000px;
+            height: 600px;
+            background-color: pink;
+            /* flex 默认主轴是行 X轴 row， y就是侧轴 column */
+            /* flex-direction: row; */
+            /* reverse 就是翻转的意思，比如1， 2， 3翻转过来就是3， 2， 1，并且就是从右到左排列 */
+            /* flex-direction: row-reverse; */
+            /* 我们可以设置 Y轴column 为主轴，那么X轴就成了侧轴 */
+            flex-direction: column;
+            /* 同样Y轴也可以翻转倒立 */
+            /* flex-direction: column-reverse; */
+        }
+        span {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .bg1 {
+            position: absolute;
+            width: 1920px;
+            height: 600px;
+            top: 200px;
+            background: url(images/bg1.png) no-repeat;
+            animation: move_bg 50s linear infinite;
+        }
+
+        .bg2 {
+            top: 600px;
+            width: 1920px;
+            height: 600px;
+            background: url(images/bg2.png) no-repeat;
+            animation: move_bg 80s linear infinite;
+        }
+
+        .bear {
+            position: absolute;
+            top: 400px;
+            width: 200px;
+            height: 100px;
+            background: url(images/bear.png) no-repeat;
+            animation: bear 1s steps(8) infinite, move 1s forwards;
+            z-index: 1;
+        }
+
+        @keyframes bear {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -1600px 0;
+            }
+        }
+
+        @keyframes move {
+            0% {
+                left: 0;
+            }
+
+            100% {
+                left: 50%;
+                /* margin-left: -100px; */
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes move_bg {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 100% 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bear"></div>
+    <div class="bg1"></div>
+    <div class="bg2"></div>
+</body>
+
+</html>

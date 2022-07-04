@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            width: 1000px;
+            height: 800px;
+            background-color: pink;
+            /* flex布局中，默认的子元素是不换行的，如果装不开，会缩小子元素的宽度，高度不变，放到父元素里 */
+            /* flex-wrap: nowrap; */
+            /* justify-content: space-between; */
+            justify-content: center;
+            flex-wrap: wrap;
+            /* align-items设置侧轴对齐方式， 特别适合单行，多行时不推荐，侧轴居中center */
+            align-items: center;
+            /* flex-start侧轴从上到下对齐 */
+            /* align-items: flex-start; */
+            /* flex-end侧轴从下到上对齐 */
+            /* align-items: flex-end; */
+            /* stretch拉伸 默认的，前提是子元素不设置高度，子盒子会跟父盒子一样高 */
+            /* align-items: stretch; */
+        }
+        span {
+            width: 300px;
+            height: 200px;
+            /* margin-right: 10px; */
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- <span>1</span> -->
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
+</body>
+</html>

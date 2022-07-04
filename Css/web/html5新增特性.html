@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header,
+        nav {
+            width: 800px;
+            height: 120px;
+            background-color: skyblue;
+            border: 1px solid skyblue;
+            margin: 15px auto;
+        }
+        
+        input::placeholder {
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form action="">
+            <!-- required="required"书写不能为空 -->
+            <!-- placeholder="pink"提示文本 占位符-->
+            <!-- autofocus="autofocus" 刷新页面光标自动聚在表单内 谁加就聚在谁身上 -->
+            <!-- autocomplete="off"关闭历史搜索记录 默认是on， on就是打开的意思 off关闭的意思 -->
+            <input type="search" name="sear" id="" required="required" placeholder="提示文本placeholder" autofocus="autofocus" autocomplete="off">
+            <!-- <input type="file" name="" id="">上传文件 -->
+            <!-- multiple 多选文件 -->
+            <input type="file" name="" id="" multiple="multiple">
+            <input type="submit" value="提交">
+        </form>
+    </div>
+    <div>
+        <form action="">
+            <!-- 我们验证的时候必须添加form表单域 -->
+            <ul>
+                <li>邮箱<input type="email"></li>
+                <li>网址<input type="url"></li>
+                <li>日期<input type="date"></li>
+                <li>日期<input type="time"></li>
+                <li>数量<input type="number"></li>
+                <li>手机号码<input type="tel"></li>
+                <li>搜索<input type="search"></li>
+                <li>颜色<input type="color"></li>
+                <li><input type="submit" value="提交"></li>
+            </ul>
+        </form>
+    </div>
+    <!-- 新特性都有兼容问题，基本上ie9+的版本支持，移动端不存在兼容问题 -->
+    <!-- 在ie9中需要把这些元素转化为块级标签使用，其实移动端更喜欢这些标签 -->
+    <header>头部标签</header>
+    <nav>导航栏标签</nav>
+    <article>内容标签</article>
+    <section>定义文档某个区域</section>
+    <aside>侧边栏标签</aside>
+    <footer>尾部标签</footer>
+    <!-- controls 播放显示  -->
+    <!-- autoplay="autoplay"自动播放，IE浏览器可以，谷歌浏览器不能自动播放，谷歌浏览器禁用autoplay -->
+    <!-- muted="muted"静音播放，添加这个属性可以解决谷歌禁止自动播放问题 只限视频，音频暂时还没有解决方案-->
+    <!-- video可以设置大小当成一个盒子进行了 -->
+    <!-- loop="loop"无限循环播放 -->
+    <!-- poster设置预加载图片 相当于封面 -->
+    <video src="文件地址" controls="controls" autoplay="autoplay" muted="muted" loop="loop" poster="地址">视频标签
+        <!-- source 来源的意思，给两个来源，让浏览器自己选择支持的格式 -->
+        <source src="move.ogg" type="video/ogg">
+        <source src="move.mp4" type="video/mp4">
+        你的浏览器不支持<video>标签播放视频
+    </video>
+    <!-- <audio src=""></audio>音频标签，大部分浏览器都支持MP3格式 -->
+    <audio src=""></audio>
+    <audio controls="controls">
+        <source src="move.ogg" type="audio/ogg">
+        <source src="move.mp3" type="audio/mp3">
+    </audio>
+
+</body>
+
+</html>

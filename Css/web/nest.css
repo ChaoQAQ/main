@@ -1,0 +1,12 @@
+.nav a {
+  color: pink;
+}
+.nav a:hover {
+  color: blue;
+}
+.header .log {
+  color: blue;
+}
+.header::after {
+  content: "111";
+}

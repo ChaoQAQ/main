@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            /* background-color: #003; */
+            margin: 100px auto;
+        }
+        .city {
+            position: absolute;
+            top: 100px;
+            right: 100px;
+
+        }
+        .dotted {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #09f;
+        }
+        .city div[class^="pulse"] {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            /* 阴影 水平 垂直 阴影 颜色 */
+            box-shadow: 0 0 12px #009dfd;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            /* linear 匀速 infinite无限循环 */
+            animation: pulse 1.2s linear infinite;
+        }
+        /* 类加交集，10+1+10=21 */
+        .city div.pulse2 {
+            animation-delay: .4s;
+        }
+        .pulse3 {
+            /* !important优先执行 */
+            animation-delay: .8s!important;
+        }
+        @keyframes pulse {
+            0% {
+
+            }
+            70% {
+                /* transform: scale(40px,40px);不用scale就是因为缩放他会放大阴影 */
+                /* transform: scale(70px,70px); */
+                width: 40px;
+                height: 40px;
+                opacity: 1;
+            }
+            100% {
+                width: 70px;
+                height: 70px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- city城市，dotted点，pulse跳动 -->
+        <div class="city">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+    </div>
+</body>
+</html>

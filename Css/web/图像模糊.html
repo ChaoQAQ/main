@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            /* blur 是一个函数小括号零秒单位是px，像素越大，模糊程度就越大。filter是css3新增的滤镜 */
+            filter: blur(15px);
+        }
+        img:hover {
+            filter: blur(0);
+        }
+        .father {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+        .son {
+            /* 动态设置宽度  比父级的100%宽少20px宽度*/
+            width: calc(100% - 30px);
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/tudou.png" alt="">
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+</html>

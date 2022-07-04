@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 600px;
+            height: 600px;
+            border: 3px solid #ccc;
+            background: url(./images/tudou.png) no-repeat;
+            /* background-size: 图片宽度 图片高度; */
+            /* 只写一个参数， 肯定是宽度， 高度省略了， 所以图片会等比例缩放 */
+            /* background-size: 600px; */
+            /* 可以写%， %相对于父盒子 */
+            /* background-size: 100%; */
+            /* cover等比列拉伸，会完全覆盖盒子，图片可能会超出父盒子，超出部分不显示 */
+            /* background-size: cover; */
+            /* contain 高度宽度等比列拉伸，当高度或宽度铺满父级盒子时就不在放大， 可能造成部分留有空白 */
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

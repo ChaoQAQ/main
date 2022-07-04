@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .box1 { */
+        /* display: none隐藏元素后不占有原来的位置 */
+        /* display: block不仅可以转换元素为块级标签，还可以显示隐藏元素 */
+        /* display: none; */
+
+        /* visibility: hidden也是隐藏元素，但保留原来的位置 */
+        /* visibility: visible元素可视，显示元素 */
+        /* visibility: hidden; */
+
+        /* overflow: hidden隐藏溢出部分，在使用了定位盒子上慎用 */
+        /* overflow: hidden; */
+        /* overflow: scroll溢出部分总是显示滚动条 */
+        /* overflow: scroll; */
+        /* overflow: auto溢出时显示滚动条，没有则不显示 */
+        /* overflow: auto; */
+        /* width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        /* } 
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        } */
+
+        .tudou {
+            position: relative;
+            width: 440px;
+            height: 320px;
+            background-color: skyblue;
+            margin: 30px auto;
+        }
+
+        .tudou img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .tudou .mask {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .3) url() no-repeat center;
+            display: none;
+        }
+
+        .tudou:hover .mask {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="box1"></div>
+    <div class="box2"></div> -->
+
+    <div class="tudou">
+        <div class="mask"></div>
+        <img src="../images/tudou.png" alt="">
+    </div>
+</body>
+
+</html>

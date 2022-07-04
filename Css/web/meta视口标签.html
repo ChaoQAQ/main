@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 视口(viewport)就是浏览器显示页面内容的屏幕区域，视口可以分为三种视口 -->
+    <!-- 布局视口：layout viewport
+             一般移动浏览设备都默认设置了一个布局视口，用于解决pc端在手机上页面显示的问题，
+             iOS，android基本都将这个视口分辨率设置为980px，所以pc端的网页能在手机上呈现，只不过元素看起来很小，一般默认可以手动缩放网页 -->
+    <!-- 视觉视口：visual viewport
+             用户正在看到的网站的区域，
+             我们可以通过缩放去操作视觉视口，但不会影响布局视口，布局视口任然保持原有的宽度 -->
+    <!-- 理想视口：ideal viewport就是最理想的视口尺寸，
+             需要手动添加meat视口标签通知浏览器操作，
+             meat视口标签主要目的：布局视口的宽度应该和理想的视口宽度一致，
+             就是设备有多宽，我们的布局视口就有多宽 -->
+
+    <!-- meat视口标签 -->
+    <!-- name名字 viewport视口 content内容  -->
+    <!-- width就是可以设置viewport视口的宽度， -->
+    <!-- initial-scale=1.0初始缩放比大于0的数字  页面最初大小缩放比1.0就是缩放1倍 2.0就是缩放两倍-->
+    <!-- maximum-scale=1.0最大缩放比大于0的数字       页面最大缩放1.0 就是最大缩放1倍-->
+    <!-- minimum-scale=1.0最小缩放比大于0的数字  页面最小缩放1.0 就是最小缩放1倍-->
+    <!-- 两者最大最小缩放1.0就是不允许放大缩小 -->
+    <!-- user-scalable=no用户是否可以缩放yes或no，1或0 -->
+
+    <!-- meta name="viewport"就是移动端视口标签 -->
+
+    <!-- width=device-width宽度等于设备的宽度 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

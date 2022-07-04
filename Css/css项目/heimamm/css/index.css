@@ -1,0 +1,203 @@
+body {
+  min-width: 320px;
+  max-width: 750px;
+  margin: 0 auto;
+  background-color: #F2F4F7;
+}
+a {
+  text-decoration: none;
+  color: #707070;
+}
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 37.5px !important;
+  }
+}
+.warp {
+  background-color: #fff;
+  padding-bottom: 1.1467rem;
+}
+.header {
+  height: 2.1333rem;
+  border-bottom: 1px solid #EAEAEA;
+  color: #1C1C1C;
+  font-size: 0.9333rem;
+  text-align: center;
+  line-height: 2.1333rem;
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  padding: 1.1733rem 0 1.6rem;
+}
+.nav .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33.33%;
+}
+.nav .item img {
+  width: 3.7067rem;
+  height: 3.7067rem;
+}
+.nav .item span {
+  font-size: 0.6667rem;
+}
+.nav .item:nth-child(-n + 3) {
+  margin-bottom: 1.84rem;
+}
+.go {
+  margin: 0 0.48rem;
+}
+.content {
+  padding: 1.0667rem 0.64rem;
+  margin-top: 0.2667rem;
+  background-color: #fff;
+}
+.content .con_hd {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.0133rem;
+  margin-bottom: 1.04rem;
+}
+.content .con_hd h4 {
+  margin: 0;
+  font-size: 0.7467rem;
+  color: #333;
+}
+.content .con_hd h4 span {
+  display: inline-block;
+  width: 1.0133rem;
+  height: 1.0133rem;
+  vertical-align: middle;
+}
+.content .con_hd .more {
+  font-size: 0.5867rem;
+  color: #999;
+}
+.get_job_focus {
+  position: relative;
+}
+.get_job_focus .swiper-container {
+  width: 14.4rem;
+  height: 100%;
+}
+.get_job_focus .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  transition: 300ms;
+  transform: scale(0.8);
+  opacity: 0.4;
+}
+.get_job_focus .swiper-slide a {
+  width: 9.0133rem;
+  height: 10.0267rem;
+}
+.get_job_focus .swiper-slide a img {
+  width: 100%;
+  height: 100%;
+}
+.get_job_focus .swiper-slide p {
+  width: 9.0133rem;
+  margin-top: 0.64rem;
+  font-size: 0.6667rem;
+  color: #333;
+}
+.get_job_focus .swiper-slide-active,
+.get_job_focus .swiper-slide-duplicate-active {
+  transform: scale(1);
+  z-index: 999;
+  opacity: 1;
+}
+.get_job_focus .swiper-button-next,
+.get_job_focus .swiper-button-prev {
+  outline: none;
+}
+.get_job_focus .swiper-button-next::after,
+.get_job_focus .swiper-button-prev::after {
+  color: #333;
+}
+.study_con {
+  margin-bottom: 2.9333rem;
+}
+.study {
+  overflow: hidden;
+}
+.study .mySwiper {
+  padding: 0.2667rem;
+}
+.study .mySwiper .swiper-slide {
+  width: 7.7333rem;
+  height: 9.0667rem;
+  background: #fff;
+  border-radius: 0.2667rem;
+  box-shadow: 0 0 0.2667rem rgba(0, 0, 0, 0.1);
+}
+.study .mySwiper .swiper-slide h5 {
+  margin: 0;
+  padding: 0.5333rem 0.2667rem;
+  font-size: 0.7467rem;
+  font-weight: 400;
+  overflow: hidden;
+  white-space: normal;
+  /* text-overflow: ellipsis;文本溢出部分显示不出用省略号显示 */
+  text-overflow: ellipsis;
+  /* 弹性伸缩盒子模型展示 */
+  display: -webkit-box;
+  /* 限制一个块元素显示文本的行数 但超出部分会换行显示 可以设置高度用overflow：hidden切掉*/
+  -webkit-line-clamp: 2;
+  /* 设置检索伸缩盒子对象的子元素的排列方式 */
+  -webkit-box-orient: vertical;
+  /* 这种做法兼容性不好,适合于webkit浏览器或移动端,移动端大部分是webkit内核,更推荐后台人员来做这个,因为后台人员更容易控制显示多少个字 */
+}
+.study .mySwiper .swiper-slide p {
+  font-size: 0.6933rem;
+  color: #FF4400;
+  padding: 0 0.2667rem;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: 2.9333rem;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  z-index: 99999;
+}
+.footer .item {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.footer .item img {
+  width: 1.0667rem;
+}
+.footer .item span {
+  color: #666;
+  font-size: 0.5867rem;
+}

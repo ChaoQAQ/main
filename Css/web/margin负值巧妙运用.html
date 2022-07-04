@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            float: left;
+            list-style: none;
+            width: 150px;
+            height: 200px;
+            border: 1px solid pink;
+            /* 先执行第一个小li，移动-1，第二个先浮动在-1，浮动的盒子是紧挨着上一个盒子的边框合并为2-1 */
+            margin-left: -1px;
+        }
+        ul li:hover {
+            /* 1,如果盒子没有定位添加相对定位即可 */
+            /* 2，如果有定位了可以添加z-index */
+            position: relative;
+            z-index: 1;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

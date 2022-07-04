@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logo</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .box01{
+            width: 220px;
+            height: 220px;
+            background-color: blue;
+            border-radius: 50%;
+            /* border: 1px solid red; */
+            /* position: relative; */
+            /* 夫标签绝对定位 */
+            /* 以下部分是弹性盒子布局 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 0px 40px 10px white;
+            animation: box01 5s linear infinite;
+        }
+        
+        .box02{
+            width: 160px;
+            height: 160px;
+            background-color: rgb(194, 109, 109);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 160px;
+            /* 行高等于盒子高度就是垂直居中 */
+            font-size: 30px;
+            font-weight: bold;
+            box-shadow: 0px 0px 40px 10px white;
+            /* 第一个X走，Y周，模糊度，阴影 */
+            /* margin: auto; */
+            /* margin-top: 30px; */
+            /* 以下部分是定位水平垂直居中 */
+            /* position: absolute; */
+            /* 子标签参照夫标签定位 */
+            /* left: 50%; */
+            /* top: 50%; */
+            /* transform: translateX(-50%) translateY(-50%); */
+            animation: box02 5s linear infinite;
+        }
+        @keyframes box01{
+            33%{
+                background-color: rgb(160, 32, 160);
+                box-shadow:0px 0px 30px 10px white;
+            }
+            66%{
+                background-color: rgb(77, 243, 44);
+                box-shadow: 0px 0px 50px 12px;
+            }
+        }
+        @keyframes box02{
+            33%{
+                background-color: rgb(236, 147, 74);
+                box-shadow:0px 0px 30px 10px white;
+            }
+            66%{
+                background-color: rgb(134, 142, 219);
+                box-shadow: 0px 0px 50px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box01">
+        <div class="box02">DELL</div>
+    </div>
+</body>
+</html>

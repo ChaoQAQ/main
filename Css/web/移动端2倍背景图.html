@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background: url(./images/tudou.png) no-repeat;
+            /* 在 50*50 的盒子中插入一个 100*100 的背景图片， 在缩小一倍让图片显示完全，
+             在iPhone8中就会把图片50*50放大两倍，就成了背景图片原来的100*100大小，这样就不会造成背景图移动端模糊的问题
+             cutterman导出图片选择ios格式 @2x @3x @1x */
+            background-size: 50% 50%;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

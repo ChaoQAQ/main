@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            width: 80%;
+            height: 500px;
+            background-color: pink;
+            /* flex-direction: row; */
+            /* flex-wrap: nowrap; */
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+            /* align-content: flex-start; */
+        }
+        div span {
+            width: 450px;
+            height: 150px;
+            background-color: green;
+        }
+        div span:nth-child(2) {
+            /* self自己，控制单个元素排列方式 可以覆盖align-items align-content时不生效 */
+            align-self: flex-end;
+        }
+        div span:nth-child(3) {
+            order: -1;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
+</body>
+</html>

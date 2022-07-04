@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 100px auto;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            transition: all .3s;
+        }
+        div:hover {
+            /* transform: scale()缩放 第一个值为宽度,第二个值为高度,中间用逗号分开,两个值为一样时就是等比例可以简写一个数,1就是1倍,2就是2倍,0.5就是缩小 */
+            /* scale最大的优点,可以设置中心点等比例缩放,且不影响其他盒子 */
+            transform: scale(2,2);
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

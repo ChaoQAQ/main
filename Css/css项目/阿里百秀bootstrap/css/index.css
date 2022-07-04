@@ -1,0 +1,189 @@
+/* 因为bootstrap框架container容器最大宽度是1170px，我们需要根据设计稿宽度的1280px走所以需要手动修改container最大宽度 */
+/* min-width：1280px就是超过1280px宽度的时候按照1280px来走，小于1280px宽度的时候函还是按bootstrap框架container宽度挡位走 */
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 1280px;
+    }
+}
+body {
+    background-color: #f5f5f5;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #666;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+.container {
+    background-color: #fff;
+}
+header {
+    /* 去除列的左padding值，注意权重 */
+    padding-left: 0!important;
+}
+.logo {
+    background-color: #429ad9;
+}
+.logo img {
+    display: block;
+    /* width: 100%; */
+    /* logo图片不需要缩放 */
+    max-width: 100%;
+    margin: 0 auto;
+
+}
+/* 1.我们如果进入了超小屏幕xs下，logo里面的图片就隐藏起来 */
+/* 2.我们事先准备好一个盒子 在logo里面，他平时是隐藏起来的，只有在超小屏幕xs下才显示出来 */
+.logo span {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+}
+.nav {
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+}
+/* 当我们的屏幕进入sm991px~768px小屏幕的时候 */
+@media screen and (max-width: 991px) {
+    header {
+        padding-right: 0!important;
+    }
+    /* 让nav里面的li浮动起来，并且宽度为20% */
+    .nav li {
+        float: left;
+        width: 20%;
+    }
+    aside {
+        padding-right: 15px!important;
+    }
+}
+/* 当我们的屏幕进入xs max-width=767px小屏幕的时候 */
+@media screen and (max-width: 767px) {
+    /* 让nav里面的文字变成14px */
+    .nav li a {
+        font-size: 14px;
+        padding-left: 3px;
+    }
+    /* 让news里面的第一个li宽度100% 其他50% */
+    .news li:nth-child(1) {
+        width: 100%!important;
+        padding-right: 0!important;
+    }
+    .news li {
+        width: 50%!important;
+    }
+    /* 让publish里面的h3字体大小改为14px */
+    .publish h3 {
+        font-size: 14px!important;
+    }
+}
+.nav a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 30px;
+    font-size: 16px;
+}
+.nav a:hover {
+    background-color: #fff;
+    color: #333;
+}
+.nav a::before {
+    /* vertical垂直,竖的,将行内块元素放在父元素的中部middle */
+    vertical-align: middle;
+    padding-right: 5px;
+}
+.news ul li {
+    float: left;
+    width: 25%;
+    height: 128px;
+    /* 统浮动布局里面列之间想要空白缝隙就应该给列设置内边距，在嵌套盒子，和bootstrap栅格系一样 */
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+.news ul li:nth-child(3),
+.news ul li:nth-child(5) {
+    padding-right: 0;
+}
+.news ul li:nth-child(1) {
+    width: 50%;
+    height: 266px;
+}
+.news ul li:nth-child(1) p {
+    font-size: 20px;
+    line-height: 41px;
+}
+.news li a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.news li a img {
+    width: 100%;
+    height: 100%;
+}
+.news li a p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 41px;
+    /* bootstrap里面的p标签默认有10px的下外边距 */
+    margin-bottom: 0;
+    padding: 0 10px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .5);
+}
+.publish {
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+}
+/* .publish .row {
+    border-top: 1px solid #ccc;
+} */
+.publish img {
+    margin-top: 5px;
+    width: 100%;
+}
+.row aside {
+    padding-right: 0;
+}
+.banner img {
+    width: 100%;
+}
+.hot {
+    display: block;
+    margin-top: 20px;
+    padding: 0 20px 20px;
+    border: 1px solid #ccc;
+}
+.hot span {
+    margin-bottom: 20px;
+    border-radius: 0;
+}
+.hot p {
+    font-size: 12px;
+    /* white-space: normal;文本显示不开自动换行 */
+    white-space: normal;
+     /* overflow: hidden;溢出部分隐藏 */
+     overflow: hidden;
+     /* text-overflow: ellipsis;文本溢出部分显示不出用省略号显示 */
+     text-overflow: ellipsis;
+     /* 弹性伸缩盒子模型展示 */
+     display: -webkit-box;
+     /* 限制一个块元素显示文本的行数 */
+     -webkit-line-clamp: 2;
+     /* 设置检索伸缩盒子对象的子元素的排列方式 */
+     -webkit-box-orient: vertical;
+     /* 这种做法兼容性不好,适合于webkit浏览器或移动端,移动端大部分是webkit内核,更推荐后台人员来做这个,因为后台人员更容易控制显示多少个字 */
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* input[value] {
+            color: pink;
+        }属性选择器 */
+        input[value] {
+            color: pink;
+        }
+
+        /* div[class^=icon]首先选择第v，然后具有class属性，并且属性值必须是icon开头的元素 */
+        div[class^=icon] {
+            color: pink;
+        }
+
+       div[class$=aa] {
+            color: rgb(216, 126, 126);
+        }
+        /* 权重原因属性选择器可以使用 权重相同，就近原则选后写的*/
+        /* 选择第一个小li:first-child */
+        /* :firstchild第一个 */
+        ul li:first-child {
+            background-color: pink;
+        }
+        /* 选择最后一个小li */
+        ul li:last-child {
+            background-color: pink;
+        }
+        /* :nth-child(2)选择第二个孩子 括号里可以写数字也可以写关键字公式 */
+        ul li:nth-child(2) {
+            background-color: pink;
+        }
+        /* even偶数的意思 */
+        ul li:nth-child(even) {
+            background-color: skyblue;
+        }
+        /* odd奇数的意思 */
+        ul li:nth-child(odd) {
+            background-color: blue;
+        }
+
+        /* n是从0开始，每次加一，相当于选择了全部，只能是n */
+        ol li:nth-child(n) {
+            background-color: blue;
+        }
+        /* 2n就是偶数，每次乘以2，2n+1就是奇数 */
+        ol li:nth-child(2n) {
+            background-color: pink;
+        }
+        /* :nth-child()只选择父元素第n个孩子，不管孩子是否同一种类型 */
+        /* of-type选这指定类型的孩子 */
+        div span:first-of-type {
+            background-color: red;
+        }
+        div span:last-of-type {
+            background-color: red;
+        }
+        div span:nth-of-type(1) {
+            background-color: pink;
+        }
+        /* 在浮动布局时可以选择不要需要外边距的盒子，比如5n  n+3就是从第3个开始选择 -n + 5就是选择前5个，倒着往前数 */
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>p</p>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+    <input type="text" value="请输入用户值">
+    <input type="text">
+    <div class="header">
+
+        <div class="icon1">111</div>
+        <div class="icon2">111</div>
+        <div class="icon-3">111</div>
+        <div class="icon-aa">111</div>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ol>
+</body>
+
+</html>
