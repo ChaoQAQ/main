@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 正则表达式里面首页符号之间不能有空格
+
+        // 量词用来 设定某个模式出现的次数 n 代表出现的次数
+        // *   n >= 0 次
+        console.log(/^a*$/.test('')); // true
+        console.log(/^a*$/.test('a')); // true
+        console.log(/^a*$/.test('aaaa')); // true
+        console.log('---------------'); 
+        // +   n >=1 次
+        console.log(/^a+$/.test('')); // false
+        console.log(/^a+$/.test('a')); // true
+        console.log(/^a+$/.test('aaaa')); // true
+        console.log('---------------'); 
+        // ?   n = 0 || 1 次
+        console.log(/^a?$/.test('')); // true
+        console.log(/^a?$/.test('a')); // true
+        console.log(/^a?$/.test('aaaa')); // false
+        console.log('---------------'); 
+        // {n}   n = n 次
+        console.log(/^a{2}$/.test('')); // false
+        console.log(/^a{2}$/.test('aa')); // true
+        console.log(/^a{2}$/.test('aaaa')); // false
+        console.log('---------------'); 
+        // {n,}   n >= n 次
+        console.log(/^a{2,}$/.test('')); // false
+        console.log(/^a{2,}$/.test('aa')); // true
+        console.log(/^a{2,}$/.test('aaaa')); // true
+        console.log('---------------'); 
+        // {n,m}   n ~ m 次
+        console.log(/^a{2,6}$/.test('')); // false
+        console.log(/^a{2,6}$/.test('aa')); // true
+        console.log(/^a{2,6}$/.test('aaaa')); // true
+        console.log(/^a{2,6}$/.test('aaaaaa')); // true
+        console.log(/^a{2,6}$/.test('aaaaaaa')); // false
+        console.log('---------------'); 
+    </script>
+</body>
+</html>

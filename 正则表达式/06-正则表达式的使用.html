@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定义规则 查找
+
+        // 1. 定义正则表达式 reg 里面存的是对象
+        // /  / 是正则表达式的字面量 / / 里面不允许出现空格
+        let reg = /前成/; 
+        let str = '学前端就来黑马程序员，成就挨踢黑马';
+        // 2. test() 方法用来查看正则表达式与指定的字符串是否匹配 匹配成功返回 true 匹配不成功返回 false
+        console.log(reg.test(str));
+        // 3. exec() 检索 方法在一个指定字符串中执行一个搜索匹配 匹配成功返回一个数组 里面包含了查找字符串出现位置的索引号 匹配不成功返回 null
+        console.log(reg.exec(str));
+
+        // test() 用于判断是否有符合规则的字符串 返回的是布尔值 找到返回true 没有找到返回false
+        // exec() 方法用于检索查找符合规则的字符串 找到返回数组 没有就返回null
+        </script>
+</body>
+</html>

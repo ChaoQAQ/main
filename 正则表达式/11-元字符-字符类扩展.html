@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. [^] 中括号里面加 ^ 表示取反 除了之外的
+        console.log(/[^a-z]/.test('a')); // false
+        console.log(/[^a-z]/.test('zz')); // false
+        console.log(/[^a-z]/.test('z')); // false
+        console.log(/[^a-z]/.test('A')); // true
+        console.log('---------------');
+        // 2. /./ 正则表达式字面量里面加 . 表示除了换行符之外的任何单个字符
+        console.log(/./.test('\n')); // false
+        console.log(/./.test('\t')); // true
+        console.log(/./.test('a')); // true
+        console.log(/./.test('A')); // true
+        console.log('---------------');
+        // 3. 预定义 常见的模式简写方式
+        // \d 相当于 [0-9]
+        console.log(/\d/.test('0')); // true
+        console.log(/\d/.test('01')); // true
+        console.log('---------------');
+        // \D 相当于 [^0-9]
+
+        // \w 相当于 [a-zA-Z0-9_]
+        console.log(/\w/.test('-')); // false
+        console.log(/\w/.test('_')); // true
+        // \W 相当于 [^a-zA-Z0-9_]
+
+        // \s 相当于 [ \t\r\n\v\f] 匹配空格包括换行符、制表符、空格符等
+        console.log(/\s/.test('\t')); // true
+        console.log(/\s/.test('')); // false
+        console.log(/\s/.test(' ')); // true
+        console.log(/\s/.test('a')); // false
+        console.log(/\s/.test('1')); // false
+        // \S 相当于 [^ \t\r\n\v\f]
+    </script>
+</body>
+</html>

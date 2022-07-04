@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="active">原来的div</div>
+    <script>
+        let div = document.querySelector('div');
+        let beforebegin = '<div>beforebegin元素自身的前面</div>';
+        let afterend = '<div>afterend元素自身的后面</div>';
+        let afterbegin = '<div>afterbegin插入元素内部的第一个子节点之前</div>';
+        let beforeend = '<div>beforeend插入元素内部的最后一个子节点之后</div>';
+        div.insertAdjacentHTML('beforebegin', beforebegin);
+        div.insertAdjacentHTML('afterend', afterend);
+        div.insertAdjacentHTML('afterbegin', afterbegin);
+        div.insertAdjacentHTML('beforeend', beforeend);
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <div></div>
+    <script>
+        let textarea = document.querySelector('textarea');
+        let button = document.querySelector('button');
+        let div = document.querySelector('div');
+        button.addEventListener('click', function() {
+            div.innerHTML = textarea.value.replace(/激情|基情/g, '**');
+        })
+
+        // 正则表达式修饰符 
+        // i 是 ignore忽视 的缩写正则表达式匹配时不区分大小写
+        // g 是 global全局 的缩写匹配所有满足正则表达式的结果
+        // 1. 正则表达式字面量后面加 i 表示匹配的正则表达式不区分大小写 /[]/i 
+        // 2. 正则表达式字面量后面加 g 表示正则表达式全局匹配 /[]/g
+        // 3. replace(需要替换的字符, 替换后的字符) 方法替换字符串
+
+    </script>
+</body>
+</html>

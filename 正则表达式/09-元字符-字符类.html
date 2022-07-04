@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 元字符 字符类 [] 匹配字符合集 中括号里面多选1
+        // [] 里面只要有一个与后面匹配就行了 多选一
+        // console.log(/[abc]/.test('')); // false
+        // console.log(/[abc]/.test('a')); // true
+        // console.log(/[abc]/.test('c')); // true
+        // console.log(/[abc]/.test('d')); // false
+        // console.log(/[abc]/.test('ab')); // true
+        // console.log(/[abc]/.test('cd')); // true
+        // console.log(/[abc]/.test('dsca')); // true
+        // console.log('--------------');
+
+        // 字符类 [-] 连接符
+        console.log(/^[abc]$/.test('')); // false
+        console.log(/^[abc]$/.test('a')); // true
+        console.log(/^[abc]$/.test('c')); // true
+        console.log(/^[abc]$/.test('d')); // false
+        // [] 里面只选一个 并且以它开头结尾
+        console.log(/^[abc]$/.test('ab')); // false
+        console.log(/^[abc]$/.test('cd')); // false
+        console.log(/^[abc]$/.test('dsca')); // false
+        console.log('--------------');
+
+        // [a-zA-Z-_] 26个英文字母选一个 大小写都行 下划线 - 也都可以
+        console.log(/^[a-zA-Z-_]$/.test('-')); // true
+        console.log(/^[a-zA-Z-_]$/.test('_')); // true
+        console.log(/^[a-zA-Z-_]$/.test('a')); // true
+        console.log(/^[a-zA-Z-_]$/.test('A')); // true
+        console.log(/^[a-zA-Z-_]$/.test('Aa')); // false
+        console.log('--------------');
+
+        // 腾讯qq号  注意test() 方法测试的是字符串格式 数值型会出问题
+        let reg = /^[1-9][0-9]{6,}$/;
+        console.log(reg.test('1234567')); // true
+        console.log(reg.test('2345670676')); // true
+        console.log(reg.test('02345670676')); // false
+        console.log(reg.test(02345670676)); // true
+        console.log(/^[1-9]$/.test(0)); // false
+        console.log(/^[1-9]$/.test('0')); // false
+
+        // 中文正则表达式
+        let regChinese = /^[\u4e00-\u9fa5]{2,6}$/;
+        console.log(regChinese.test('杨哥哥')); // true
+        console.log(regChinese.test('哥')); // false
+    </script>
+</body>
+</html>

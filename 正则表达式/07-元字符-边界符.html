@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 边界符 正则表达式中的边界符用来提示字符所处在的位置 主要有两个字符 ^ $
+
+        // console.log(/二哈/.test('二哈真哈')); // true
+
+        // 1. ^ 开头
+        console.log(/^哈哈/.test('哈二哈哈')); // false
+        console.log(/^哈哈/.test('哈哈哈哈')); // true
+
+        // 2. $ 结尾
+        console.log(/哈哈$/.test('哈哈哈哈')); // true
+        console.log(/哈哈$/.test('哈哈二哈')); // false
+
+        // 3. ^ $ 同时使用就是精确匹配 个数什么都要完全一样
+        console.log(/^哈哈$/.test('哈哈哈哈')); // false
+        console.log(/^哈哈$/.test('哈哈')); // true
+    </script>
+</body>
+</html>

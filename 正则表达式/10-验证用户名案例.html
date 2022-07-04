@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+            color: red;
+        }
+        .correct {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <span></span>
+    <script>
+        let input = document.querySelector('input');
+        let span = input.nextElementSibling; // 获取input的下一个兄弟节点
+        // console.log(span);
+        input.addEventListener('blur', function() {
+            // 测验表单里的值
+            if (/^[a-zA-Z1-9-_][a-zA-Z0-9-_]{5,15}$/.test(input.value)) {
+                span.innerHTML = '输入正确';
+                span.className = 'correct';
+            } else {
+                span.innerHTML = '请输入6~16位字符';
+                span.className = 'error';
+            }
+        })
+    </script>
+</body>
+</html>
