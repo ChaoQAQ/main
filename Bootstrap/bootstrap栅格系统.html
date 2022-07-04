@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+        解决ie9以下浏览器对html5新增标签的不认识，并导致css不起作用
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        解决ie9以下浏览器对css3 media query的不认识
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+      <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+      <style>
+          [class^=col] {
+              border: 1px solid red;
+          }
+      </style>
+</head>
+<body>
+    <!-- 容器为container，container的宽度会随屏幕大小而发生改变，bootstrap框架的栅格系统会把容器container容器的宽度划分成12份 左右15px
+    内边距-->
+    <div class="container">
+        <!-- row 就是行，必须放到 container容器 里面 -->
+        <div class="row">
+            <!-- col 就是 column列，每列左右15px内边距，共12列，少列会流出空白位置，多列则换行显示,两个盒子大于12列，则第一行占不开流空白换行显示 -->
+            <!-- lg大屏幕   >= 1200px, 总宽度1170px，  左右内边距15px -->
+            <!-- md中等屏幕 >= 992px,  总宽度970px，   左右内边距15px -->
+            <!-- sm小屏幕   >= 768px,  总宽度750px，   左右内边距15px -->
+            <!-- xs超小屏幕 <= 767px,  总宽度屏幕100%， 左右内边距15px -->
+            <!-- 每列可以写多个份数类名 -->
+            
+            <!-- 重点 只写了一种大小屏幕时，只在该种屏幕范围内产生效果 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">1</div>
+            <div class="col-lg-3 col-md-4 col-sm-7 col-xs-12">2</div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">3</div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">4</div>
+        </div>
+    </div>
+    <div class="container-fluid">123</div>
+</body>
+</html>

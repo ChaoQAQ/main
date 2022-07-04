@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <style>
+        .row div {
+            background-color: skyblue;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- 列嵌套就是在一个小格里面在分成12等份，需要注意每列有左右内边距15px，父元素列加子元素列就有内边距30px，
+                    在列嵌套里面先加一个行row，在把子元素写道新加的行里，新加的行row会取消父元素内边距，而且子元素高度自动和父元素一样 -->
+                <div class="row">
+                    <div class="col-md-6">1</div>
+                    <div class="col-md-6">1</div>
+                </div>
+            </div>
+            <div class="col-md-4">1</div>
+            <div class="col-md-4">1</div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <style>
+        .row div {
+            height: 50px;
+            background: -webkit-linear-gradient(left top, red, green, blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- row 让列一行显示，就是通过给指定子元素浮动让其一行显示 -->
+        <div class="row">
+            <div class="col-md-4">1</div>
+            <!-- col-md-offset-4 列偏移份数 offset 通过给一个列盒子添加左外边距实现列偏移 -->
+            <div class="col-md-4 col-md-offset-4">1</div>
+        </div>
+    </div>
+</body>
+</html>
